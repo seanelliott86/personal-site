@@ -1,0 +1,54 @@
+@use '../../node_modules/modern-normalize/modern-normalize.css';
+
+/* START: my preferred resets on top of modern-normalise*/
+
+html {
+    line-height: 1.5;
+    font-size: 100%;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* END: my preferred resets on top of modern-normalise */
+
+$black: #000000;
+$athensGray: #E5E7EC;
+$heather: #BCC4D1;
+$manatee: #9499A4;
+$abbey: #52575B;
+$hoki: #61879E;
+$pictonBlue: #46caf5;
+$baseFontFamily: Helvetica, Arial, sans-serif;
+$headingFontFamily: 'Poppins', Helvetica, Arial, sans-serif;
+
+body {
+    padding: 2rem;
+    width: 42rem;
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: $baseFontFamily;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $headingFontFamily;
+}
