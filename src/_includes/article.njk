@@ -1,0 +1,11 @@
+---
+layout: 'base.njk'
+---
+
+<article>
+    <h2>{{title}}</h2>
+    <p>{{page.date | postDate}}</p>
+    <p>{{description}}</p>
+
+    {{ content | safe}}
+</article>
