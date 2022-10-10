@@ -1,5 +1,9 @@
 <header>
-    <h1>Hello I'm Sean Elliott</h1>
+    {% if(page.url === '/') %}
+    <h1 class="header-name">Hello I'm Sean Elliott</h1>
+    {% else %}
+    <p class="header-name">Hello I'm Sean Elliott</p>
+    {% endif %}
     <p>Frontend UI Developer and Web Accessibility Specialist</p>
 </header>
 <nav>
