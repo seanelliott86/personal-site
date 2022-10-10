@@ -1,7 +1,8 @@
 const { DateTime } = require("luxon")
 
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy('src/assets');
+    eleventyConfig.addPassthroughCopy('./src/assets');
+    eleventyConfig.addPassthroughCopy('./src/admin');
     eleventyConfig.setBrowserSyncConfig({
         files: './public/css/**/*.css',
         open: 'local'
