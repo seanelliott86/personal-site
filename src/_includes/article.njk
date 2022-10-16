@@ -3,8 +3,7 @@ layout: 'base.njk'
 ---
 
 <article>
-    <h2>{{title}}</h2>
-    <p>{{page.date | postDate}}</p>
+    <h1>{{title}} - {{page.date | postDate}}</h1>
     <p>{{description}}</p>
 
     {{ content | safe}}

@@ -2,10 +2,7 @@
 title: What do we need? Alt tags! Where do we need them? Everywhere!
 description: A look at the right and wrong ways to make your images accessible.
 date: '2017-01-06T05:38:12.640Z'
-categories: []
-keywords: []
-slug: >-
-  /@sean-elliott/what-do-we-need-alt-tags-where-do-we-need-them-everywhere-51d66740f0c7
+tags: []
 ---
 
 As a frontend developer each website I stumble upon is seen through the developer tools window. Looking under the hood of websites reveals so many decisions by that website’s developer.   
@@ -16,19 +13,19 @@ Just before the end of 2016 while viewing the javascript for a site (that will r
 This snippet is for all those who have forgotten to add those pesky `alt` tags but still want to tick the done box for accessible images.   
 So put on your solar eclipse sunglasses and brace yourself for the utterly blinding, awesome glory of the following code.
 
-```
-$('html img').each(function () {  
-   if (!$(this).attr('alt')) {  
-      $(this).attr('alt', '');  
-   }  
+```js
+$('html img').each(function () {
+   if (!$(this).attr('alt')) {
+      $(this).attr('alt', '');
+   }
 });
 ```
 
 Amazing right! But we have the technology, we can rebuild…
 
-```
-$('img:not(\[alt\])').each(function () {  
-   $(this).attr('alt', '');  
+```js
+$('img:not([alt])').each(function () {
+   $(this).attr('alt', '');
 });
 ```
 
@@ -36,10 +33,10 @@ Ahhhh that’s more better-er! Now we are only looking for `img` elements that a
 
 For those devs who prefer Vanilla JS you could use this.
 
-```
-var imgAlt = document.querySelectorAll('img:not(\[alt\])');  
-for (var i = 0; i < imgAlt.length; i++) {  
-   imgAlt\[i\].setAttribute('alt','');  
+```js
+var imgAlt = document.querySelectorAll('img:not([alt])');
+for (var i = 0; i < imgAlt.length; i++) {
+   imgAlt[i].setAttribute('alt','');
 };
 ```
 

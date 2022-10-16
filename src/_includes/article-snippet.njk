@@ -1,8 +1,7 @@
 <li>
     <article>
-        <h2>{{post.data.title}}</h2>
-        <p>{{post.date | postDate}}</p>
+        <h2>{{post.data.title}} - {{post.date | postDate}}</h2>
         <p>{{post.data.description}}</p>
-        <a href="{{post.url}}">Continue reading <span>{{post.data.title}}</span></a>
+        <a href="{{post.url}}">Continue reading <span class="sr-only">{{post.data.title}}</span></a>
     </article>
 </li>

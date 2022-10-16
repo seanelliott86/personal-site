@@ -4,9 +4,7 @@ description: >-
   An email that only features the word “alt_text”, its either a misunderstanding
   of how to fix an accessibility error or just laziness.
 date: '2019-07-23T00:52:52.091Z'
-categories: []
-keywords: []
-slug: /@sean-elliott/email-accessibility-is-also-important-8b146c194c49
+tags: []
 ---
 
 ![](/assets/blog/1__1c6Y__AJKF2DDyqEah6uioQ.jpeg)

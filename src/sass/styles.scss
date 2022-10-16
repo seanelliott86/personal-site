@@ -66,3 +66,66 @@ h6 {
         margin-bottom: 2rem;
     }
 }
+
+code {
+    background-color: rgba(242, 242, 242, 1);
+    padding: 2px 4px;
+    font-family: Menlo, Monaco, "Courier New", Courier, monospace;
+    font-weight: 400;
+    font-size: 87%;
+}
+
+blockquote {
+    display: block;
+    border-width: 2px 0;
+    border-style: solid;
+    border-color: #eee;
+    padding: 0rem 2rem;
+    margin: 3.5rem 0;
+    position: relative;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #666;
+}
+
+blockquote:before {
+    content: '\201C';
+    position: absolute;
+    top: 0em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 3rem;
+    height: 2rem;
+    font-size: 6rem;
+    font: 6rem/1em 'PT Sans', sans-serif;
+    color: #666;
+    text-align: center;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    white-space: pre-wrap;
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+    clip: auto !important;
+    clip-path: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    width: auto !important;
+    white-space: normal !important;
+}
