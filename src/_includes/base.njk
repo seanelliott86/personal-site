@@ -15,10 +15,17 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    {% svgsprite %}
     {% include 'header.njk' %}
-    <main>
-        {{ content | safe }}
-    </main>
+    <div class="fancy-main">
+      <div class="top-content-angle"></div>
+      <main>
+        <div class="wrapper">
+          {{ content | safe }}
+        </div>
+      </main>
+      <div class="bottom-content-angle"></div>
+    </div>
     {% include 'footer.njk' %}
 
   <script>

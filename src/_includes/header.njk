@@ -1,13 +1,13 @@
-<header>
-    {% if(page.url === '/') %}
-    <h1 class="header-name">Hello I'm Sean Elliott</h1>
-    {% else %}
-    <p class="header-name">Hello I'm Sean Elliott</p>
-    {% endif %}
-    <p>Frontend UI Developer and Web Accessibility Specialist</p>
+<header class="header">
+        <div class="wrapper header__inner">
+            {% if(page.url === '/') %}
+            <h1 class="header-name">Hello,<br /> I'm <a href="/">Sean Elliott</a></h1>
+            {% else %}
+            <p class="header-name">Hello,<br /> I'm <a href="/">Sean Elliott</a></p>
+            {% endif %}
+            <p class="header-tagline">Frontend UI Developer and Web Accessibility Specialist</p>
+
+            <p class="header-cta-link"><a href='/blog/'>Read my recent articles</a></p>
+        </div>
+    </header>
 </header>
-<nav>
-    <a href="/">Home</a>
-    <a href='/blog/'>Blog</a>
-</nav>
-<hr />

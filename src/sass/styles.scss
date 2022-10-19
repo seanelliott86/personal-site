@@ -26,22 +26,64 @@ svg {
 
 /* END: my preferred resets on top of modern-normalise */
 
+// Base font size
+$base-font-size: 16px;
+
 $black: #000000;
+$white: #ffffff;
 $athensGray: #E5E7EC;
 $heather: #BCC4D1;
 $manatee: #9499A4;
 $abbey: #52575B;
 $hoki: #61879E;
-$pictonBlue: #46caf5;
+$pictonBlue: #46caf5; // https://maketintsandshades.com/#46caf5
 $baseFontFamily: Helvetica, Arial, sans-serif;
 $headingFontFamily: 'Poppins', Helvetica, Arial, sans-serif;
 
+// Breakpoints
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    ) !default;
+
+@function rem($value) {
+    @if (unitless($value)) {
+        $value: $value * 1px;
+    }
+
+    @return calc($value / $base-font-size) * 1rem;
+}
+
+@function em($value) {
+    @if (unitless($value)) {
+        $value: $value * 1px;
+    }
+
+    @return calc($value / $base-font-size) * 1em;
+}
+
+@mixin breakpoint($size, $width-type: min-width) {
+    @if $size !='xs' and $size !='sm' and $size !='md' and $size !='lg' and $size !='xl' {
+        @error 'Breakpoint mixin allows the following breakpoint sizes xs, sm, md, lg';
+    }
+
+    $px-size: map-get($breakpoints, $size
+    );
+$em-size: em($px-size);
+
+@media ($width-type: $em-size) {
+    @content;
+}
+}
+
+/* START: General site styling */
+
 body {
-    padding: 2rem;
-    width: 42rem;
-    max-width: 100%;
-    margin: 0 auto;
     font-family: $baseFontFamily;
+    padding: 0;
 }
 
 h1,
@@ -54,17 +96,14 @@ h6 {
     font-weight: bold;
 }
 
-.header-name {
-    font-size: 3rem;
-    margin-top: 1rem;
-    margin-bottom: 0;
-    font-weight: bold;
-    font-family: $headingFontFamily;
-
-    +p {
-        margin: 0;
-        margin-bottom: 2rem;
-    }
+.svg-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    vertical-align: middle;
 }
 
 code {
@@ -128,4 +167,183 @@ pre[class*="language-"] {
     overflow: visible !important;
     width: auto !important;
     white-space: normal !important;
+}
+
+.header-name {
+    font-size: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-weight: bold;
+    line-height: 1.1;
+    font-family: $headingFontFamily;
+
+    a {
+        color: $pictonBlue;
+    }
+}
+
+.header-tagline {
+    color: $manatee;
+    margin: 1rem 0 2rem 0;
+    font-weight: bold;
+    line-height: 1.1;
+    font-family: $headingFontFamily;
+}
+
+.header-cta-link a {
+    color: #fff;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    z-index: 0;
+    height: 500px;
+    color: #fff;
+    background-image: linear-gradient(23deg, rgba(70, 202, 245, 0.03) 0%, rgba(70, 202, 245, 0.03) 13%, transparent 13%, transparent 80%, rgba(70, 202, 245, 0.04) 80%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(42deg, rgba(70, 202, 245, 0.04) 0%, rgba(70, 202, 245, 0.04) 36%, transparent 36%, transparent 77%, rgba(70, 202, 245, 0.04) 77%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(286deg, rgba(70, 202, 245, 0.0655) 0%, rgba(70, 202, 245, 0.0655) 2%, transparent 2%, transparent 12%, rgba(70, 202, 245, 0.05) 12%, rgba(70, 202, 245, 0.05) 100%), linear-gradient(77deg, rgba(87, 87, 87, 0.05) 0%, rgba(87, 87, 87, 0.05) 18%, transparent 18%, transparent 55%, rgba(247, 247, 247, 0.02) 55%, rgba(247, 247, 247, 0.02) 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
+    background-size: 150% 150%;
+    background-position: 78% 0%;
+    animation: headerBGAnimate 60s ease infinite;
+}
+
+@keyframes headerBGAnimate {
+    0% {
+        // background-position: 78% 0%;
+        background-size: 150% 150%;
+    }
+
+    50% {
+        // background-position: #{$randomMid * 1%} 0%;
+        background-size: 350% 350%;
+    }
+
+    100% {
+        // background-position: 78% 0%;
+        background-size: 150% 150%;
+    }
+}
+
+.header__inner {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: flex-start;
+    height: 500px;
+}
+
+.footer {
+    top: auto;
+    bottom: 0;
+    background-image: linear-gradient(23deg, rgba(70, 202, 245, 0.03) 0%, rgba(70, 202, 245, 0.03) 13%, transparent 13%, transparent 80%, rgba(70, 202, 245, 0.04) 80%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(42deg, rgba(70, 202, 245, 0.04) 0%, rgba(70, 202, 245, 0.04) 36%, transparent 36%, transparent 77%, rgba(70, 202, 245, 0.04) 77%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(286deg, rgba(70, 202, 245, 0.0655) 0%, rgba(70, 202, 245, 0.0655) 2%, transparent 2%, transparent 12%, rgba(70, 202, 245, 0.05) 12%, rgba(70, 202, 245, 0.05) 100%), linear-gradient(77deg, rgba(87, 87, 87, 0.05) 0%, rgba(87, 87, 87, 0.05) 18%, transparent 18%, transparent 55%, rgba(247, 247, 247, 0.02) 55%, rgba(247, 247, 247, 0.02) 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
+    padding: 2rem 0;
+    color: #fff;
+
+    a {
+        color: #fff;
+    }
+}
+
+.footer__inner {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: center;
+
+    @include breakpoint('sm') {
+        flex-direction: row;
+    }
+}
+
+.social-links {
+    display: flex;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    list-style: none;
+
+    @include breakpoint('sm') {
+        margin-bottom: 0;
+    }
+
+    li {
+        margin-right: 1rem;
+    }
+
+    &__icons {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+.copyright {
+    margin: 0;
+
+    @include breakpoint('sm') {
+        margin-left: auto;
+    }
+}
+
+.wrapper {
+    width: 42rem;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.fancy-main {
+    position: relative;
+    z-index: 1;
+    background-color: $white;
+    padding-top: 2rem;
+}
+
+.header__right-effect {
+    position: relative;
+}
+
+.top-content-angle {
+    margin: 0;
+    position: relative;
+    transform: rotate(180deg);
+    z-index: 1;
+
+    &:after,
+    &:before {
+        content: '';
+        height: 100vh;
+        right: 1rem;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        transition: clip-path 1s;
+    }
+}
+
+.top-content-angle:after {
+    background: rgba(#fff, 0.50);
+    left: 1rem;
+    right: auto;
+    clip-path: polygon(0% 2%, 100% 6em, 100% 0px);
+
+    @include breakpoint('md') {
+        clip-path: polygon(0% 2%, 100% 8em, 100% 0px);
+    }
+}
+
+.top-content-angle:before {
+    background: rgba(#fff, 1);
+    clip-path: polygon(-40% 0%, 100% 4em, 100% 0);
+    left: 1rem;
+    right: auto;
+    z-index: 2;
+
+    @include breakpoint('md') {
+        clip-path: polygon(36% 0%, 100% 6em, 100% 0);
+    }
 }

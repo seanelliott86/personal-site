@@ -1,8 +1,9 @@
 const { DateTime } = require("luxon")
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const svgSprite = require("eleventy-plugin-svg-sprite");
 
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addPlugin(syntaxHighlight);
+    // GENERAL
     eleventyConfig.addPassthroughCopy('./src/assets');
     eleventyConfig.addPassthroughCopy('./src/admin');
     eleventyConfig.setBrowserSyncConfig({
@@ -10,13 +11,26 @@ module.exports = function (eleventyConfig) {
         open: 'local'
     });
 
+    // PLUGINS
+    eleventyConfig.addPlugin(syntaxHighlight);
+    eleventyConfig.addPlugin(svgSprite, {
+        path: "./src/assets/icons",
+        globalClasses: "svg-icon",
+    });
+
+    // DATE FILTER
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED)
     });
 
+    // SHORTCODES
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
-    eleventyConfig.addShortcode("codepen", function (url) {
+    eleventyConfig.addShortcode("icon", (name, extraClass) => {
+        return `<svg class="svg-icon ${extraClass}" focusable="false" aria-hidden="true"><use xlink:href="#svg-${name}"></use></svg>`;
+    });
+
+    eleventyConfig.addShortcode("codepen", (url) => {
         const url_array = url.split("/");
         const profile_url_array = url_array.filter((string, index) => {
             return (index < (url_array.length - 2)) ? true : false
