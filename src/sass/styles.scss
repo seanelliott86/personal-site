@@ -24,6 +24,14 @@ svg {
     max-width: 100%;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
 /* END: my preferred resets on top of modern-normalise */
 
 // Base font size
@@ -218,6 +226,10 @@ pre[class*="language-"] {
     background-size: 150% 150%;
     background-position: 78% 0%;
     animation: headerBGAnimate 60s ease infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+        position: static;
+    }
 }
 
 @keyframes headerBGAnimate {
@@ -250,7 +262,13 @@ body {
     align-items: flex-start;
     min-height: 100vh;
 
-    @media (orientation: landscape) and (pointer: coarse) {
+    &.shallow-height {
+        padding-top: 3rem;
+        padding-bottom: 6rem;
+        min-height: auto;
+    }
+
+    @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
         justify-content: flex-start;
         padding-top: 2rem;
         padding-bottom: 2rem;
