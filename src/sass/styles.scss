@@ -81,6 +81,7 @@ $em-size: em($px-size);
 
 /* START: General site styling */
 
+
 body {
     font-family: $baseFontFamily;
     padding: 0;
@@ -169,10 +170,17 @@ pre[class*="language-"] {
     white-space: normal !important;
 }
 
+.wrapper {
+    width: 42rem;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 .header-name {
     font-size: 4rem;
-    margin-top: 1rem;
-    margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
     font-weight: bold;
     line-height: 1.1;
     font-family: $headingFontFamily;
@@ -184,16 +192,20 @@ pre[class*="language-"] {
 
 .header-tagline {
     color: $manatee;
-    margin: 1rem 0 2rem 0;
+    margin: 0 0 2rem 0;
     font-weight: bold;
     line-height: 1.1;
     font-family: $headingFontFamily;
+
+    @media (orientation: landscape) {
+        margin: 0 0 1rem 0;
+    }
 }
 
 .header-cta-link a {
     color: #fff;
-    margin-right: 1rem;
     font-size: 1.25rem;
+    margin: 0;
 }
 
 .header {
@@ -201,7 +213,6 @@ pre[class*="language-"] {
     top: 0;
     overflow: hidden;
     z-index: 0;
-    height: 500px;
     color: #fff;
     background-image: linear-gradient(23deg, rgba(70, 202, 245, 0.03) 0%, rgba(70, 202, 245, 0.03) 13%, transparent 13%, transparent 80%, rgba(70, 202, 245, 0.04) 80%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(42deg, rgba(70, 202, 245, 0.04) 0%, rgba(70, 202, 245, 0.04) 36%, transparent 36%, transparent 77%, rgba(70, 202, 245, 0.04) 77%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(286deg, rgba(70, 202, 245, 0.0655) 0%, rgba(70, 202, 245, 0.0655) 2%, transparent 2%, transparent 12%, rgba(70, 202, 245, 0.05) 12%, rgba(70, 202, 245, 0.05) 100%), linear-gradient(77deg, rgba(87, 87, 87, 0.05) 0%, rgba(87, 87, 87, 0.05) 18%, transparent 18%, transparent 55%, rgba(247, 247, 247, 0.02) 55%, rgba(247, 247, 247, 0.02) 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
     background-size: 150% 150%;
@@ -226,6 +237,10 @@ pre[class*="language-"] {
     }
 }
 
+body {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
 .header__inner {
     display: flex;
     flex-direction: column;
@@ -233,15 +248,30 @@ pre[class*="language-"] {
     justify-content: center;
     align-content: stretch;
     align-items: flex-start;
-    height: 500px;
+    min-height: 100vh;
+
+    @media (orientation: landscape) and (pointer: coarse) {
+        justify-content: flex-start;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
+.fancy-main {
+    position: relative;
+    background-color: $white;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    transform: translate3d(0, 0, 0);
 }
 
 .footer {
-    top: auto;
-    bottom: 0;
     background-image: linear-gradient(23deg, rgba(70, 202, 245, 0.03) 0%, rgba(70, 202, 245, 0.03) 13%, transparent 13%, transparent 80%, rgba(70, 202, 245, 0.04) 80%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(42deg, rgba(70, 202, 245, 0.04) 0%, rgba(70, 202, 245, 0.04) 36%, transparent 36%, transparent 77%, rgba(70, 202, 245, 0.04) 77%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(286deg, rgba(70, 202, 245, 0.0655) 0%, rgba(70, 202, 245, 0.0655) 2%, transparent 2%, transparent 12%, rgba(70, 202, 245, 0.05) 12%, rgba(70, 202, 245, 0.05) 100%), linear-gradient(77deg, rgba(87, 87, 87, 0.05) 0%, rgba(87, 87, 87, 0.05) 18%, transparent 18%, transparent 55%, rgba(247, 247, 247, 0.02) 55%, rgba(247, 247, 247, 0.02) 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
     padding: 2rem 0;
     color: #fff;
+    position: relative;
+    z-index: 2;
+    transform: translate3d(0, 0, 0);
 
     a {
         color: #fff;
@@ -287,20 +317,6 @@ pre[class*="language-"] {
     @include breakpoint('sm') {
         margin-left: auto;
     }
-}
-
-.wrapper {
-    width: 42rem;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.fancy-main {
-    position: relative;
-    z-index: 1;
-    background-color: $white;
-    padding-top: 2rem;
 }
 
 .header__right-effect {

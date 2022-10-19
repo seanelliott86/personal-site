@@ -5,7 +5,9 @@ const svgSprite = require("eleventy-plugin-svg-sprite");
 module.exports = function (eleventyConfig) {
     // GENERAL
     eleventyConfig.addPassthroughCopy('./src/assets');
+    eleventyConfig.addPassthroughCopy('./src/assets');
     eleventyConfig.addPassthroughCopy('./src/admin');
+    eleventyConfig.addPassthroughCopy({ './src/favicon': '/' });
     eleventyConfig.setBrowserSyncConfig({
         files: './public/css/**/*.css',
         open: 'local'
