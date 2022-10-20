@@ -226,6 +226,7 @@ pre[class*="language-"] {
     background-size: 150% 150%;
     background-position: 78% 0%;
     animation: headerBGAnimate 60s ease infinite;
+    animation-delay: 2s;
 
     @media (prefers-reduced-motion: reduce) {
         position: static;
