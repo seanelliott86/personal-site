@@ -22,7 +22,7 @@ module.exports = function (eleventyConfig) {
 
     // DATE FILTER
     eleventyConfig.addFilter("postDate", (dateObj) => {
-        return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED)
+        return DateTime.fromJSDate(dateObj).toLocaleString({ year: 'numeric', month: 'long', day: 'numeric' })
     });
 
     // SHORTCODES
