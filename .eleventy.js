@@ -53,11 +53,6 @@ module.exports = function (eleventyConfig) {
         return `<p class="codepen" data-height="600" data-default-tab="result" data-slug-hash="${data_slug_hash}" data-user="${username}" style="height: 571px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"><span><a href="${url}">See the pen</a> (<a href="${user_profile}">@${username}</a>) on <a href="https://codepen.io">CodePen</a>.</span></p><script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>`;
     });
 
-    // eleventyConfig.on('eleventy.after', async () => {
-    //     // Run me after the build ends
-    //     require('out-url').open(`http://localhost:${PORT}`);
-    // });
-
     return {
         dir: {
             input: "src",
