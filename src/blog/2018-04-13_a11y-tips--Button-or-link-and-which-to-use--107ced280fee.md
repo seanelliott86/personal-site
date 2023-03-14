@@ -4,12 +4,9 @@ description: >-
   Do you use a button or a link on your website. Its quite a simple choice but
   often used incorrectly
 date: '2018-04-13T14:09:39.716Z'
-tags: []
+hero: /assets/blog/1__7aJPlxn8gwhI7JjcBFr__tQ.jpeg
+tags: [a11ytips]
 ---
-
-![](/assets/blog/1__7aJPlxn8gwhI7JjcBFr__tQ.jpeg)
-
-_a11y tips is a series of short articles (300ish words) which stem from answers to questions I have been asked about web accessibility. These tips will hopefully help others and may also bring to the surface some obscure rules, tips and techniques._
 
 **The question:** Should I use a button or a link in my \[insert use case here\].
 
@@ -24,14 +21,14 @@ Well before we go down that road, lets look at the HTML spec to really understan
 
 > [**_4.5.1 The a element:_**](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element)  
 > If the a element has an href attribute, then it represents a hyperlink
-
+>
 > If the a element has no href attribute, then the element represents a placeholder for where a link might have been placed.
-
+>
 > [**_4.6 Links:_**](https://html.spec.whatwg.org/multipage/links.html#links)
 > Links are created by a, area, and link elements, that represent a connection between two resources. There are two kinds of links:
-
+>
 > Links to external resources: stylesheets, javascript etc
-
+>
 > Hyperlinks to other resources that can cause the user agent to navigate to those resources: new pages
 
 Sooooo that says to me a link shouldn’t be a button… right okay good!

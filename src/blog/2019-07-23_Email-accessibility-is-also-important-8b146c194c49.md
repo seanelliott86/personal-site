@@ -4,13 +4,14 @@ description: >-
   An email that only features the word “alt_text”, its either a misunderstanding
   of how to fix an accessibility error or just laziness.
 date: '2019-07-23T00:52:52.091Z'
+hero: /assets/blog/1__1c6Y__AJKF2DDyqEah6uioQ.jpeg
 tags: []
 ---
 
-![](/assets/blog/1__1c6Y__AJKF2DDyqEah6uioQ.jpeg)
-
 _I recently received an email from the_ [_Hyundai A-League_](https://www.a-league.com.au/)_, Im a supporter of the local A-League team and my son plays soccer at a club level, along the way I have become signed up to a newsletter.   
 I might cop some flack for naming and shaming like this but I feel this is a very good example of either a misunderstanding of how to fix an accessibility error or just laziness._
+
+---
 
 When the email popped through as most people do, I had a quick glance at my phone to see the notification to see if its something I should action straight away, who knows someone may have been offering me millions of dollars right then and there.
 

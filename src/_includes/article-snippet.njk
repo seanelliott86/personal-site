@@ -1,7 +1,12 @@
-<li>
-    <article>
-        <h2>{{post.data.title}} - {{post.date | postDate}}</h2>
-        <p>{{post.data.description}}</p>
-        <a href="{{post.url}}">Continue reading <span class="sr-only">{{post.data.title}}</span></a>
+<li class="article-list__item">
+    <article class="article-snippet">
+        <h2 class="article-snippet__title">
+            <a href="{{post.url}}">{{post.data.title}}</a>
+        </h2>
+        <p class="article-snippet__published">Published {{post.date | postDate}}</p>
+        <p class="article-snippet__description">{{post.data.description}}</p>
+        <p class="article-snippet__cta">
+            <a href="{{post.url}}">Continue reading <span class="sr-only">{{post.data.title}}</span></a>
+        </p>
     </article>
 </li>

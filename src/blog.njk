@@ -3,10 +3,9 @@ title: Blog
 layout: 'base.njk'
 ---
 
-<h1>Recent articles</h1>
-
-<div>
-    <ul>
+<div class="wrapper">
+    <h1>Recent articles</h1>
+    <ul class="article-list">
 
         {%- for post in collections.post -%}
             {% include 'article-snippet.njk' %}

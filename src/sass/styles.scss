@@ -1,6 +1,6 @@
 @use '../../node_modules/modern-normalize/modern-normalize.css';
 
-/* START: my preferred resets on top of modern-normalise*/
+/* START: my preferred resets on top of modern-normalise */
 
 html {
     line-height: 1.5;
@@ -41,8 +41,8 @@ $black: #000000;
 $white: #ffffff;
 $athensGray: #E5E7EC;
 $heather: #BCC4D1;
-$manatee: #9499A4;
-$abbey: #52575B;
+$manatee: #9499a4;
+$shark: #292c2e;
 $hoki: #61879E;
 $pictonBlue: #46caf5; // https://maketintsandshades.com/#46caf5
 $baseFontFamily: Helvetica, Arial, sans-serif;
@@ -123,37 +123,15 @@ code {
     font-size: 87%;
 }
 
-blockquote {
-    display: block;
-    border-width: 2px 0;
-    border-style: solid;
-    border-color: #eee;
-    padding: 0rem 2rem;
-    margin: 3.5rem 0;
-    position: relative;
-    font-size: 1.25rem;
-    font-style: italic;
-    color: #666;
-}
-
-blockquote:before {
-    content: '\201C';
-    position: absolute;
-    top: 0em;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    width: 3rem;
-    height: 2rem;
-    font-size: 6rem;
-    font: 6rem/1em 'PT Sans', sans-serif;
-    color: #666;
-    text-align: center;
-}
-
 code[class*="language-"],
 pre[class*="language-"] {
     white-space: pre-wrap;
+    margin-bottom: 0;
+    margin-top: 2rem;
+
+    +* {
+        margin-top: 2rem;
+    }
 }
 
 .sr-only {
@@ -179,41 +157,132 @@ pre[class*="language-"] {
 }
 
 .wrapper {
-    width: 42rem;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
+    --gap: 1.5rem;
+    --full: minmax(var(--gap), 1fr);
+    --content: min(42rem, 100% - var(--gap) * 2);
+    --popout: minmax(0, 4rem);
+
+    display: grid;
+    grid-template-columns:
+        [full-start] var(--full) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--full) [full-end];
+
+    @include breakpoint('sm') {
+        --gap: 2.5rem;
+    }
+}
+
+.wrapper>* {
+    grid-column: content;
+}
+
+.popout {
+    grid-column: popout;
+}
+
+$focus-color: $pictonBlue;
+$focus-color-dark: $black;
+
+@mixin fancyLinkStyle($headerLink: true, $underline: true) {
+    $color: null;
+    $focusColor: null;
+
+    @if $headerLink ==true {
+        $color: $pictonBlue;
+        $focusColor: $black;
+    }
+
+    @else {
+        $color: #2c7e99;
+        $focusColor: $white;
+    }
+
+    color: $color;
+    background-image: linear-gradient(to right, $color, $color);
+    background-repeat: no-repeat;
+    background-size: 100% 7%;
+    background-position: 0 90%;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+    transition-property: background-color,
+    color,
+    background-size;
+    outline: solid 3px transparent;
+    outline-offset: 2px;
+    text-decoration: none;
+
+    @if $underline ==false {
+        background-size: 100% 0%;
+        background-position: 0 100%;
+    }
+
+    &:active,
+    &:focus-visible,
+    &:hover {
+        background-size: 100% 100%;
+        background-image: linear-gradient(to right, $color, $color);
+        color: $focusColor;
+        transition-duration: 0.25s;
+        transition-timing-function: ease-in;
+        transition-property: background-color, color, background-size;
+    }
+
+    &:focus-visible {
+        outline: solid 3px $color;
+    }
+}
+
+@mixin linkStyles($outlineColor: $pictonBlue, $textColor: $white) {
+    color: $textColor;
+    outline: solid 3px transparent;
+    outline-offset: 16px;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+    transition-property: all;
+
+    &:focus-visible {
+        outline: solid 3px $outlineColor;
+        outline-offset: 2px;
+    }
+
+    &:not(:focus-visible) {
+        transition-duration: 0s;
+    }
 }
 
 .header-name {
     font-size: 4rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
+    margin: 0;
     font-weight: bold;
     line-height: 1.1;
     font-family: $headingFontFamily;
 
     a {
         color: $pictonBlue;
+        @include fancyLinkStyle;
     }
 }
 
 .header-tagline {
     color: $manatee;
-    margin: 0 0 2rem 0;
+    margin: 1rem 0 0 0;
     font-weight: bold;
     line-height: 1.1;
     font-family: $headingFontFamily;
 
     @media (orientation: landscape) {
-        margin: 0 0 1rem 0;
+        margin: 1rem 0 0 0;
     }
 }
 
-.header-cta-link a {
-    color: #fff;
-    font-size: 1.25rem;
-    margin: 0;
+.header-cta-link {
+    margin: 2rem 0 0 0;
+
+    a {
+        color: $pictonBlue;
+        font-size: 1.25rem;
+
+        @include fancyLinkStyle;
+    }
 }
 
 .header {
@@ -291,10 +360,6 @@ body {
     position: relative;
     z-index: 2;
     transform: translate3d(0, 0, 0);
-
-    a {
-        color: #fff;
-    }
 }
 
 .footer__inner {
@@ -324,9 +389,13 @@ body {
         margin-right: 1rem;
     }
 
-    &__icons {
+    &__icons,
+
+    a {
         width: 2rem;
         height: 2rem;
+        display: block;
+        @include linkStyles();
     }
 }
 
@@ -381,4 +450,189 @@ body {
     @include breakpoint('md') {
         clip-path: polygon(36% 0%, 100% 6em, 100% 0);
     }
+}
+
+// Article styles
+.article-header__inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.article__title {
+    font-size: 2.5rem;
+    order: 1;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.article-snippet__title {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    margin: 0;
+
+    a {
+        @include fancyLinkStyle(false);
+    }
+}
+
+.article__published {
+    order: 0;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.1;
+    font-family: $headingFontFamily;
+    color: $shark;
+}
+
+.article-snippet__published {
+    margin: 0.5rem 0 0 0;
+    font-weight: bold;
+    line-height: 1.1;
+    font-family: $headingFontFamily;
+}
+
+.article__description {
+    order: 2;
+    font-weight: bold;
+    line-height: 1.1;
+    font-family: $headingFontFamily;
+    margin: 2rem 0 0 0;
+    font-size: 1.2rem;
+}
+
+.article-snippet__description {
+    margin: 1rem 0 0 0;
+    color: $shark;
+}
+
+.article__hero {
+    padding: 0;
+    margin-bottom: 3rem;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.article__content,
+.content {
+    color: $shark;
+
+    * {
+        margin: 0;
+    }
+
+    *+* {
+        margin-top: 1rem;
+    }
+
+    *+h2,
+    *+h3,
+    *+h4,
+    *+h5 {
+        margin-top: 2.5rem;
+        color: $black;
+    }
+
+    li {
+        margin-top: 0.25em;
+    }
+
+    a {
+        @include fancyLinkStyle(false);
+    }
+
+    blockquote {
+        display: block;
+        border-width: 2px 0;
+        border-style: solid;
+        border-color: #eee;
+        padding: 1rem 2rem;
+        margin: 3.5rem 0;
+        position: relative;
+        font-size: 1.25rem;
+        font-style: italic;
+        color: #666;
+    }
+
+    blockquote:before {
+        content: '\201C';
+        position: absolute;
+        top: 0em;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        width: 3rem;
+        height: 2rem;
+        font-size: 6rem;
+        font: 6rem/1em 'PT Sans', sans-serif;
+        color: #666;
+        text-align: center;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        width: 10%;
+        position: relative;
+        margin: 30px auto;
+        background: #2c7e99;
+        overflow: visible;
+
+        &:before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: #2c7e99;
+            display: inline-block;
+            border: 2px solid #2c7e99;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    p:has(img) {
+        margin-top: 2rem;
+
+        +* {
+            margin-top: 2rem;
+        }
+
+        img {
+            margin: 0 auto;
+        }
+    }
+}
+
+.article__summary {
+    font-style: italic;
+    font-size: 1.1rem;
+    padding-bottom: 1rem;
+}
+
+.article-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    &__item {
+        border: solid 2px #F0F1F2;
+        padding: 1rem;
+
+        &+* {
+            margin-top: 2rem;
+        }
+    }
+}
+
+.article-snippet__cta a {
+    @include fancyLinkStyle(#2c7e99, $white);
 }

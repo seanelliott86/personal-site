@@ -4,10 +4,9 @@ description: >-
   Start talking and learning about accessibility on Global Accessibility
   Awareness Day.
 date: '2017-05-18T04:10:25.830Z'
+hero: /assets/blog/1__V0G6LVxvPiVlR414__gCgxA.jpeg
 tags: []
 ---
-
-![](/assets/blog/1__V0G6LVxvPiVlR414__gCgxA.jpeg)
 
 The purpose of GAAD is to get everyone in the digital world talking, thinking and learning about digital accessibility. To get you thinking about the web and accessibility I have a simple task for you.
 

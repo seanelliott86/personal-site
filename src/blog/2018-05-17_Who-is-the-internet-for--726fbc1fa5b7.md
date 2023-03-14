@@ -4,10 +4,9 @@ description: >-
   Today is Global Accessibility Awareness Day, on this day I'm reminded of a
   conversation I had about a blind persons online experience
 date: '2018-05-17T05:18:42.455Z'
+hero: /assets/blog/1__v2hIUYEc7C1cZujozlZJsg.jpeg
 tags: []
 ---
-
-![](/assets/blog/1__v2hIUYEc7C1cZujozlZJsg.jpeg)
 
 Over the Australia Day long weekend my son played in a representative tournament, the outcome of the weekend was 2nd place and he got to experience playing in a very hard competition against boys 4 years older than him, who had a ton more experience, it was overwhelming at times and there was some tears, but his experience that weekend will help him grow... even if he doesn't think so right now.
 

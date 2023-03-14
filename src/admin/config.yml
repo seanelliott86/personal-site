@@ -3,7 +3,7 @@ backend:
   branch: main
 media_folder: "public/assets/blog" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/assets/blog" # The src attribute for uploaded media will begin with /images/uploads
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 collections:
   - name: "blog"
     label: "Blog"

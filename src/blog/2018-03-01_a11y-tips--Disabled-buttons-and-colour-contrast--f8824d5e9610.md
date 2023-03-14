@@ -4,10 +4,8 @@ description: >-
   Disabled buttons and colour contrast is it important and whats the best
   solution
 date: '2018-03-01T02:22:36.373Z'
-tags: []
+tags: [a11ytips]
 ---
-
-_a11y tips is a series of short articles (300ish words) which stem from answers to questions I have been asked about web accessibility. These tips will hopefully help others and may also bring to the surface some obscure rules, tips and techniques._
 
 **The question:** Do disabled buttons need to conform to colour contrast guidelines?
 

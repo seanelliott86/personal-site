@@ -7,18 +7,18 @@ date: '2018-06-08T06:22:54.599Z'
 tags: []
 ---
 
-Some times I feel information needs to be simplified, written down with crayons and bright colours just to help people understand is being spoken about, Homer Simpson is a prime example.
+Sometimes I feel information needs to be simplified and written down using crayons and bright colours just to help everyone else understand what is being spoken about, Homer Simpson is a prime example.
 
 > **Dr. Julius Hibbert:**  
 > Homer, I’m afraid you’ll have to undergo a coronary bypass operation.  
 > **Homer Simpson:**  
 > Say it in English, Doc!
-
+>
 > **Dr. Julius Hibbert:**  
 > You’re going to need open-heart surgery.  
 > **Homer Simpson:**  
 > Spare me your medical mumbo jumbo!
-
+>
 > **Dr. Julius Hibbert:**  
 > We’re going to cut you open and tinker with your ticker.  
 > **Homer Simpson:**  
@@ -77,4 +77,6 @@ The visual text should be included with the accessible name for user control. Th
 Provide status messages for important changes in content that are not in focus.  
 For example, adding to the shopping cart, the cart icon shows text reading “4 Items” then gets updated to “5 items”, the screen reader should announce “Shopping cart has 5 items”. Anything that takes the focus doesn’t require a status message.
 
-The guidelines are still very new to me and this is my understanding based on reading the success criteria. Have I missed something important in this article or said something that is wrong? Please comment/message me and let me know.
+The guidelines are still very new to me and this is my understanding based on reading the success criteria. 
+
+Have I missed something important in this article or said something that is wrong? Please comment/message me and let me know.
