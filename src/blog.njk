@@ -7,7 +7,7 @@ layout: 'base.njk'
     <h1>Recent articles</h1>
     <ul class="article-list">
 
-        {%- for post in collections.post -%}
+        {%- for post in collections.post | reversed -%}
             {% include 'article-snippet.njk' %}
         {%- endfor -%}
 
