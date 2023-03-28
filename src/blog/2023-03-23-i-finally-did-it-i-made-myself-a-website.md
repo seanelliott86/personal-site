@@ -7,8 +7,6 @@ date: 2022-10-05T03:26:58.280Z
 tags:
   - post
 ---
-
-
 ## What's going on here...?
 
 Well, I figured it was about damn time I made myself a website. I've attempted this a few times but for several reasons, I've never gotten close to finishing (sometimes even starting).
@@ -41,13 +39,3 @@ That's the core of this website at the moment it might change depending on what 
 Good question do you like it? I've gone for a minimalist approach I call it "Almost Browser Default" it's the newest design everyone will want. But in all seriousness, I'm going to keep it simple and slowly chip away. The beauty of HTML and CSS is that with some basic markup and structure I should be able to "theme" this site without too much rebuilding of the underlying markup. Plus what's more accessible than text on a page?
 
 So keep checking in, I'm hoping to make some changes at a consistent pace. If you don't see any changes in a while maybe reach out and check in with me and make sure the Sean website train is still on the tracks..
-
-- - -
-
-## Todo list:
-
-* **DONE!** - Add netlify cms
-* **DONE!** - Setup template system for markup
-* **DONE!** - Bring over articles from medium
-* **IN PROGRESS!** - Work on design
-* Add another item to my list
