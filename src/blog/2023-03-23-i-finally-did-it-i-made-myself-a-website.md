@@ -3,7 +3,7 @@ layout: blog
 title: I finally did it... I made myself a website!
 description: The trials and tribulations of a developer building his own website
 hero: /assets/blog/web-developer-meme7.jpg
-date: 2023-03-23T03:26:58.280Z
+date: 2022-10-05T03:26:58.280Z
 tags:
   - post
 ---
