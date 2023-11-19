@@ -156,6 +156,7 @@ pre[class*="language-"] {
     white-space: normal !important;
 }
 
+//https://ryanmulligan.dev/blog/layout-breakouts/
 .wrapper {
     --gap: 1.5rem;
     --full: minmax(var(--gap), 1fr);
@@ -169,10 +170,22 @@ pre[class*="language-"] {
     @include breakpoint('sm') {
         --gap: 2.5rem;
     }
+
+    &.homepage {
+        padding: 3rem 0;
+    }
+
+    &.alt-bg {
+        background-color: #F0F1F2;
+    }
 }
 
 .wrapper>* {
     grid-column: content;
+}
+
+.fullone {
+    grid-column: full;
 }
 
 .popout {
@@ -192,7 +205,7 @@ $focus-color-dark: $black;
     }
 
     @else {
-        $color: #2c7e99;
+        $color: #0a7894;
         $focusColor: $white;
     }
 
@@ -349,7 +362,6 @@ body {
     position: relative;
     background-color: $white;
     padding-top: 2rem;
-    padding-bottom: 2rem;
     transform: translate3d(0, 0, 0);
 }
 
@@ -581,16 +593,16 @@ body {
         width: 10%;
         position: relative;
         margin: 30px auto;
-        background: #2c7e99;
+        background: #0a7894;
         overflow: visible;
 
         &:before {
             content: "";
             width: 6px;
             height: 6px;
-            background: #2c7e99;
+            background: #0a7894;
             display: inline-block;
-            border: 2px solid #2c7e99;
+            border: 2px solid #0a7894;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -626,6 +638,7 @@ body {
     &__item {
         border: solid 2px #F0F1F2;
         padding: 1rem;
+        background-color: $white;
 
         &+* {
             margin-top: 2rem;
@@ -634,5 +647,32 @@ body {
 }
 
 .article-snippet__cta a {
-    @include fancyLinkStyle(#2c7e99, $white);
+    @include fancyLinkStyle(false, $white);
+}
+
+.intro {
+
+    img {
+        max-width: 18rem;
+        border: solid 8px #F0F1F2;
+    }
+
+    p {
+        max-width: 75ch;
+
+        @include breakpoint('md') {
+            max-width: 60ch;
+        }
+    }
+
+    @include breakpoint('md') {
+        img {
+            float: right;
+            width: 35%;
+            max-width: 25rem;
+            margin-left: 2rem;
+            margin-bottom: 5.5rem;
+            margin-top: 5.5rem;
+        }
+    }
 }
