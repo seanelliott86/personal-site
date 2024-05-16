@@ -6,25 +6,32 @@ layout: 'base.njk'
     <header class="article-header">
         <div class="article-header__inner">
             <h1 class="article__title">{{title}}</h1>
-            <p class="article__published">Published  {{page.date | postDate}}</p>
+            <p class="article__published">Published {{page.date | postDate}}</p>
             <p class="article__description">{{description}}</p>
         </div>
     </header>
     {% if hero %}
-        <div class="article__hero popout">
-            <img src="{{hero}}" alt="" class="hero-img"/>
-        </div>
+    <div class="article__hero popout">
+        <img src="{{hero}}" alt="" class="hero-img" />
+    </div>
     {% endif %}
     <div class="article__content">
         {% if 'a11ytips' in tags %}
-            <section class="article__summary" aria-label="Quick summary">
-                <hr>
-                a11y tips is a series of short articles (300ish words) which stem from answers to questions I have been asked about
-                    web accessibility. These tips will hopefully help others and may also bring to the surface some obscure rules, 
-                    tips and techniques.
-                <hr>
-            </section>
+        <section class="article__summary" aria-label="Quick summary">
+            <hr>
+            a11y tips is a series of short articles (300ish words) which stem from answers to questions I have been
+            asked about
+            web accessibility. These tips will hopefully help others and may also bring to the surface some obscure
+            rules,
+            tips and techniques.
+            <hr>
+        </section>
         {% endif %}
         {{ content | safe}}
+    </div>
+    <div class="article__footer">
+        <hr>
+        <p>Have I missed something important in this article or said something that is wrong? Please message me and let
+            me know.</p>
     </div>
 </article>

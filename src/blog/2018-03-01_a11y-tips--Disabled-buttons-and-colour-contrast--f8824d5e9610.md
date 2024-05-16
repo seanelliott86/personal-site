@@ -28,5 +28,3 @@ Checkout the quick Codepen example below.
 {% codepen 'https://codepen.io/seanus1138/pen/MQLprO' %}
 
 Colour contrast is a big thing for web accessibility, crappy contrast can make the web harder to use for everyone, even those people with 20/20 vision.
-
-Have I missed something important in this article or said something that is wrong? Please comment/message me and let me know.

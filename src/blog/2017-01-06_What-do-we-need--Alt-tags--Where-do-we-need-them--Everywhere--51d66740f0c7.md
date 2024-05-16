@@ -87,5 +87,3 @@ Or maybe everything is correct from the front to the back and the author isn’t
 ### Before we part ways…
 
 Ultimately this has been about education and trying to show the right and wrong ways to achieve accessibility compliance. Its up to us all to educate as many different people from developers to authors about how to use `alt` correctly without creating a script to hack in a quick “fix”.
-
-Have I missed something important in this article or said something that is wrong? Please comment/message me and let me know.

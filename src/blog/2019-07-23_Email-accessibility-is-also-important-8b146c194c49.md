@@ -70,5 +70,3 @@ Immediately that simple consideration of meaningful alt text would improve the n
 ![Example of screenshot of email with better alt text](/assets/blog/1_bhHKUcZAdK8u-95qZ9MdHw.png)
 
 As mentioned at the start I might cop some flack for “naming and shaming” so to speak, but my hope is this helps improve a process by the developers or content managers. Which in turn will improve another persons experience on the internet. Remember the internet originally was just text based. If we can stick to our roots and provide the appropriate text alternatives and make it beautiful from there on our we would be ticking off a big accessibility issue.
-
-Have I missed something important in this article or said something that is wrong? Please comment/message me and let me know.

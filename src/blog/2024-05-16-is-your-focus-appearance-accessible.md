@@ -52,7 +52,7 @@ This is kind of all you need in your css.
 
 ## Speaking of testing... a shameless plug is incoming.
 
-I got bored one night a month ago and thought to myself, I wonder if you can test for this with a simple script. So I started to throw code around, trying different things and I ended up creating a bookmarklet called [Focus Faux Pas](https://seanelliott86.github.io/focus-faux-pas/). It's even got its own little homepage. So cute! Click through to the Focus Faux Pas homepage follow the instructions and give it a try on a website.
+I got bored one night a month ago and thought to myself, I wonder if you can test for this with a simple script. So I started to throw code around, trying different things and I ended up creating a bookmarklet called [Focus Faux Pas](https://seanelliott86.github.io/focus-faux-pas/). It's even got its own little homepage. So cute! Click through to the Focus Faux Pas homepage, follow the instructions and give it a try.
 
 Focus Faux Pas calculates the minimum and actual focus areas for focusable elements, taking into account style details like outline width and outline offset. It also checks the outline color to see if it passes 3:1 contrast ratio (assuming it finds a background color, otherwise it defaults to white). It then creates a result window to show if each element's focus game is up to snuff or needs a little extra love. 
 
@@ -67,5 +67,3 @@ I'm sure what I've created is going well above and beyond a bookmarklet but it w
 ## Wrapping up
 
 Focus Appearance is a really important guideline and I've heard through the years that AAA guidelines are too hard to achieve but this one is really easy if you keep it simple. Obviously, I've not gone into a ton of depth here on focus, there are amazing pieces of work out there like [Sara Soueidan's guide to designing accessible, WCAG-conformant focus indicators](https://www.sarasoueidan.com/blog/focus-indicators/) that do a far better job than I ever could, but hopefully this little piece starts a conversation or gets you thinking a little more about how to make your corner of the web a more accessible place by adding this guideline to your todo list.
-
-Have I missed something important in this article or said something that is wrong? Please message me and let me know.

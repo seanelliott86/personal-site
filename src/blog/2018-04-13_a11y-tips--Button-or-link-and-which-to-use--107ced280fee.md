@@ -44,5 +44,3 @@ Now back to using ARIA roles, surely that means I can make a link into a button?
 Well I’m tired just thinking about all that effort… might be best to just use a button, seems much easier.
 
 _I would like to mention there are sometimes where a developer is forced to use html they have no control to make changes, hopefully the developer in those situations have the ability to change those buttons via javascript using the above mentioned methods. If not then my sympathies…_
-
-Have I missed something important in this article or said something that is wrong? Please comment/message me and let me know.

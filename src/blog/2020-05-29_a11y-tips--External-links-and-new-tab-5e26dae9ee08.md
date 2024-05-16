@@ -52,5 +52,3 @@ As mentioned there are exceptions, they include:
 
 *   Linking to information that lives outside of a secure section of the site, this helps the user avoid having to reauthenticate once they are finished reading the linked information.
 *   Linking to documents that are not web pages like PDF’s
-
-Have I missed something important in this article or said something that is wrong? Please comment/message me and let me know.

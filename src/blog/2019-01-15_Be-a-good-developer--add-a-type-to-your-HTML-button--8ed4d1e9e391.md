@@ -23,5 +23,3 @@ Whats the solution then… well you have 3 options to choose from for the `type=
 As simple as this seems, on a \`lot of the projects I have worked on each and everyone has had a bug raised at some point which ends up being related to a non-specified type attribute.
 
 This also means you don't have to worry about `return false;` for onclick events or `event.preventDefault();`
-
-Have I missed something important in this article or said something that is wrong? Please comment/message me and let me know.

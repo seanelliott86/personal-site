@@ -78,5 +78,3 @@ Provide status messages for important changes in content that are not in focus.
 For example, adding to the shopping cart, the cart icon shows text reading “4 Items” then gets updated to “5 items”, the screen reader should announce “Shopping cart has 5 items”. Anything that takes the focus doesn’t require a status message.
 
 The guidelines are still very new to me and this is my understanding based on reading the success criteria. 
-
-Have I missed something important in this article or said something that is wrong? Please comment/message me and let me know.

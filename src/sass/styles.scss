@@ -532,7 +532,8 @@ body {
 }
 
 .article__content,
-.content {
+.content,
+.article__footer {
     color: $shark;
 
     * {
@@ -628,6 +629,10 @@ body {
     font-style: italic;
     font-size: 1.1rem;
     padding-bottom: 1rem;
+}
+
+.article__footer {
+    margin-bottom: 4rem;
 }
 
 .article-list {
