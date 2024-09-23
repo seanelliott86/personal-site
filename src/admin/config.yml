@@ -1,16 +1,18 @@
 backend:
   name: git-gateway
   branch: main
-media_folder: "public/assets/blog" # Media files will be stored in the repo under static/images/uploads
-public_folder: "/assets/blog" # The src attribute for uploaded media will begin with /images/uploads
+media_folder: "public/assets/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/assets/uploads" # The src attribute for uploaded media will begin with /images/uploads
 publish_mode: editorial_workflow
 collections:
   - name: "blog"
     label: "Blog"
     folder: "src/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: "public/assets/blog"
+    public_folder: "/assets/blog"
+    fields:
       - { label: "Title", name: "title", widget: "string" }
       - {
           label: "Description",
@@ -29,3 +31,60 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "resume"
+    label: "Resume"
+    folder: "src/resume"
+    create: true
+    fields:
+      - label: "Sections"
+        name: "sections"
+        widget: "list"
+        required: false
+        types:
+          - label: "Intro"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Experience"
+            name: "experience"
+            widget: "object"
+            fields:
+              - {
+                  label: "Title",
+                  name: "title",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  label: "Company name",
+                  name: "company",
+                  widget: "string",
+                  required: true,
+                }
+              - {
+                  label: "Current role",
+                  name: "draft",
+                  widget: "boolean",
+                  default: true,
+                  required: true,
+                }
+              - {
+                  label: "Start Date",
+                  name: "date",
+                  widget: "datetime",
+                  date_format: "MMMM YYYY",
+                  required: true,
+                }
+              - {
+                  label: "End Date",
+                  name: "date",
+                  widget: "datetime",
+                  date_format: "MMMM YYYY",
+                }
+              - {
+                  label: "Description",
+                  name: "description",
+                  widget: "markdown",
+                  required: true,
+                }
