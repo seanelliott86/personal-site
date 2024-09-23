@@ -32,8 +32,15 @@ collections:
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "resume-intro"
-    label: "Resume"
-    folder: "src/resume/intro"
+    label: "Resume intro"
+    folder: "src/resume"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "resume-stuff"
+    label: "Resume stuff"
+    folder: "src/resume"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
