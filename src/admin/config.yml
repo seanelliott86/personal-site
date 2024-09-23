@@ -64,27 +64,27 @@ collections:
                 }
               - {
                   label: "Current role",
-                  name: "draft",
+                  name: "current-role",
                   widget: "boolean",
                   default: true,
                   required: true,
                 }
               - {
                   label: "Start Date",
-                  name: "date",
+                  name: "startdate",
                   widget: "datetime",
                   date_format: "MMMM YYYY",
                   required: true,
                 }
               - {
                   label: "End Date",
-                  name: "date",
+                  name: "enddate",
                   widget: "datetime",
                   date_format: "MMMM YYYY",
                 }
               - {
                   label: "Description",
-                  name: "description",
+                  name: "exp-description",
                   widget: "markdown",
                   required: true,
                 }
