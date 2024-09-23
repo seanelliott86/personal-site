@@ -52,7 +52,7 @@ collections:
             fields:
               - {
                   label: "Title",
-                  name: "title",
+                  name: "exp-title",
                   widget: "string",
                   required: true,
                 }
