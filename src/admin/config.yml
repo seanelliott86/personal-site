@@ -31,60 +31,65 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
-  - name: "resume"
+  - name: "resume-intro"
     label: "Resume"
-    folder: "src/resume"
+    folder: "src/resume/intro"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - label: "Sections"
-        name: "sections"
-        widget: "list"
-        required: false
-        types:
-          - label: "Intro"
-            name: "intro"
-            widget: "object"
-            fields:
-              - { label: "Body", name: "body", widget: "markdown" }
-          - label: "Experience"
-            name: "experience"
-            widget: "object"
-            fields:
-              - {
-                  label: "Title",
-                  name: "exp-title",
-                  widget: "string",
-                  required: true,
-                }
-              - {
-                  label: "Company name",
-                  name: "company",
-                  widget: "string",
-                  required: true,
-                }
-              - {
-                  label: "Current role",
-                  name: "current-role",
-                  widget: "boolean",
-                  default: true,
-                  required: true,
-                }
-              - {
-                  label: "Start Date",
-                  name: "startdate",
-                  widget: "datetime",
-                  date_format: "MMMM YYYY",
-                  required: true,
-                }
-              - {
-                  label: "End Date",
-                  name: "enddate",
-                  widget: "datetime",
-                  date_format: "MMMM YYYY",
-                }
-              - {
-                  label: "Description",
-                  name: "exp-description",
-                  widget: "markdown",
-                  required: true,
-                }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+    # create: true
+    # fields:
+    #   - label: "Sections"
+    #     name: "sections"
+    #     widget: "public/assets/blog"
+    #     required: false
+    #     types:
+    #       - label: "Intro"
+    #         name: "intro"
+    #         widget: "object"
+    #         fields:
+    #           - { label: "Body", name: "body", widget: "markdown" }
+    #       - label: "Experience"
+    #         name: "experience"
+    #         widget: "object"
+    #         fields:
+    #           - {
+    #               label: "Title",
+    #               name: "exp-title",
+    #               widget: "string",
+    #               required: true,
+    #             }
+    #           - {
+    #               label: "Company name",
+    #               name: "company",
+    #               widget: "string",
+    #               required: true,
+    #             }
+    #           - {
+    #               label: "Current role",
+    #               name: "current-role",
+    #               widget: "boolean",
+    #               default: true,
+    #               required: true,
+    #             }
+    #           - {
+    #               label: "Start Date",
+    #               name: "startdate",
+    #               widget: "datetime",
+    #               date_format: "MMMM YYYY",
+    #               required: true,
+    #             }
+    #           - {
+    #               label: "End Date",
+    #               name: "enddate",
+    #               widget: "datetime",
+    #               date_format: "MMMM YYYY",
+    #             }
+    #           - {
+    #               label: "Description",
+    #               name: "exp-description",
+    #               widget: "markdown",
+    #               required: true,
+    #             }
