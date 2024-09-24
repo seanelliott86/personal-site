@@ -49,7 +49,7 @@ collections:
     folder: "src/resume/experience"
     create: true
     slug: "{{fields.company}}-{{fields.startdate}}"
-    identifier_field: "{{fields.company}}-{{fields.startdate}}"
+    summary: "{{company}} - {{startdate}}"
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
       - {
