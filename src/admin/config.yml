@@ -31,28 +31,36 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  # Resume Intro as a separate collection
   - name: "resume-intro"
     label: "Resume - Intro"
-    folder: "src/resume/intro"
-    create: true
-    slug: "intro"
-    fields:
-      - { label: "Body", name: "body", widget: "markdown" }
-  - name: "resume-stuff"
+    delete: false
+    files:
+      - label: "Intro"
+        name: "intro"
+        file: "src/resume/intro.md"
+        fields:
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  # Resume Experience as its own collection
+  - name: "resume-experience"
     label: "Resume - Experience"
     folder: "src/resume/experience"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    media_folder: "public/assets/resume"
+    public_folder: "/assets/resume"
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
       - {
-          label: "Company name",
+          label: "Company Name",
           name: "company",
           widget: "string",
           required: true,
         }
       - {
-          label: "Current role",
+          label: "Current Role",
           name: "current-role",
           widget: "boolean",
           default: true,
@@ -75,62 +83,7 @@ collections:
         }
       - {
           label: "Description",
-          name: "description",
+          name: "body",
           widget: "markdown",
           required: true,
         }
-
-    # create: true
-    # fields:
-    #   - label: "Sections"
-    #     name: "sections"
-    #     widget: "public/assets/blog"
-    #     required: false
-    #     types:
-    #       - label: "Intro"
-    #         name: "intro"
-    #         widget: "object"
-    #         fields:
-    #           - { label: "Body", name: "body", widget: "markdown" }
-    #       - label: "Experience"
-    #         name: "experience"
-    #         widget: "object"
-    #         fields:
-    # - {
-    #     label: "Title",
-    #     name: "exp-title",
-    #     widget: "string",
-    #     required: true,
-    #   }
-    # - {
-    #     label: "Company name",
-    #     name: "company",
-    #     widget: "string",
-    #     required: true,
-    #   }
-    # - {
-    #     label: "Current role",
-    #     name: "current-role",
-    #     widget: "boolean",
-    #     default: true,
-    #     required: true,
-    #   }
-    # - {
-    #     label: "Start Date",
-    #     name: "startdate",
-    #     widget: "datetime",
-    #     date_format: "MMMM YYYY",
-    #     required: true,
-    #   }
-    # - {
-    #     label: "End Date",
-    #     name: "enddate",
-    #     widget: "datetime",
-    #     date_format: "MMMM YYYY",
-    #   }
-    # - {
-    #     label: "Description",
-    #     name: "exp-description",
-    #     widget: "markdown",
-    #     required: true,
-    #   }
