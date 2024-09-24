@@ -48,7 +48,7 @@ collections:
     label: "Resume - Experience"
     folder: "src/resume/experience"
     create: true
-    slug: "{{company}}-{{startdate}}"
+    slug: "{{fields.company}}-{{fields.startdate}}"
     media_folder: "public/assets/resume"
     public_folder: "/assets/resume"
     fields:
