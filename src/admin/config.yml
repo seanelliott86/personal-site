@@ -49,8 +49,7 @@ collections:
     folder: "src/resume/experience"
     create: true
     slug: "{{fields.company}}-{{fields.startdate}}"
-    media_folder: "public/assets/resume"
-    public_folder: "/assets/resume"
+    identifier_field: "{{fields.company}}-{{fields.startdate}}"
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
       - {
