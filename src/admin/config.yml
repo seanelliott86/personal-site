@@ -57,6 +57,7 @@ collections:
           widget: "boolean",
           default: true,
           required: true,
+          hint: "If this is FALSE make sure to specify an end date below",
         }
       - {
           label: "Start Date",
@@ -70,6 +71,7 @@ collections:
           name: "enddate",
           widget: "datetime",
           date_format: "MMMM YYYY",
+          required: false,
         }
       - {
           label: "Description",
