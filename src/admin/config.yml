@@ -37,7 +37,6 @@ collections:
     create: true
     slug: "intro"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "resume-stuff"
     label: "Resume - Experience"
@@ -45,8 +44,39 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - {
+          label: "Company name",
+          name: "company",
+          widget: "string",
+          required: true,
+        }
+      - {
+          label: "Current role",
+          name: "current-role",
+          widget: "boolean",
+          default: true,
+          required: true,
+        }
+      - {
+          label: "Start Date",
+          name: "startdate",
+          widget: "datetime",
+          date_format: "MMMM YYYY",
+          required: true,
+        }
+      - {
+          label: "End Date",
+          name: "enddate",
+          widget: "datetime",
+          date_format: "MMMM YYYY",
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "markdown",
+          required: true,
+        }
 
     # create: true
     # fields:
@@ -64,41 +94,41 @@ collections:
     #         name: "experience"
     #         widget: "object"
     #         fields:
-    #           - {
-    #               label: "Title",
-    #               name: "exp-title",
-    #               widget: "string",
-    #               required: true,
-    #             }
-    #           - {
-    #               label: "Company name",
-    #               name: "company",
-    #               widget: "string",
-    #               required: true,
-    #             }
-    #           - {
-    #               label: "Current role",
-    #               name: "current-role",
-    #               widget: "boolean",
-    #               default: true,
-    #               required: true,
-    #             }
-    #           - {
-    #               label: "Start Date",
-    #               name: "startdate",
-    #               widget: "datetime",
-    #               date_format: "MMMM YYYY",
-    #               required: true,
-    #             }
-    #           - {
-    #               label: "End Date",
-    #               name: "enddate",
-    #               widget: "datetime",
-    #               date_format: "MMMM YYYY",
-    #             }
-    #           - {
-    #               label: "Description",
-    #               name: "exp-description",
-    #               widget: "markdown",
-    #               required: true,
-    #             }
+    # - {
+    #     label: "Title",
+    #     name: "exp-title",
+    #     widget: "string",
+    #     required: true,
+    #   }
+    # - {
+    #     label: "Company name",
+    #     name: "company",
+    #     widget: "string",
+    #     required: true,
+    #   }
+    # - {
+    #     label: "Current role",
+    #     name: "current-role",
+    #     widget: "boolean",
+    #     default: true,
+    #     required: true,
+    #   }
+    # - {
+    #     label: "Start Date",
+    #     name: "startdate",
+    #     widget: "datetime",
+    #     date_format: "MMMM YYYY",
+    #     required: true,
+    #   }
+    # - {
+    #     label: "End Date",
+    #     name: "enddate",
+    #     widget: "datetime",
+    #     date_format: "MMMM YYYY",
+    #   }
+    # - {
+    #     label: "Description",
+    #     name: "exp-description",
+    #     widget: "markdown",
+    #     required: true,
+    #   }
