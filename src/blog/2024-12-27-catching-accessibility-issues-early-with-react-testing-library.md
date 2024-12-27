@@ -9,7 +9,7 @@ Accessibility is not just a nice-to-have, it’s a fundamental requirement for c
 
 Usually I like to keep things pretty plain on this blog and talk about the fundamentals of the web, you know HTML, CSS and some JS. Buuuut one of the tools in a developer’s toolbox is [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) (RTL) and with React being one of the most popular frameworks—and one I use daily—it’s worth exploring how RTL can double as a tool for catching and validating accessibility concerns.
 
-## Why not \[inset name of testing library] for accessibility testing?
+## Why not use \[inset name of testing library] for accessibility testing?
 
 Unlike traditional testing libraries that focus on implementation details like class names or attributes, RTL emphasises testing the way users interact with them. It’s all about replicating real-world usage: finding elements by accessible names, testing keyboard interactions, and focusing on visible content.
 
