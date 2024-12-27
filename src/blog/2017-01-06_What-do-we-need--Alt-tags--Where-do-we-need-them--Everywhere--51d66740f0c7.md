@@ -1,16 +1,15 @@
 ---
 title: What do we need? Alt tags! Where do we need them? Everywhere!
 description: A look at the right and wrong ways to make your images accessible.
-date: '2017-01-06T05:38:12.640Z'
+date: 2017-01-06T05:38:12.640Z
 tags: []
 ---
-
-As a frontend developer each website I stumble upon is seen through the developer tools window. Looking under the hood of websites reveals so many decisions by that website’s developer.   
+As a frontend developer each website I stumble upon is seen through the developer tools window. Looking under the hood of websites reveals so many decisions by that website’s developer. \
 Some decisions amazing, some not so amazing.
 
 Just before the end of 2016 while viewing the javascript for a site (that will remain nameless), I found a new function that blew my mind! Be aware, viewing this may cause your brain to explode just like in [Scanners](http://www.imdb.com/title/tt0081455/).
 
-This snippet is for all those who have forgotten to add those pesky `alt` tags but still want to tick the done box for accessible images.   
+This snippet is for all those who have forgotten to add those pesky `alt` tags but still want to tick the done box for accessible images. \
 So put on your solar eclipse sunglasses and brace yourself for the utterly blinding, awesome glory of the following code.
 
 ```js
@@ -44,15 +43,15 @@ For anyone reading this that don’t do the code thing, the above scripts find a
 
 So what has been achieved?
 
-*   All images now have the empty `alt=''` tag.
-*   Apart from the first example, our scripts are really efficient only targeting images that are missing `alt`.
-*   If your using the Vanilla JS snippet then no more jQuery dependency for you, website load time has improved 10000 percent!
+* All images now have the empty `alt=''` tag.
+* Apart from the first example, our scripts are really efficient only targeting images that are missing `alt`.
+* If your using the Vanilla JS snippet then no more jQuery dependency for you, website load time has improved 10000 percent!
 
 ### Alright thats enough sarcasm time to get to the point
 
 Do I think you should use any of the above scripts in any project? HECK NO!
 
-The above scripts use javascript to **_“fix”_** the missing `alt` tag accessibility issue. If the user has javascript turned off then these scripts won’t run, so no `alt` tag is added to the image. While this might not sound like a big issue, screen reader users will have to try and make sense of the image based off the file name alone. That’s never helpful especially if it’s long and nonsensical.
+The above scripts use javascript to ***“fix”*** the missing `alt` tag accessibility issue. If the user has javascript turned off then these scripts won’t run, so no `alt` tag is added to the image. While this might not sound like a big issue, screen reader users will have to try and make sense of the image based off the file name alone. That’s never helpful especially if it’s long and nonsensical.
 
 ![Example html of img tag with long nonsensical file name… yuck!](/assets/blog/1__RQWerdkK__7mDsgAueTp6RQ.png)
 
@@ -62,23 +61,23 @@ Javascript is meant to enhance the experience not fix laziness/incompetence, esp
 
 Obviously developers using those scripts either doesn’t know correct html semantics, or maybe doesn't care. But they should on both counts.
 
-Whenever the `<img>` element is being used in your web page it is required to have `alt=''`. There are some cases where the `alt` isn't required but these are [very specific cases](https://www.joedolson.com/2015/03/are-alt-attributes-required-always/).  
+Whenever the `<img>` element is being used in your web page it is required to have `alt=''`. There are some cases where the `alt` isn't required but these are [very specific cases](https://www.joedolson.com/2015/03/are-alt-attributes-required-always/).\
 As a frontend developer adding `alt` to your images should be like breathing, it all happens without you thinking about it.
 
 The other issue these scripts highlight is the chronic application of `alt=’’` on all images. There are a wide variety of uses for image in your website and the `alt` tag’s use varies for each.
 
 #### How to use alt attribute effectively
 
-*   **Does your image contain text?**  
-    Use the `alt` to include the text shown in the image.
-*   **Is the image being used as a link or a button?**   
-    Use the `alt` to describe the destination of the link or action of the button.
-*   **Does the image add context to the current page?**  
-    Use the `alt` to briefly describe the image.
-*   **Is the image decorative?**  
-    Leave the `alt` empty.
+* **Does your image contain text?**\
+  Use the `alt` to include the text shown in the image.
+* **Is the image being used as a link or a button?** \
+  Use the `alt` to describe the destination of the link or action of the button.
+* **Does the image add context to the current page?**\
+  Use the `alt` to briefly describe the image.
+* **Is the image decorative?**\
+  Leave the `alt` empty.
 
-_In no way does the list above cover all the possible use cases but it’s a good place to start. I recommend checking out what the w3c has about_ [_image accessibility_](https://www.w3.org/WAI/tutorials/images/) _._
+*In no way does the list above cover all the possible use cases but it’s a good place to start. I recommend checking out what the w3c has about* *[image accessibility](https://www.w3.org/WAI/tutorials/images/)* *.*
 
 Then sometimes the frontend code you have developed is on point but the integration is letting you down, maybe the backend developer has been lazy. As a good developer it is up to you to push for top notch code to be integrated not apply some dodgy fix later on. If something as simple as an `alt` can be left out, what other html could have been replaced with non semantic mark up?
 
