@@ -299,6 +299,8 @@ Now two things with the above test, first it will fail, to fix that we can simpl
 ...
 ```
 
+- - -
+
 ## The WCAG guidelines our tests cover
 
 So we have written a number of test and each of them can be tied back to a specific WCAG guideline, here is the complete list of test cases followed by a breakdown of what guidelines are being checked in the test:
