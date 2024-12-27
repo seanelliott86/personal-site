@@ -7,13 +7,13 @@ tags:
 ---
 Accessibility is not just a nice-to-have, it’s a fundamental requirement for creating inclusive and user-friendly web experiences. Forms are the most common interactive elements where accessibility gaps can significantly impact user experience. Issues like missing labels, improper focus management, or inappropriate use of ARIA (Accessible Rich Internet Applications) can make forms unusable—not just for users relying on assistive technologies but for everyone.
 
-Usually I like to keep things pretty plain on this blog and talk about the fundamentals of the web, you know HTML, CSS and some JS. Buuuut one of the tools in a developer’s toolbox is React Testing Library (RTL) and with React being one of the most popular frameworks - and one i use daily - it’s worth exploring how RTL can double as a tool for catching and validating accessibility concerns.
+Usually I like to keep things pretty plain on this blog and talk about the fundamentals of the web, you know HTML, CSS and some JS. Buuuut one of the tools in a developer’s toolbox is [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) (RTL) and with React being one of the most popular frameworks (and one I use daily) it’s worth exploring how RTL can double as a tool for catching and validating accessibility concerns.
 
 ## Why not \[inset name of testing library] for accessibility testing?
 
-Unlike traditional testing libraries that focus on implementation details like class names or attributes, RTL emphasizes testing the way users interact with them. It’s about replicating real-world usage: finding elements by accessible names, testing keyboard interactions, and focusing on visible content.
+Unlike traditional testing libraries that focus on implementation details like class names or attributes, RTL emphasises testing the way users interact with them. It’s all about replicating real-world usage: finding elements by accessible names, testing keyboard interactions, and focusing on visible content.
 
-Yet, in my experience, many developers still approach testing with RTL like they’re using old unit testing tools—prioritizing underlying code over user experience. RTL offers a shift in mindset, encouraging tests that mimic how users interact with a site.
+Yet, in my experience, many developers still approach testing with RTL like they’re using old unit testing tools - prioritising the underlying code over the actual in browser experience. RTL offers a shift in mindset, encouraging tests that mimic how users interact with a site.
 
 ## Setting Up React Testing Library
 
@@ -45,7 +45,7 @@ function LoginForm() {
 }
 ```
 
-As a good developer you would also write some unit tests to make sure you have great coverage.
+As a good developer you would also write some unit tests to make sure you have great test coverage.
 
 ```jsx
 import { render, screen } from "@testing-library/react";
@@ -62,7 +62,7 @@ test("Form inputs have associated labels", () => {
 
 Job done, save, commit, push, go take a 15 minute break and get yourself a coffee, cause that tests is now passing.
 
-The problem though is we are testing via impementation details by searching for attributes, specifically the `ID` of the input. Sure you could argue its still a correct passing test but how accessible is it?
+The problem though is we are testing via implementation details by searching for attributes, specifically the `ID` of the input. Sure you could argue its still a correct passing test but how accessible is it?
 
 Instead of looking for attributes we should change our test to search by label text using `getByLabelText`.
 
@@ -76,7 +76,7 @@ test("Form inputs have associated labels", () => {
 });
 ```
 
-Now we are testing how a user would interact with form fields in the browser, via the label text. Right now the tests would fail because the html is inccorect, but if we update the html to have `for` attributes on the `label` with the right `ID` everything will pass.
+Now we are testing how a user would interact with form fields in the browser, via the label text. Right now the tests would fail because the HTML is incorrect, but if we update the HTML to have `for` attributes on the `label` with the right `ID` everything will pass.
 
 ```jsx
 function LoginForm() {
@@ -141,9 +141,9 @@ function LoginForm() {
 export default LoginForm;
 ```
 
-As you can see Ive added some state, handling submit which gets the input values via [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) (which is super under utilised in my opinion), set errors, plus some focus management. 
+As you can see Ive added some state, plus some submit handling which gets the input values via [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) (which is super under utilised in my opinion), setting errors, plus some focus management. 
 
-Now we can simple add another test using what we have written before, except this time we can double check if the fields are required by using `toBeRequired()`.
+Lets now add another test using what we have written before, except this time we can check if the fields are required by using the `toBeRequired()` matcher.
 
 ```jsx
 test("Form inputs are required (have aria-required='true')", () => {
@@ -155,7 +155,7 @@ test("Form inputs are required (have aria-required='true')", () => {
 });
 ```
 
-But our test fails because none of the inputs are marked as required, lets add that now making our tests pass, the good thing about the `toBeRequired()` is it works with `aria-required` or `required` attributes, the attribute doesnt matter just if its required or not.
+Our test fails though because none of the inputs are marked as required, lets add that now making our tests pass, the good thing about the `toBeRequired()` matcher is it works with `aria-required` or `required` attributes, the attribute doesn't matter just if its required or not.
 
 ```diff
 ...
@@ -184,7 +184,7 @@ test("Form inputs are set to invalid (have aria-invalid'true')", () => {
 });
 ```
 
-To get the test to pass we will need to also need to make sure `aria-invalid` is managed in the HTML.
+Again this will fail (its all on purpose obviously). To get the test to pass we will need to make sure `aria-invalid` is managed in the HTML. Lets update out example login form.
 
 ```diff
 ...
@@ -196,8 +196,7 @@ To get the test to pass we will need to also need to make sure `aria-invalid` is
 ...
 ```
 
-But what about the error messages are they associated with the inputs?
-Well the below test checks that for us but unfortunately it fails. 
+Great, our tests are passing, but we should also have a error message associated with our inputs to help users correct the problem lets write a test to make sure the error messages are accessible?
 
 ```jsx
 test("Error messages are correctly associated with inputs", () => {
@@ -214,7 +213,7 @@ test("Error messages are correctly associated with inputs", () => {
 });
 ```
 
-To fix this we need to add to the inputs the `aria-describedby` attribute and an `id` to the `span` that contains the error messages.
+Uhoh, failed. To fix this we need to add to the inputs the `aria-describedby` attribute and an `id` to the `span` that contains the error messages.
 
 ```diff
 ...
@@ -230,7 +229,7 @@ To fix this we need to add to the inputs the `aria-describedby` attribute and an
 ...
 ```
 
-Now our test will pass. The awesome thing with all those updates is we are not solely relying on the error message, we are also using aria-invalid to help.
+Now our test will pass.
 
 But what about focus management? I mentioned shifting the users focus to the first input in error. Well we can check that as well.
 
@@ -270,9 +269,9 @@ test("User can navigate through form using the keyboard", async () => {
 
 Why stop there, lets check if there are appropriate autocomplete attributes on the inputs.
 
-You might be wondering, "Autocomplete? Why focus on this?" Well, it’s one of my biggest gripes with login forms—developers often overlook the importance of properly implementing autocomplete attributes. With the widespread use of password managers, autocomplete is one of the simplest ways to create a seamless and frustration-free user experience.
+You might be wondering, "Autocomplete? Why focus on this?" Well, it’s one of my biggest gripes with login forms (developers often overlook the importance of properly implementing autocomplete attributes). With the widespread use of password managers, autocomplete is one of the simplest ways to create a seamless and frustration-free user experience.
 
-In fact, I’m working on another piece—well, more of a rant—about this very topic. Once it’s ready, I’ll drop a handy link here for you.
+In fact, I’m working on another piece (well, more of a rant) about this very topic. Once it’s ready, I’ll drop a handy link here for you.
 
 ```jsx
 test("Form inputs have appropriate autocomplete attributes", () => {
@@ -288,7 +287,7 @@ test("Form inputs have appropriate autocomplete attributes", () => {
 });
 ```
 
-Now two things with the above test, first it will fail, but we can simply add in the autocomplete attribute and the [appropriate values for the autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values). Second testing `autocomplete` functionality directly can be challenging because it is primarily a browser-native feature that relies on user interaction and stored data. So in this instance we can cheat a little and look for attributes.
+Now two things with the above test, first it will fail, to fix that we can simply add in the autocomplete attribute and the [appropriate values for the autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values). Second testing `autocomplete` functionality directly can be challenging because it is primarily a browser-native feature that relies on user interaction and stored data. So in this instance we can cheat a little and look for attributes.
 
 ```diff
 ...
@@ -302,7 +301,7 @@ Now two things with the above test, first it will fail, but we can simply add in
 
 ## The WCAG guidelines our tests cover
 
-So far I have the following test, each of them can be tied back to a specific WCAG guideline, here is the complete list of test cases followed by a breakdown of what guidelines are being checked in the test:
+So we have written a number of test and each of them can be tied back to a specific WCAG guideline, here is the complete list of test cases followed by a breakdown of what guidelines are being checked in the test:
 
 ### Form inputs have associated labels
 
@@ -327,13 +326,6 @@ So far I have the following test, each of them can be tied back to a specific WC
 
 * **[WCAG 2.4.3 - Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html)**\
   Ensures the focus moves predictably to the first input in error to streamline error recovery.
-* **[WCAG 3.3.3 - Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html)**\
-  Guides users to correct errors by focusing on the problematic input.
-
-### Submitting form with email filled shifts focus to password input
-
-* **[WCAG 2.4.3 - Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html)**\
-  Ensures the focus moves predictably to the first input in error to streamline error.
 * **[WCAG 3.3.3 - Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html)**\
   Guides users to correct errors by focusing on the problematic input.
 
