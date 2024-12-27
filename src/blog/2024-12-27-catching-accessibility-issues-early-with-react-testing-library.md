@@ -7,7 +7,7 @@ tags:
 ---
 Accessibility is not just a nice-to-have, it’s a fundamental requirement for creating inclusive and user-friendly web experiences. Forms are the most common interactive elements where accessibility gaps can significantly impact user experience. Issues like missing labels, improper focus management, or inappropriate use of ARIA (Accessible Rich Internet Applications) can make forms unusable—not just for users relying on assistive technologies but for everyone.
 
-Usually I like to keep things pretty plain on this blog and talk about the fundamentals of the web, you know HTML, CSS and some JS. Buuuut one of the tools in a developer’s toolbox is [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) (RTL) and with React being one of the most popular frameworks (and one I use daily) it’s worth exploring how RTL can double as a tool for catching and validating accessibility concerns.
+Usually I like to keep things pretty plain on this blog and talk about the fundamentals of the web, you know HTML, CSS and some JS. Buuuut one of the tools in a developer’s toolbox is [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) (RTL) and with React being one of the most popular frameworks—and one I use daily—it’s worth exploring how RTL can double as a tool for catching and validating accessibility concerns.
 
 ## Why not \[inset name of testing library] for accessibility testing?
 
@@ -29,7 +29,7 @@ Depending on your setup there might be other things to consider but your smart, 
 
 ## Let’s get to the code already!
 
-The example form we will be using is a simple login form, nothing special. The form contains email and password inputs, some visible labels and a submit button, pretty simple and easy to build accessibly (nudge, nudge, wink, wink, say no more).
+The example form we will be using is a simple login form, nothing special. The form contains email and password inputs, some visible labels and a submit button, pretty simple and easy to build accessibly—nudge, nudge, wink, wink, say no more.
 
 ```jsx
 function LoginForm() {
@@ -141,7 +141,7 @@ function LoginForm() {
 export default LoginForm;
 ```
 
-As you can see Ive added some state, plus some submit handling which gets the input values via [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) (which is super under utilised in my opinion), setting errors, plus some focus management. 
+As you can see Ive added some state, plus some submit handling which gets the input values via [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)—which is super under utilised in my opinion—setting errors, plus some focus management. 
 
 Lets now add another test using what we have written before, except this time we can check if the fields are required by using the `toBeRequired()` matcher.
 
@@ -184,7 +184,7 @@ test("Form inputs are set to invalid (have aria-invalid'true')", () => {
 });
 ```
 
-Again this will fail (its all on purpose obviously). To get the test to pass we will need to make sure `aria-invalid` is managed in the HTML. Lets update out example login form.
+Again this will fail—its all on purpose obviously. To get the test to pass we will need to make sure `aria-invalid` is managed in the HTML. Lets update out example login form.
 
 ```diff
 ...
@@ -269,9 +269,9 @@ test("User can navigate through form using the keyboard", async () => {
 
 Why stop there, lets check if there are appropriate autocomplete attributes on the inputs.
 
-You might be wondering, "Autocomplete? Why focus on this?" Well, it’s one of my biggest gripes with login forms (developers often overlook the importance of properly implementing autocomplete attributes). With the widespread use of password managers, autocomplete is one of the simplest ways to create a seamless and frustration-free user experience.
+You might be wondering, "Autocomplete? Why focus on this?" Well, it’s one of my biggest gripes with login forms—developers often overlook the importance of properly implementing autocomplete attributes. With the widespread use of password managers, autocomplete is one of the simplest ways to create a seamless and frustration-free user experience.
 
-In fact, I’m working on another piece (well, more of a rant) about this very topic. Once it’s ready, I’ll drop a handy link here for you.
+In fact, I’m working on another piece—well, more of a rant—about this very topic. Once it’s ready, I’ll drop a handy link here for you.
 
 ```jsx
 test("Form inputs have appropriate autocomplete attributes", () => {
@@ -352,8 +352,8 @@ So we have written a number of test and each of them can be tied back to a speci
 
 ## Wrapping up
 
-RTL is great tool for developers to leverage to help test and catch any accessibility issues early and throughout the development lifecycle. Paired with static tests (linters), guided testing (Accessibility Insights for Web), automated testing (aXe) and manual testing (keyboard and screen reader) RTL is a a must in my opinion.
+RTL is great tool for developers to leverage to help test and catch any accessibility issues early and throughout the development lifecycle. Paired with static tests, guided testing, automated testing and manual testing, RTL is a must in my opinion.
 
-Keep any eye on my blog because ill be writing a few more posts soon, one very ranty and the other about my strategy for testing design system components for accessibility.
+Keep any eye on my blog because I'll be writing a few more posts soon, one very ranty and the other about my strategy for testing design system components for accessibility.
 
 Finally, no amount of isolated testing can replace the value of testing with a diverse group of real users. It’s essential to include individuals with varying abilities, ages, languages, and locations. This approach ensures that what you’re building is truly accessible and inclusive for everyone.
