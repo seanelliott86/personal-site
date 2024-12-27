@@ -60,11 +60,11 @@ test("Form inputs have associated labels", () => {
 });
 ```
 
-Job done, save, commit, push, go take a 15 minute break and get yourself a coffee, cause that tests is passing.
+Job done, save, commit, push, go take a 15 minute break and get yourself a coffee, cause that tests is now passing.
 
 The problem though is we are testing via impementation details by searching for attributes, specifically the `ID` of the input. Sure you could argue its still a correct passing test but how accessible is it?
 
-Instead of looking for attributes we change our test to search by label text using `getByLabelText`.
+Instead of looking for attributes we should change our test to search by label text using `getByLabelText`.
 
 ```jsx
 test("Form inputs have associated labels", () => {
@@ -76,7 +76,7 @@ test("Form inputs have associated labels", () => {
 });
 ```
 
-Now we are testing how a user would interact with form fields in the browser, via the label text. Right now the tests would fail because the html is inccorect, but if we update the html to have for attributes on the label with the right ID everything will pass.
+Now we are testing how a user would interact with form fields in the browser, via the label text. Right now the tests would fail because the html is inccorect, but if we update the html to have `for` attributes on the `label` with the right `ID` everything will pass.
 
 ```jsx
 function LoginForm() {
@@ -94,7 +94,7 @@ function LoginForm() {
 
 The form is very simple and we could leave it there but we can go heaps further with RTL and accessibility testing.
 
-Lets turn this example into a fully functional form, that means all fields should be required, show error messages if inputs left empty on submit and focus should be managed when there are errors. My preferred way to handle errors and focus in simple forms is to show errors below each input and send the users focus back to the first input in error.
+Lets turn this example into a fully functional form, that means all fields should be required, show error messages if inputs are left empty on submit and focus should be managed when there are errors. My preferred way to handle errors and focus in simple forms is to show errors below each input and send the users focus back to the first input in error.
 
 ```jsx
 import React, { useState } from "react";
@@ -141,7 +141,7 @@ function LoginForm() {
 export default LoginForm;
 ```
 
-As you can see Ive added some state, handling submit which gets the input values via [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) (which is super under utilised in my opinion), errors, plus some focus management. 
+As you can see Ive added some state, handling submit which gets the input values via [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) (which is super under utilised in my opinion), set errors, plus some focus management. 
 
 Now we can simple add another test using what we have written before, except this time we can double check if the fields are required by using `toBeRequired()`.
 
@@ -167,7 +167,7 @@ But our test fails because none of the inputs are marked as required, lets add t
 ...
 ```
 
-Next lets write a test for when the form is submitted with no fields filled in and check that the inputs have `aria-invalid="true"` conveying to assistive tech there is a problem.
+Next lets write a test for when the form is submitted and none of the fields are filled and that each field is marked as invalid, conveying to users of assistive technology there is a problem.
 
 ```jsx
 test("Form inputs are set to invalid (have aria-invalid'true')", () => {
@@ -230,7 +230,9 @@ To fix this we need to add to the inputs the `aria-describedby` attribute and an
 ...
 ```
 
-Now our test will pass. But what about focus management? I mentioned shifting the users focus to the first input in error. Well we can check that as well.
+Now our test will pass. The awesome thing with all those updates is we are not solely relying on the error message, we are also using aria-invalid to help.
+
+But what about focus management? I mentioned shifting the users focus to the first input in error. Well we can check that as well.
 
 ```jsx
 test("Submitting empty form shifts focus to email input", async () => {
@@ -286,7 +288,7 @@ test("Form inputs have appropriate autocomplete attributes", () => {
 });
 ```
 
-Now two things with the above test, first will fail, but we can simply add in the autocomplete attribute and the appropriate values for the autocomplete. Second testing `autocomplete` functionality directly can be challenging because it is primarily a browser-native feature that relies on user interaction and stored data. So in this instance we can cheat a little.
+Now two things with the above test, first it will fail, but we can simply add in the autocomplete attribute and the [appropriate values for the autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values). Second testing `autocomplete` functionality directly can be challenging because it is primarily a browser-native feature that relies on user interaction and stored data. So in this instance we can cheat a little and look for attributes.
 
 ```diff
 ...
@@ -300,92 +302,61 @@ Now two things with the above test, first will fail, but we can simply add in th
 
 ## The WCAG guidelines our tests cover
 
-In my test file I have the following test written, each of them can be tied back to a specific WCAG guideline, here is the complete list of test cases followed by a breakdown of what guidelines are being checked in the test:
+So far I have the following test, each of them can be tied back to a specific WCAG guideline, here is the complete list of test cases followed by a breakdown of what guidelines are being checked in the test:
 
-1. Form inputs have associated labels
-2. Form inputs are required 
-3. User can navigate through form using the keyboard
-4. Submitting empty form shifts focus to email input
-5. Submitting form with email filled shifts focus to password input
-6. Form inputs are set to invalid when in error
-7. Error messages are correctly associated with inputs
-8. Form inputs have appropriate autocomplete attributes
+### Form inputs have associated labels
 
-### 1. Form inputs have associated labels
+* **[WCAG 1.3.1 - Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html)**\
+  Ensures that form controls have programmatically associated labels to communicate their purpose to users.
+* **[WCAG 4.1.2 - Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html)**\
+  Ensures that user interface components have an accessible name that describes their purpose.
 
-**WCAG 1.3.1 - Info and Relationships**
+### Form inputs are required
 
-Ensures that form controls have programmatically associated labels to communicate their purpose to users.
+* **[WCAG 3.3.1 - Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html)**\
+  Ensures required fields are clearly indicated, enabling users to identify errors when submitting forms.
 
-**WCAG 4.1.2 - Name, Role, Value**
+### User can navigate through form using the keyboard
 
-Ensures that user interface components have an accessible name that describes their purpose.
+* **[WCAG 2.1.1 - Keyboard](https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html)**\
+  Guarantees that all functionality of the content is operable through a keyboard interface.
+* **[WCAG 2.4.3 - Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html)**\
+  Ensures a logical and intuitive focus order when navigating using the keyboard.
 
-### 2. Form inputs are required
+### Submitting empty form shifts focus to email input
 
-**WCAG 3.3.1 - Error Identification**
+* **[WCAG 2.4.3 - Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html)**\
+  Ensures the focus moves predictably to the first input in error to streamline error recovery.
+* **[WCAG 3.3.3 - Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html)**\
+  Guides users to correct errors by focusing on the problematic input.
 
-Ensures required fields are clearly indicated, enabling users to identify errors when submitting forms.
+### Submitting form with email filled shifts focus to password input
 
-### 3. User can navigate through form using the keyboard
+* **[WCAG 2.4.3 - Focus Order](https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html)**\
+  Ensures the focus moves predictably to the first input in error to streamline error.
+* **[WCAG 3.3.3 - Error Suggestion](https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html)**\
+  Guides users to correct errors by focusing on the problematic input.
 
-**WCAG 2.1.1 - Keyboard**
+### Form inputs are set to invalid when in error
 
-Guarantees that all functionality of the content is operable through a keyboard interface.
+* **[WCAG 4.1.2 - Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html)**\
+  Ensures assistive technologies can identify invalid inputs based on the aria-invalid attribute.
+* **[WCAG 3.3.1 - Error Identification](https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html)**\
+  Communicates errors to users through programmatically determinable states.
 
-**WCAG 2.4.3 - Focus Order**
+### Error messages are correctly associated with inputs
 
-Ensures a logical and intuitive focus order when navigating using the keyboard.
+* **[WCAG 1.3.1 - Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html)**\
+  Ensures the error message is programmatically tied to the input, providing clear context for users of assistive technologies.
+* **[WCAG 4.1.2 - Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html)**\
+  Guarantees that input fields dynamically reflect error information through attributes like aria-describedby.
 
-### 4. Submitting empty form shifts focus to email input
+### Form inputs have appropriate autocomplete attributes
 
-**WCAG 2.4.3 - Focus Order**
-
-Ensures the focus moves predictably to the first input in error to streamline error recovery.
-
-**WCAG 3.3.3 - Error Suggestion**
-
-Guides users to correct errors by focusing on the problematic input.
-
-### 5. Submitting form with email filled shifts focus to password input
-
-**WCAG 2.4.3 - Focus Order**
-
-Ensures the focus moves predictably to the first input in error to streamline error.
-
-**WCAG 3.3.3 - Error Suggestion**
-
-Guides users to correct errors by focusing on the problematic input.
-
-### 6. Form inputs are set to invalid when in error
-
-**WCAG 4.1.2 - Name, Role, Value**
-
-Ensures assistive technologies can identify invalid inputs based on the aria-invalid attribute.
-
-**WCAG 3.3.1 - Error Identification**
-
-Communicates errors to users through programmatically determinable states.
-
-### 7. Error messages are correctly associated with inputs
-
-**WCAG 1.3.1 - Info and Relationships**
-
-Ensures the error message is programmatically tied to the input, providing clear context for users of assistive technologies.
-
-**WCAG 4.1.2 - Name, Role, Value**
-
-Guarantees that input fields dynamically reflect error information through attributes like aria-describedby.
-
-### 8. Form inputs have appropriate autocomplete attributes
-
-**WCAG 1.3.5 - Identify Input Purpose**
-
-Ensures form inputs specify their purpose programmatically (via autocomplete), which helps users, especially those with cognitive disabilities or using assistive technologies.
-
-**WCAG 3.3.2 - Labels or Instructions**
-
-Provides additional guidance to users through programmatically determinable input purposes.
+* **[WCAG 1.3.5 - Identify Input Purpose](https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html)**\
+  Ensures form inputs specify their purpose programmatically (via autocomplete), which helps users, especially those with cognitive disabilities or using assistive technologies.
+* **[WCAG 3.3.2 - Labels or Instructions](https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html)**\
+  Provides additional guidance to users through programmatically determinable input purposes.
 
 ## Wrapping up
 
