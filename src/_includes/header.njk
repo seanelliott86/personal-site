@@ -2,18 +2,16 @@
     <div class="wrapper">
         <div class="header__inner {% if(page.url !== '/') %}shallow-height{% endif %}">
             {% if (page.url === '/') %}
-                <h1 class="header-name">Hello,<br/> I'm <a href="/">Sean Elliott</a>
-                </h1>
+            <h1 class="header-name">Hello,<br /> I'm <a href="/">Sean Elliott</a></h1>
             {% else %}
-                <p class="header-name">Hello,<br/> I'm <a href="/">Sean Elliott</a>
-                </p>
+            <p class="header-name">Hello,<br /> I'm <a href="/">Sean Elliott</a></p>
             {% endif %}
             <p class="header-tagline">Frontend UI Developer and Web Accessibility Specialist</p>
 
             {% if (page.url === '/') %}
-                <p class="header-cta-link">
-                    <a href='/blog/'>Read my recent articles</a>
-                </p>
+            <p class="header-cta-link">
+                <a href='/blog/'>Read my recent articles</a>
+            </p>
             {% endif %}
         </div>
     </div>

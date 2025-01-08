@@ -1,4 +1,4 @@
-@use '../../node_modules/modern-normalize/modern-normalize.css';
+@import "modern-normalize/modern-normalize.css";
 
 /* START: my preferred resets on top of modern-normalise */
 
@@ -34,64 +34,39 @@ svg {
 
 /* END: my preferred resets on top of modern-normalise */
 
-// Base font size
-$base-font-size: 16px;
-
-$black: #000000;
-$white: #ffffff;
-$athensGray: #E5E7EC;
-$heather: #BCC4D1;
-$manatee: #9499a4;
-$shark: #292c2e;
-$hoki: #61879E;
-$pictonBlue: #46caf5; // https://maketintsandshades.com/#46caf5
-$baseFontFamily: Helvetica, Arial, sans-serif;
-$headingFontFamily: 'Poppins', Helvetica, Arial, sans-serif;
-
-// Breakpoints
-$breakpoints: (
-    xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    ) !default;
-
-@function rem($value) {
-    @if (unitless($value)) {
-        $value: $value * 1px;
-    }
-
-    @return calc($value / $base-font-size) * 1rem;
+:root {
+    --base-font-size: 16px;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-athensGray: #E5E7EC;
+    --color-heather: #BCC4D1;
+    --color-manatee: #9499a4;
+    --color-shark: #292c2e;
+    --color-hoki: #61879E;
+    --color-pictonBlue: #46caf5;
+    --color-blueChill: #0A7894;
+    --base-font-family: Helvetica, Arial, sans-serif;
+    --heading-font-family: 'Poppins', Helvetica, Arial, sans-serif;
+    --focus-color: var(--color-pictonBlue);
+    --focus-color-dark: var(--color-black);
+    --resume-arrow-bg: var(--color-pictonBlue);
 }
 
-@function em($value) {
-    @if (unitless($value)) {
-        $value: $value * 1px;
-    }
-
-    @return calc($value / $base-font-size) * 1em;
-}
-
-@mixin breakpoint($size, $width-type: min-width) {
-    @if $size !='xs' and $size !='sm' and $size !='md' and $size !='lg' and $size !='xl' {
-        @error 'Breakpoint mixin allows the following breakpoint sizes xs, sm, md, lg';
-    }
-
-    $px-size: map-get($breakpoints, $size
-    );
-$em-size: em($px-size);
-
-@media ($width-type: $em-size) {
-    @content;
-}
-}
+@custom-media --xs-viewport (min-width: 0em);
+/* 576px */
+@custom-media --sm-viewport (min-width: 36em);
+/* 768px */
+@custom-media --md-viewport (min-width: 48em);
+/* 992px */
+@custom-media --lg-viewport (min-width: 60em);
+/* 1200px */
+@custom-media --xl-viewport (min-width: 75em);
 
 /* START: General site styling */
 
 
 body {
-    font-family: $baseFontFamily;
+    font-family: var(--base-font-family);
     padding: 0;
 }
 
@@ -101,7 +76,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $headingFontFamily;
+    font-family: var(--heading-font-family);
     font-weight: bold;
 }
 
@@ -129,7 +104,8 @@ pre[class*="language-"] {
     margin-bottom: 0;
     margin-top: 2rem;
 
-    +* {
+    /* check this */
+    &+* {
         margin-top: 2rem;
     }
 }
@@ -156,7 +132,7 @@ pre[class*="language-"] {
     white-space: normal !important;
 }
 
-//https://ryanmulligan.dev/blog/layout-breakouts/
+/* https://ryanmulligan.dev/blog/layout-breakouts/ */
 .wrapper {
     --gap: 1.5rem;
     --full: minmax(var(--gap), 1fr);
@@ -167,7 +143,7 @@ pre[class*="language-"] {
     grid-template-columns:
         [full-start] var(--full) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--full) [full-end];
 
-    @include breakpoint('sm') {
+    @media (--sm-viewport) {
         --gap: 2.5rem;
     }
 
@@ -192,73 +168,40 @@ pre[class*="language-"] {
     grid-column: popout;
 }
 
-$focus-color: $pictonBlue;
-$focus-color-dark: $black;
+.content {
+    --fancy-link-color: var(--color-blueChill);
+    --fancy-focus-color: var(--color-white);
+}
 
-@mixin fancyLinkStyle($headerLink: true, $underline: true) {
-    $color: null;
-    $focusColor: null;
-
-    @if $headerLink ==true {
-        $color: $pictonBlue;
-        $focusColor: $black;
-    }
-
-    @else {
-        $color: #0a7894;
-        $focusColor: $white;
-    }
-
-    color: $color;
-    background-image: linear-gradient(to right, $color, $color);
+.content a,
+.header a {
+    color: var(--fancy-link-color, var(--color-pictonBlue));
+    background-image: linear-gradient(to right, var(--fancy-link-color, var(--color-pictonBlue)), var(--fancy-link-color, var(--color-pictonBlue)));
     background-repeat: no-repeat;
     background-size: 100% 7%;
     background-position: 0 90%;
     transition-duration: 0.25s;
     transition-timing-function: ease-out;
     transition-property: background-color,
-    color,
-    background-size;
+        color,
+        background-size;
     outline: solid 3px transparent;
     outline-offset: 2px;
     text-decoration: none;
-
-    @if $underline ==false {
-        background-size: 100% 0%;
-        background-position: 0 100%;
-    }
 
     &:active,
     &:focus-visible,
     &:hover {
         background-size: 100% 100%;
-        background-image: linear-gradient(to right, $color, $color);
-        color: $focusColor;
+        background-image: linear-gradient(to right, var(--fancy-link-color, var(--color-pictonBlue)), var(--fancy-link-color, var(--color-pictonBlue)));
+        color: var(--fancy-focus-color, var(--color-black));
         transition-duration: 0.25s;
         transition-timing-function: ease-in;
         transition-property: background-color, color, background-size;
     }
 
     &:focus-visible {
-        outline: solid 3px $color;
-    }
-}
-
-@mixin linkStyles($outlineColor: $pictonBlue, $textColor: $white) {
-    color: $textColor;
-    outline: solid 3px transparent;
-    outline-offset: 16px;
-    transition-duration: 0.25s;
-    transition-timing-function: ease-out;
-    transition-property: all;
-
-    &:focus-visible {
-        outline: solid 3px $outlineColor;
-        outline-offset: 2px;
-    }
-
-    &:not(:focus-visible) {
-        transition-duration: 0s;
+        outline: solid 3px var(--fancy-link-color, var(--color-pictonBlue));
     }
 }
 
@@ -267,20 +210,15 @@ $focus-color-dark: $black;
     margin: 0;
     font-weight: bold;
     line-height: 1.1;
-    font-family: $headingFontFamily;
-
-    a {
-        color: $pictonBlue;
-        @include fancyLinkStyle;
-    }
+    font-family: var(--heading-font-family);
 }
 
 .header-tagline {
-    color: $manatee;
+    color: var(--color-manatee);
     margin: 1rem 0 0 0;
     font-weight: bold;
     line-height: 1.1;
-    font-family: $headingFontFamily;
+    font-family: var(--heading-font-family);
 
     @media (orientation: landscape) {
         margin: 1rem 0 0 0;
@@ -289,13 +227,7 @@ $focus-color-dark: $black;
 
 .header-cta-link {
     margin: 2rem 0 0 0;
-
-    a {
-        color: $pictonBlue;
-        font-size: 1.25rem;
-
-        @include fancyLinkStyle;
-    }
+    font-size: 1.25rem;
 }
 
 .header {
@@ -317,17 +249,14 @@ $focus-color-dark: $black;
 
 @keyframes headerBGAnimate {
     0% {
-        // background-position: 78% 0%;
         background-size: 150% 150%;
     }
 
     50% {
-        // background-position: #{$randomMid * 1%} 0%;
         background-size: 350% 350%;
     }
 
     100% {
-        // background-position: 78% 0%;
         background-size: 150% 150%;
     }
 }
@@ -360,7 +289,7 @@ body {
 
 .fancy-main {
     position: relative;
-    background-color: $white;
+    background-color: var(--color-white);
     padding-top: 2rem;
     transform: translate3d(0, 0, 0);
 }
@@ -382,7 +311,7 @@ body {
     align-content: stretch;
     align-items: center;
 
-    @include breakpoint('sm') {
+    @media (--sm-viewport) {
         flex-direction: row;
     }
 }
@@ -393,28 +322,46 @@ body {
     padding: 0;
     list-style: none;
 
-    @include breakpoint('sm') {
+    @media (--sm-viewport) {
         margin-bottom: 0;
     }
 
     li {
         margin-right: 1rem;
     }
+}
 
-    &__icons,
+.social-links__icons {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+}
 
-    a {
-        width: 2rem;
-        height: 2rem;
-        display: block;
-        @include linkStyles();
+.social-links a {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    color: var(--color-white);
+    outline: solid 3px transparent;
+    outline-offset: 16px;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+    transition-property: all;
+
+    &:focus-visible {
+        outline: solid 3px var(--color-pictonBlue);
+        outline-offset: 2px;
+    }
+
+    &:not(:focus-visible) {
+        transition-duration: 0s;
     }
 }
 
 .copyright {
     margin: 0;
 
-    @include breakpoint('sm') {
+    @media (--sm-viewport) {
         margin-left: auto;
     }
 }
@@ -447,7 +394,7 @@ body {
     right: auto;
     clip-path: polygon(0% 2%, 100% 6em, 100% 0px);
 
-    @include breakpoint('md') {
+    @media (--md-viewport) {
         clip-path: polygon(0% 2%, 100% 8em, 100% 0px);
     }
 }
@@ -459,12 +406,12 @@ body {
     right: auto;
     z-index: 2;
 
-    @include breakpoint('md') {
+    @media (--md-viewport) {
         clip-path: polygon(36% 0%, 100% 6em, 100% 0);
     }
 }
 
-// Article styles
+/* Article styles */
 .article-header__inner {
     text-align: center;
     display: flex;
@@ -484,10 +431,6 @@ body {
     font-size: 1.5rem;
     line-height: 1.25;
     margin: 0;
-
-    a {
-        @include fancyLinkStyle(false);
-    }
 }
 
 .article__published {
@@ -495,29 +438,29 @@ body {
     margin: 0;
     font-weight: bold;
     line-height: 1.1;
-    font-family: $headingFontFamily;
-    color: $shark;
+    font-family: var(--heading-font-family);
+    color: var(--color-shark);
 }
 
 .article-snippet__published {
     margin: 0.5rem 0 0 0;
     font-weight: bold;
     line-height: 1.1;
-    font-family: $headingFontFamily;
+    font-family: var(--heading-font-family);
 }
 
 .article__description {
     order: 2;
     font-weight: bold;
     line-height: 1.1;
-    font-family: $headingFontFamily;
+    font-family: var(--heading-font-family);
     margin: 2rem 0 0 0;
     font-size: 1.2rem;
 }
 
 .article-snippet__description {
     margin: 1rem 0 0 0;
-    color: $shark;
+    color: var(--color-shark);
 }
 
 .article__hero {
@@ -531,10 +474,8 @@ body {
     border-radius: 10px;
 }
 
-.article__content,
-.content,
-.article__footer {
-    color: $shark;
+.content {
+    color: var(--color-shark);
 
     * {
         margin: 0;
@@ -549,15 +490,11 @@ body {
     *+h4,
     *+h5 {
         margin-top: 2.5rem;
-        color: $black;
+        color: var(--black);
     }
 
     li {
         margin-top: 0.25em;
-    }
-
-    a {
-        @include fancyLinkStyle(false);
     }
 
     blockquote {
@@ -639,20 +576,12 @@ body {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
-
-    &__item {
-        border: solid 2px #F0F1F2;
-        padding: 1rem;
-        background-color: $white;
-
-        &+* {
-            margin-top: 2rem;
-        }
-    }
 }
 
-.article-snippet__cta a {
-    @include fancyLinkStyle(false, $white);
+.article-list__item {
+    border: solid 2px #F0F1F2;
+    padding: 1rem;
+    background-color: var(--color-white);
 }
 
 .intro {
@@ -665,12 +594,12 @@ body {
     p {
         max-width: 75ch;
 
-        @include breakpoint('md') {
+        @media (--md-viewport) {
             max-width: 60ch;
         }
     }
 
-    @include breakpoint('md') {
+    @media (--md-viewport) {
         img {
             float: right;
             width: 35%;
@@ -678,6 +607,133 @@ body {
             margin-left: 2rem;
             margin-bottom: 5.5rem;
             margin-top: 5.5rem;
+        }
+    }
+}
+
+
+.experience__timeline {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 32px 0;
+    font-size: 1.125rem;
+    position: relative;
+
+    &:after {
+        top: 20px;
+        left: 0;
+        bottom: 0;
+        width: 2px;
+        content: '';
+        opacity: .5;
+        position: absolute;
+        background: var(--color-manatee);
+    }
+
+    @media (--md-viewport) {
+        margin-left: 260px;
+    }
+}
+
+.experience__timeline-item {
+    display: flex;
+    position: relative;
+}
+
+.experience__bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    overflow: hidden;
+    background-color: var(--color-black);
+    position: absolute;
+    top: 18px;
+    left: -2px;
+    z-index: 1;
+}
+
+.experience__content {
+    padding: 0 1rem;
+    gap: 8px;
+    color: var(--c-grey-400);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+    * {
+        margin: 0;
+    }
+
+    img {
+        flex-shrink: 0;
+    }
+
+    h3 {
+        order: 2;
+    }
+}
+
+.experience__desc {
+    order: 3
+}
+
+
+
+.experience__date {
+    padding: 0 6px;
+    font-size: 1rem;
+    min-height: 40px;
+    text-align: center;
+    width: 260px;
+    right: 100%;
+    background-color: var(--resume-arrow-bg);
+    order: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--heading-font-family);
+
+    &:after {
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 20px 0 20px 26px;
+        border-color: transparent transparent transparent var(--resume-arrow-bg);
+        transform: rotate(0deg);
+        position: absolute;
+        top: 0;
+        left: 100%;
+    }
+
+    &:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 20px 26px 20px 0;
+        border-color: transparent var(--resume-arrow-bg) transparent transparent;
+        transform: rotate(0deg);
+        position: absolute;
+        top: 0;
+        left: 10px;
+    }
+
+    @media (--md-viewport) {
+        margin-left: 0;
+        margin-right: 34px;
+        position: absolute;
+        left: auto;
+        top: 0;
+        order: 1;
+
+        &:after {
+            content: '';
+        }
+
+        &:before {
+            content: none;
         }
     }
 }

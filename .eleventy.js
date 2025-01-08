@@ -1,9 +1,9 @@
-const { DateTime } = require("luxon")
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const svgSprite = require("eleventy-plugin-svg-sprite");
+import { DateTime } from "luxon"
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight"
+import svgSprite from "eleventy-plugin-svg-sprite"
 const PORT = 8080 // use a port you are reasonably sure is not in use elsewhere
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
     // GENERAL
     eleventyConfig.addPassthroughCopy('./src/assets');
     eleventyConfig.addPassthroughCopy('./src/assets');

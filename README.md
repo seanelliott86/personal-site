@@ -10,7 +10,7 @@ This is a constant work in-progress so always come back and have a look :)
 
 **Hosting:** [Netlify](https://www.netlify.com/)
 
-**CMS:** [Netlify CMS](https://www.netlifycms.org/)
+**CMS:** [Decap CMS](https://decapcms.org/)
 
 **Static Site Generator:** [Eleventy (11ty)](https://11ty.dev/)
 
@@ -24,10 +24,15 @@ This is a constant work in-progress so always come back and have a look :)
 
 **Styling:**
 
-- [SASS](https://sass-lang.com/)
+- [~~SASS~~](https://sass-lang.com/) - removed in favour of plain css
 - [modern-normalize](https://github.com/sindresorhus/modern-normalize)
+- [PostCSS](https://postcss.org/)
+- [PostCSS CLI](https://github.com/postcss/postcss-cli)
+- [PostCSS Import](https://github.com/postcss/postcss-import)
 
-**Node/Npm:** [npm-run-all](https://www.npmjs.com/package/npm-run-all)
+**Yarn helpers:** 
+
+- [concurrently](https://github.com/open-cli-tools/concurrently)
 
 **Icons Repo:** [Simple Icons](https://simpleicons.org/)
 

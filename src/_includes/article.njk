@@ -7,7 +7,7 @@ layout: 'base.njk'
         <div class="article-header__inner">
             <h1 class="article__title">{{title}}</h1>
             <p class="article__published">Published {{page.date | postDate}}</p>
-            <p class="article__description">{{description}}</p>
+            {% if description %}<p class="article__description">{{description}}</p>{% endif %}
         </div>
     </header>
     {% if hero %}
@@ -15,7 +15,7 @@ layout: 'base.njk'
         <img src="{{hero}}" alt="" class="hero-img" />
     </div>
     {% endif %}
-    <div class="article__content">
+    <div class="article__content content">
         {% if 'a11ytips' in tags %}
         <section class="article__summary" aria-label="Quick summary">
             <hr>
@@ -29,7 +29,7 @@ layout: 'base.njk'
         {% endif %}
         {{ content | safe}}
     </div>
-    <div class="article__footer">
+    <div class="article__footer content">
         <hr>
         <p>Have I missed something important in this article or said something that is wrong? Please message me and let
             me know.</p>
