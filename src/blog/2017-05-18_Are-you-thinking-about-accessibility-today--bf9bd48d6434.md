@@ -4,7 +4,7 @@ description: >-
   Start talking and learning about accessibility on Global Accessibility
   Awareness Day.
 date: '2017-05-18T04:10:25.830Z'
-hero: /assets/blog/1__V0G6LVxvPiVlR414__gCgxA.jpeg
+hero: /assets/uploads/1__V0G6LVxvPiVlR414__gCgxA.jpeg
 tags: []
 ---
 

@@ -4,7 +4,7 @@ description: >-
   Do you use a button or a link on your website. Its quite a simple choice but
   often used incorrectly
 date: '2018-04-13T14:09:39.716Z'
-hero: /assets/blog/1__7aJPlxn8gwhI7JjcBFr__tQ.jpeg
+hero: /assets/uploads/1__7aJPlxn8gwhI7JjcBFr__tQ.jpeg
 tags: [a11ytips]
 ---
 

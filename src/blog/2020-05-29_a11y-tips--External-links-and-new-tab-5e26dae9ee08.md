@@ -2,7 +2,7 @@
 title: 'a11y tips: External links and new tab'
 description: Should you open external links in new tabs? How should they be displayed?
 date: '2020-05-29T08:52:19.258Z'
-hero: /assets/blog/1__bSaC0vJIoFl67kfi5ynfjw.jpeg
+hero: /assets/uploads/1__bSaC0vJIoFl67kfi5ynfjw.jpeg
 tags: [a11ytips]
 ---
 

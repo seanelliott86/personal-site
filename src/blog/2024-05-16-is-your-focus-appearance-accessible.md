@@ -1,7 +1,7 @@
 ---
 title: Is your focus appearance accessible?
 description: ""
-hero: /assets/blog/stefan-cosma-0go3-b-5m80-unsplash.jpg
+hero: /assets/uploads/stefan-cosma-0go3-b-5m80-unsplash.jpg
 date: 2024-05-16T16:21:00.000Z
 tags:
   - post
@@ -37,7 +37,7 @@ To make it easier, I've broken this down into 3 steps:
 
 That's it, job done, you can go celebrate with a crisp high five!
 
-![Penguines of madagascar performing a high one](/assets/blog/1687520159124.gif)
+![Penguines of madagascar performing a high one](/assets/uploads/1687520159124.gif)
 
 I prefer using the outline property but the guideline is fluid enough to allow other methods to have an accessible focus indicator, it just becomes a bit harder to check. I also think adding an offset to your outline really helps your focus indicator stand out. 
 

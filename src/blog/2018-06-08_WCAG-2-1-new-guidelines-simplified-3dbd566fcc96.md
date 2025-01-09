@@ -24,7 +24,7 @@ Sometimes I feel information needs to be simplified and written down using crayo
 > **Homer Simpson:**  
 > Could you dumb it down a shade?
 
-![](/assets/blog/1__ltRuIgQnlosPT__QjAxeYjQ.gif)
+![](/assets/uploads/1__ltRuIgQnlosPT__QjAxeYjQ.gif)
 
 On the 5th of June, the W3C released a long-awaited update to the WCAG guidelines. For newbies to accessibility, the guidelines can be daunting. Today I have attempted to “dumb it down a shade” to provide a gateway into the world of accessibility.
 

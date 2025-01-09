@@ -54,11 +54,11 @@ Do I think you should use any of the above scripts in any project? HECK NO!
 
 The above scripts use javascript to **_“fix”_** the missing `alt` tag accessibility issue. If the user has javascript turned off then these scripts won’t run, so no `alt` tag is added to the image. While this might not sound like a big issue, screen reader users will have to try and make sense of the image based off the file name alone. That’s never helpful especially if it’s long and nonsensical.
 
-![Example html of img tag with long nonsensical file name… yuck!](/assets/blog/1__RQWerdkK__7mDsgAueTp6RQ.png)
+![Example html of img tag with long nonsensical file name… yuck!](/assets/uploads/1__RQWerdkK__7mDsgAueTp6RQ.png)
 
 Javascript is meant to enhance the experience not fix laziness/incompetence, especially when there is a simple solution... **Just write semantic html.** Using scripts like the above makes me want to scream in a high shrill voice.
 
-![](/assets/blog/1__pVSa7z4UOMw5rAXnrCu2fQ.jpeg)
+![](/assets/uploads/1__pVSa7z4UOMw5rAXnrCu2fQ.jpeg)
 
 Obviously developers using those scripts either doesn’t know correct html semantics, or maybe doesn't care. But they should on both counts.
 

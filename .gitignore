@@ -3,6 +3,8 @@ node_modules
 
 # build artefacts
 public
+!public/assets/
+!public/assets/blog/
 
 # secrets and errors
 .env

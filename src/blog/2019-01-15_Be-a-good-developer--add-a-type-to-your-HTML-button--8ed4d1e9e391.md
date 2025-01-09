@@ -2,7 +2,7 @@
 title: 'Be a good developer, add a type to your HTML button.'
 description: Why is type the most useful attribute for buttons
 date: '2019-01-15T01:41:02.487Z'
-hero: /assets/blog/1__TQx2H__l4hel__N5tBxQbGiQ.jpeg
+hero: /assets/uploads/1__TQx2H__l4hel__N5tBxQbGiQ.jpeg
 tags: []
 ---
 

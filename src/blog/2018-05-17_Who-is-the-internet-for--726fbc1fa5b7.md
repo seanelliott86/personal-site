@@ -4,7 +4,7 @@ description: >-
   Today is Global Accessibility Awareness Day, on this day I'm reminded of a
   conversation I had about a blind persons online experience
 date: '2018-05-17T05:18:42.455Z'
-hero: /assets/blog/1__v2hIUYEc7C1cZujozlZJsg.jpeg
+hero: /assets/uploads/1__v2hIUYEc7C1cZujozlZJsg.jpeg
 tags: []
 ---
 
