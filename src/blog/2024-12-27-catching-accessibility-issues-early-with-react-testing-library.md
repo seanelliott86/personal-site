@@ -1,5 +1,6 @@
 ---
 title: Catching accessibility issues early with React Testing Library
+hero: /assets/uploads/ferenc-almasi-ewlha4t-mso-unsplash-min.jpg
 date: 2024-12-27T16:04:00.000Z
 tags:
   - post
