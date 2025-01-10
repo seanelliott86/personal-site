@@ -92,7 +92,8 @@ h6 {
 
 code {
     background-color: rgba(242, 242, 242, 1);
-    padding: 2px 4px;
+    padding-block: 0.125rem;
+    padding-inline: 0.25rem;
     font-family: Menlo, Monaco, "Courier New", Courier, monospace;
     font-weight: 400;
     font-size: 87%;
@@ -101,12 +102,12 @@ code {
 code[class*="language-"],
 pre[class*="language-"] {
     white-space: pre-wrap;
-    margin-bottom: 0;
-    margin-top: 2rem;
+    margin-block-end: 0;
+    margin-block-start: 2rem;
 
     /* check this */
     &+* {
-        margin-top: 2rem;
+        margin-block-start: 2rem;
     }
 }
 
@@ -142,13 +143,14 @@ pre[class*="language-"] {
     display: grid;
     grid-template-columns:
         [full-start] var(--full) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--full) [full-end];
+    padding-block: 2rem;
 
     @media (--sm-viewport) {
         --gap: 2.5rem;
     }
 
     &.homepage {
-        padding: 3rem 0;
+        padding-block: clamp(1rem, calc(1rem + 2vw), 5rem);
     }
 
     &.alt-bg {
@@ -215,18 +217,22 @@ pre[class*="language-"] {
 
 .header-tagline {
     color: var(--color-manatee);
-    margin: 1rem 0 0 0;
+    margin-block-start: 1rem;
+    margin-block-end: 0;
+    margin-inline: 0;
     font-weight: bold;
     line-height: 1.1;
     font-family: var(--heading-font-family);
 
-    @media (orientation: landscape) {
+    /* @media (orientation: landscape) {
         margin: 1rem 0 0 0;
-    }
+    } */
 }
 
 .header-cta-link {
-    margin: 2rem 0 0 0;
+    margin-block-start: 2rem;
+    margin-block-end: 0;
+    margin-inline: p;
     font-size: 1.25rem;
 }
 
@@ -245,6 +251,10 @@ pre[class*="language-"] {
     @media (prefers-reduced-motion: reduce) {
         position: static;
     }
+
+    & .wrapper {
+        padding: 0;
+    }
 }
 
 @keyframes headerBGAnimate {
@@ -262,7 +272,7 @@ pre[class*="language-"] {
 }
 
 body {
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-block-end: env(safe-area-inset-bottom);
 }
 
 .header__inner {
@@ -275,32 +285,36 @@ body {
     min-height: 100vh;
 
     &.shallow-height {
-        padding-top: 3rem;
-        padding-bottom: 6rem;
+        padding-block-start: 3rem;
+        padding-block-end: 6rem;
         min-height: auto;
     }
 
     @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
         justify-content: flex-start;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-block-start: 2rem;
+        padding-block-end: 2rem;
     }
 }
 
 .fancy-main {
     position: relative;
     background-color: var(--color-white);
-    padding-top: 2rem;
     transform: translate3d(0, 0, 0);
 }
 
 .footer {
     background-image: linear-gradient(23deg, rgba(70, 202, 245, 0.03) 0%, rgba(70, 202, 245, 0.03) 13%, transparent 13%, transparent 80%, rgba(70, 202, 245, 0.04) 80%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(42deg, rgba(70, 202, 245, 0.04) 0%, rgba(70, 202, 245, 0.04) 36%, transparent 36%, transparent 77%, rgba(70, 202, 245, 0.04) 77%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(286deg, rgba(70, 202, 245, 0.0655) 0%, rgba(70, 202, 245, 0.0655) 2%, transparent 2%, transparent 12%, rgba(70, 202, 245, 0.05) 12%, rgba(70, 202, 245, 0.05) 100%), linear-gradient(77deg, rgba(87, 87, 87, 0.05) 0%, rgba(87, 87, 87, 0.05) 18%, transparent 18%, transparent 55%, rgba(247, 247, 247, 0.02) 55%, rgba(247, 247, 247, 0.02) 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
-    padding: 2rem 0;
+    padding-block: 2rem;
+    padding-inline: 0;
     color: #fff;
     position: relative;
     z-index: 2;
     transform: translate3d(0, 0, 0);
+
+    & .wrapper {
+        padding: 0;
+    }
 }
 
 .footer__inner {
@@ -318,7 +332,9 @@ body {
 
 .social-links {
     display: flex;
-    margin: 0 0 2rem 0;
+    margin-block-end: 2rem;
+    margin-block-start: 0;
+    margin-inline: 0;
     padding: 0;
     list-style: none;
 
@@ -327,7 +343,7 @@ body {
     }
 
     li {
-        margin-right: 1rem;
+        margin-inline-end: 1rem;
     }
 }
 
@@ -362,7 +378,7 @@ body {
     margin: 0;
 
     @media (--sm-viewport) {
-        margin-left: auto;
+        margin-inline-start: auto;
     }
 }
 
@@ -416,8 +432,7 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-block: 2rem;
 }
 
 .article__title {
@@ -443,7 +458,9 @@ body {
 }
 
 .article-snippet__published {
-    margin: 0.5rem 0 0 0;
+    margin-block-start: 0.5rem;
+    margin-block-end: 0;
+    margin-inline: 0;
     font-weight: bold;
     line-height: 1.1;
     font-family: var(--heading-font-family);
@@ -454,18 +471,22 @@ body {
     font-weight: bold;
     line-height: 1.1;
     font-family: var(--heading-font-family);
-    margin: 2rem 0 0 0;
+    margin-block-start: 2rem;
+    margin-block-end: 0;
+    margin-inline: 0;
     font-size: 1.2rem;
 }
 
 .article-snippet__description {
-    margin: 1rem 0 0 0;
+    margin-block-start: 1rem;
+    margin-block-end: 0;
+    margin-inline: 0;
     color: var(--color-shark);
 }
 
 .article__hero {
     padding: 0;
-    margin-bottom: 3rem;
+    margin-block-end: 3rem;
 }
 
 .hero-img {
@@ -482,19 +503,19 @@ body {
     }
 
     *+* {
-        margin-top: 1rem;
+        margin-block-start: 1rem;
     }
 
     *+h2,
     *+h3,
     *+h4,
     *+h5 {
-        margin-top: 2.5rem;
+        margin-block-start: 2.5rem;
         color: var(--black);
     }
 
     li {
-        margin-top: 0.25em;
+        margin-block-start: 0.25em;
     }
 
     blockquote {
@@ -502,8 +523,10 @@ body {
         border-width: 2px 0;
         border-style: solid;
         border-color: #eee;
-        padding: 1rem 2rem;
-        margin: 3.5rem 0;
+        padding-block: 1rem;
+        padding-inline: 2rem;
+        margin-block: 3.5rem;
+        margin-inline: 0;
         position: relative;
         font-size: 1.25rem;
         font-style: italic;
@@ -530,7 +553,8 @@ body {
         height: 1px;
         width: 10%;
         position: relative;
-        margin: 30px auto;
+        margin-block: 1.875rem;
+        margin-inline: auto;
         background: #0a7894;
         overflow: visible;
 
@@ -550,14 +574,15 @@ body {
     }
 
     p:has(img) {
-        margin-top: 2rem;
+        margin-block-start: 2rem;
 
         +* {
-            margin-top: 2rem;
+            margin-block-start: 2rem;
         }
 
         img {
-            margin: 0 auto;
+            margin-block: 0;
+            margin-inline: auto;
         }
     }
 }
@@ -569,13 +594,13 @@ body {
 }
 
 .article__footer {
-    margin-bottom: 4rem;
+    margin-block-end: 4rem;
 }
 
 .article-list {
     list-style: none;
-    margin-left: 0;
-    padding-left: 0;
+    margin-inline-start: 0;
+    padding-inline: 0;
 }
 
 .article-list__item {
@@ -604,9 +629,8 @@ body {
             float: right;
             width: 35%;
             max-width: 25rem;
-            margin-left: 2rem;
-            margin-bottom: 5.5rem;
-            margin-top: 5.5rem;
+            margin-inline-start: 2rem;
+            margin-block: 5.5rem;
         }
     }
 }
@@ -615,12 +639,13 @@ body {
 .experience__timeline {
     display: flex;
     flex-direction: column;
-    padding: 0 0 32px 0;
+    padding-block: 0 2rem;
+    padding-inline: 0;
     font-size: 1.125rem;
     position: relative;
 
     &:after {
-        top: 20px;
+        top: 1.25rem;
         left: 0;
         bottom: 0;
         width: 2px;
@@ -631,7 +656,7 @@ body {
     }
 
     @media (--md-viewport) {
-        margin-left: 260px;
+        margin-inline-start: 15.625rem;
     }
 }
 
@@ -654,12 +679,13 @@ body {
 }
 
 .experience__content {
-    padding: 0 1rem;
-    gap: 8px;
+    padding-block: 0;
+    padding-inline: 1rem;
+    gap: 0.5rem;
     color: var(--c-grey-400);
     display: flex;
     flex-direction: column;
-    margin-bottom: 24px;
+    margin-block-end: 1.5rem;
 
     * {
         margin: 0;
@@ -681,15 +707,15 @@ body {
 
 
 .experience__date {
-    padding: 0 6px;
+    padding: 0 0.375rem;
     font-size: 1rem;
-    min-height: 40px;
+    min-height: 2.5rem;
     text-align: center;
-    width: 260px;
+    width: 16.25rem;
     right: 100%;
     background-color: var(--resume-arrow-bg);
     order: 1;
-    margin-left: 20px;
+    margin-inline-start: 1.25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -721,8 +747,8 @@ body {
     }
 
     @media (--md-viewport) {
-        margin-left: 0;
-        margin-right: 34px;
+        margin-inline-start: 0;
+        margin-inline-end: 34px;
         position: absolute;
         left: auto;
         top: 0;

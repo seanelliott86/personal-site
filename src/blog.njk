@@ -4,12 +4,14 @@ layout: 'base.njk'
 ---
 
 <div class="wrapper">
-    <h1>Recent articles</h1>
-    <ul class="article-list">
+    <div class="content">
+        <h1>Recent articles</h1>
+        <ul class="article-list">
 
-        {%- for post in collections.post | reverse -%}
+            {%- for post in collections.post | reverse -%}
             {% include 'article-snippet.njk' %}
-        {%- endfor -%}
+            {%- endfor -%}
 
-    </ul>
+        </ul>
+    </div>
 </div>
