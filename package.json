@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "watch:css": "postcss src/css/styles.css --dir public/css --watch",
-    "build:css": "postcss src/css/styles.css --dir public/css",
+    "build:css": "NODE_ENV=production postcss src/css/styles.css --dir public/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
     "start": "concurrently \"yarn build:css\" \"yarn watch:css\" \"yarn watch:eleventy\"",
@@ -27,12 +27,14 @@
     "@11ty/eleventy": "3.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "concurrently": "^9.1.0",
+    "cssnano": "^7.0.6",
     "eleventy-plugin-svg-sprite": "^2.4.2",
     "modern-normalize": "^1.1.0",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
     "postcss-custom-media": "^11.0.5",
-    "postcss-import": "^16.1.0"
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^10.1.3"
   },
   "packageManager": "yarn@4.5.3",
   "dependencies": {
