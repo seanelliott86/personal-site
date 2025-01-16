@@ -1,62 +1,64 @@
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>
-      {% if title %}
-        {{title}} - {% endif %}Sean Elliott</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-    {% if '/blog' in page.url %}
-      <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
-    {% endif %}
-    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <link rel="stylesheet" href="/css/styles.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DF7HCRWLY3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
 
-      gtag('config', 'G-DF7HCRWLY3');
-    </script>
-  </head>
-  <body>
-    {% svgsprite %}
-    {% include 'header.njk' %}
-    <div class="fancy-main">
-      <div class="top-content-angle"></div>
-      <main>
-        {{ content | safe }}
-      </main>
-      <div class="bottom-content-angle"></div>
-    </div>
-    {% include 'footer.njk' %}
+<head>
+  <meta charset="utf-8">
+  <title>
+    {% if title %}
+    {{title}} - {% endif %}Sean Elliott</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  {% if '/blog' in page.url %}
+  <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+  {% endif %}
+  <link rel="stylesheet" href="/css/styles.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DF7HCRWLY3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-    <script>
-      if (window.netlifyIdentity) {
-        window
-          .netlifyIdentity
-          .on("init", user => {
-            if (!user) {
-              window
-                .netlifyIdentity
-                .on("login", () => {
-                  document.location.href = "/admin/";
-                });
-            }
-          });
-      }
-    </script>
-  </body>
+    gtag('config', 'G-DF7HCRWLY3');
+  </script>
+</head>
+
+<body>
+  {% svgsprite %}
+  {% include 'header.njk' %}
+  <div class="fancy-main">
+    <div class="top-content-angle"></div>
+    <main>
+      {{ content | safe }}
+    </main>
+    <div class="bottom-content-angle"></div>
+  </div>
+  {% include 'footer.njk' %}
+
+  <script>
+    if (window.netlifyIdentity) {
+      window
+        .netlifyIdentity
+        .on("init", user => {
+          if (!user) {
+            window
+              .netlifyIdentity
+              .on("login", () => {
+                document.location.href = "/admin/";
+              });
+          }
+        });
+    }
+  </script>
+</body>
+
 </html>
