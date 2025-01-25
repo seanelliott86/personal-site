@@ -8,6 +8,7 @@ const outputDir = "./public/assets/uploads";
 const presets = {
     "hero-img": [300, 600, 800, 1200],
     "default-img": [300, 600, 800],
+    "home-img": [225, 450, 675],
 };
 
 function getImageDimensions(src) {
@@ -20,7 +21,7 @@ function generateSrcset(baseName, widths, format) {
 }
 
 function generateImageTag(srcUrl, alt, className, sizes, srcset) {
-    return `<img src="${srcUrl}" alt="${alt}" class="${className}" sizes="${sizes}" srcset="${srcset}">`;
+    return `<img src="${srcUrl}" alt="${alt}" class="${className}" sizes="${sizes}" srcset="${srcset}" decoding="async" loading="lazy">`;
 }
 
 async function generateImageMetadata(sourcePath, widths) {
@@ -52,7 +53,7 @@ async function generateImageAsync(src, alt, className) {
     const sourcePath = path.join("./src", src);
 
     if (path.extname(src).toLowerCase() === ".gif") {
-        return `<img src="${src}" alt="${alt}" class="${className}">`;
+        return `<img src="${src}" alt="${alt}" class="${className}" decoding="async" loading="lazy">`;
     }
 
     try {
@@ -62,7 +63,7 @@ async function generateImageAsync(src, alt, className) {
         let widths = getWidths(maxWidth, className);
 
         if (maxWidth < 300) {
-            return `<img src="${src}" alt="${alt}" class="${className}">`;
+            return `<img src="${src}" alt="${alt}" class="${className} decoding="async" loading="lazy">`;
         }
 
         const metadata = await generateImageMetadata(sourcePath, widths);
@@ -85,7 +86,7 @@ function generateImageSync(src, alt, className) {
     const sourcePath = path.join("./src", src);
 
     if (path.extname(src).toLowerCase() === ".gif") {
-        return `<img src="${src}" alt="${alt}" class="${className}">`;
+        return `<img src="${src}" alt="${alt}" class="${className}" decoding="async" loading="lazy">`;
     }
 
     try {
@@ -95,7 +96,7 @@ function generateImageSync(src, alt, className) {
         let widths = getWidths(maxWidth, className);
 
         if (maxWidth < 300) {
-            return `<img src="${src}" alt="${alt}" class="${className}">`;
+            return `<img src="${src}" alt="${alt}" class="${className}" decoding="async" loading="lazy">`;
         }
 
         const baseName = path.basename(src, path.extname(src));
