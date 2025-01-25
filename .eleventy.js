@@ -1,6 +1,9 @@
 import { DateTime } from "luxon"
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight"
 import svgSprite from "eleventy-plugin-svg-sprite"
+import { imageShortcode, imageShortcodeSync } from './src/utils/image.js';
+import markdownIt from "markdown-it";
+import markdownItAttrs from "markdown-it-attrs";
 const PORT = 8080 // use a port you are reasonably sure is not in use elsewhere
 
 export default function (eleventyConfig) {
@@ -52,6 +55,24 @@ export default function (eleventyConfig) {
 
         return `<p class="codepen" data-height="600" data-default-tab="result" data-slug-hash="${data_slug_hash}" data-user="${username}" style="height: 571px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"><span><a href="${url}">See the pen</a> (<a href="${user_profile}">@${username}</a>) on <a href="https://codepen.io">CodePen</a>.</span></p><script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>`;
     });
+
+    eleventyConfig.addShortcode("image", imageShortcode);
+
+    const markdownLib = markdownIt().use(markdownItAttrs).use((md) => {
+        const defaultRender = md.renderer.rules.image || function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+
+        md.renderer.rules.image = (tokens, idx, options, env, self) => {
+            const token = tokens[idx];
+            const src = token.attrGet('src');
+            const alt = token.content;
+            const className = token.attrGet('class') || '';
+
+            return imageShortcodeSync(src, alt, className);
+        };
+    });
+    eleventyConfig.setLibrary("md", markdownLib);
 
     return {
         dir: {
