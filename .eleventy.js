@@ -12,6 +12,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('./src/assets');
     eleventyConfig.addPassthroughCopy('./src/admin');
     eleventyConfig.addPassthroughCopy({ './src/favicon': '/' });
+    eleventyConfig.addPassthroughCopy("./src/fonts");
     eleventyConfig.setBrowserSyncConfig({
         files: './public/css/**/*.css',
         open: 'local'
@@ -58,7 +59,7 @@ export default function (eleventyConfig) {
 
     eleventyConfig.addShortcode("image", imageShortcode);
 
-    const markdownLib = markdownIt().use(markdownItAttrs).use((md) => {
+    const markdownLib = markdownIt({ html: true }).use(markdownItAttrs).use((md) => {
         const defaultRender = md.renderer.rules.image || function (tokens, idx, options, env, self) {
             return self.renderToken(tokens, idx, options);
         };
@@ -72,6 +73,7 @@ export default function (eleventyConfig) {
             return imageShortcodeSync(src, alt, className);
         };
     });
+
     eleventyConfig.setLibrary("md", markdownLib);
 
     return {

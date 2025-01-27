@@ -34,6 +34,31 @@ svg {
 
 /* END: my preferred resets on top of modern-normalise */
 
+@font-face {
+    font-display: swap;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/poppins-v22-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/poppins-v22-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Adjusted Arial Fallback';
+    src: local(Arial);
+    size-adjust: 108%;
+    ascent-override: 98%;
+    descent-override: 38%;
+    line-gap-override: normal;
+}
+
 :root {
     --base-font-size: 16px;
     --color-black: #000000;
@@ -46,7 +71,7 @@ svg {
     --color-pictonBlue: #46caf5;
     --color-blueChill: #0A7894;
     --base-font-family: Helvetica, Arial, sans-serif;
-    --heading-font-family: 'Poppins', Helvetica, Arial, sans-serif;
+    --heading-font-family: 'Poppins', 'Adjusted Arial Fallback', sans-serif;
     --focus-color: var(--color-pictonBlue);
     --focus-color-dark: var(--color-black);
     --resume-arrow-bg: var(--color-pictonBlue);
