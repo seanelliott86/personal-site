@@ -11,6 +11,13 @@ const presets = {
     "home-img": [225, 450, 675],
 };
 
+// Configuration object for sizes
+const sizesPresets = {
+    "hero-img": "(min-width: 60em) 800px, (min-width: 48em) calc(100vw - 80px), calc(100vw - 48px)",
+    "default-img": "(min-width: 60em) 672px, 100vw",
+    "home-img": "(min-width: 60em) 264px, (min-width: 48em) 225px, 272px",
+};
+
 function getImageDimensions(src) {
     const dimensions = sizeOf(src);
     return { width: dimensions.width, height: dimensions.height };
@@ -21,13 +28,13 @@ function generateSrcset(baseName, widths, format) {
 }
 
 function generateImageTag(srcUrl, alt, className, sizes, srcset) {
-    return `<img src="${srcUrl}" alt="${alt}" class="${className}" sizes="${sizes}" srcset="${srcset}" decoding="async" loading="lazy">`;
+    return `<img src="${srcUrl}" alt="${alt}" class="${className || ''}" sizes="${sizes}" srcset="${srcset}" decoding="async" loading="lazy">`;
 }
 
 async function generateImageMetadata(sourcePath, widths) {
     return await Image(sourcePath, {
         widths,
-        formats: ["jpeg"],
+        formats: ["avif"],
         outputDir,
         urlPath: "/assets/uploads/",
         filenameFormat: function (id, src, width, format, options) {
@@ -40,7 +47,7 @@ async function generateImageMetadata(sourcePath, widths) {
 
 function handleError(src, alt, className, error) {
     console.error(`Error generating image for ${src}:`, error);
-    return `<img src="${src}" alt="${alt}" class="${className}">`;
+    return `<img src="${src}" alt="${alt}" class="${className || ''}">`;
 }
 
 function getWidths(maxWidth, className) {
@@ -49,11 +56,15 @@ function getWidths(maxWidth, className) {
     return widths.filter(width => width <= maxWidth);
 }
 
+function getSizes(className) {
+    return sizesPresets[className] || "100vw";
+}
+
 async function generateImageAsync(src, alt, className) {
     const sourcePath = path.join("./src", src);
 
     if (path.extname(src).toLowerCase() === ".gif") {
-        return `<img src="${src}" alt="${alt}" class="${className}" decoding="async" loading="lazy">`;
+        return `<img src="${src}" alt="${alt}" class="${className || ''}" decoding="async" loading="lazy">`;
     }
 
     try {
@@ -63,14 +74,14 @@ async function generateImageAsync(src, alt, className) {
         let widths = getWidths(maxWidth, className);
 
         if (maxWidth < 300) {
-            return `<img src="${src}" alt="${alt}" class="${className} decoding="async" loading="lazy">`;
+            return `<img src="${src}" alt="${alt}" class="${className || ''}" decoding="async" loading="lazy">`;
         }
 
         const metadata = await generateImageMetadata(sourcePath, widths);
         const baseName = path.basename(src, path.extname(src));
-        const srcset = generateSrcset(baseName, widths, "jpeg");
-        const sizes = "100vw";
-        const srcUrl = metadata.jpeg[0].url;
+        const srcset = generateSrcset(baseName, widths, "avif");
+        const sizes = getSizes(className);
+        const srcUrl = metadata.avif[0].url;
 
         console.log(`Generating image tag for ${src}`);
         console.log(`srcUrl: ${srcUrl}`);
@@ -86,7 +97,7 @@ function generateImageSync(src, alt, className) {
     const sourcePath = path.join("./src", src);
 
     if (path.extname(src).toLowerCase() === ".gif") {
-        return `<img src="${src}" alt="${alt}" class="${className}" decoding="async" loading="lazy">`;
+        return `<img src="${src}" alt="${alt}" class="${className || ''}" decoding="async" loading="lazy">`;
     }
 
     try {
@@ -96,12 +107,12 @@ function generateImageSync(src, alt, className) {
         let widths = getWidths(maxWidth, className);
 
         if (maxWidth < 300) {
-            return `<img src="${src}" alt="${alt}" class="${className}" decoding="async" loading="lazy">`;
+            return `<img src="${src}" alt="${alt}" class="${className || ''}" decoding="async" loading="lazy">`;
         }
 
         const baseName = path.basename(src, path.extname(src));
         const srcset = generateSrcset(baseName, widths, "jpeg");
-        const sizes = "100vw";
+        const sizes = getSizes(className);
         const srcUrl = `/assets/uploads/${baseName}-${widths[0]}w.jpeg`;
 
         console.log(`Generating image tag for ${src}`);
