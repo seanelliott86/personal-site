@@ -27,3 +27,17 @@ Once I had done that, I thought, well your in this far, might as well update you
 Then something funny happened I just decided to look at how heavy my site is. Stupidly I though "hey your a super awesome frontend dev, you made a static site. Its much quicker then any framework driven site".
 
 Shamefully that wasn't the case, when I checked with [Cloudflare radar url scanner](https://radar.cloudflare.com/scan), the results were bad to say the least.
+
+Below is each test screenshot, I will also include a text description and link to the full results.
+
+**January 15 2025 results**
+
+![](assets/uploads/jan-15-2025-results.jpg)
+
+* Requests: 9
+* Bytes Transferred: 772.89kB
+* Bytes Total: 1.19MB
+
+[Full results for January 15](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)
+
+[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)
