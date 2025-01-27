@@ -26,12 +26,4 @@ Once I had done that, I thought, well your in this far, might as well update you
 
 Then something funny happened I just decided to look at how heavy my site is. Stupidly I though "hey your a super awesome frontend dev, you made a static site. Its much quicker then any framework driven site".
 
-Shamefully that wasn't the case.
-
-## Cloudflare radar results
-
-### January 15, 2025
-
-* Requests = 9
-* Bytes Transferred = 772.89kB
-* Bytes Total = 1.19MB
+Shamefully that wasn't the case, when I checked with [Cloudflare radar url scanner](https://radar.cloudflare.com/scan), the results were bad to say the least.
