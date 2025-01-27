@@ -18,6 +18,20 @@ Im not sure what started this maybe because I've circled back to an idea I had y
 
 But I can tell you about 3 weeks ago I really got stuck in, a quick summary:
 
-* Updated all dependencies to latest version - eleventy is now at v3 so that required a bit of work
-* Removed SASS and went vanilla CSS - with a little bit of PostCSS
-* Started using Yarn - honestly I thought I was but based off my commits that wasnt the case
+* Updated all dependencies to latest version - eleventy is now at v3 so that required a bit of work.
+* Removed SASS and went vanilla CSS, with a little bit of PostCSS.
+* Started using Yarn - honestly I thought I was before, but based off my commits that wasnt the case.
+
+Once I had done that, I thought, well your in this far, might as well update your CSS to use logical properties, meaning I updated all my `margin-left`, `margin-right` etc to be `margin-inline-start`, `margin-inline-end` to make it easier when I want my site to be LTR/RTL.
+
+Then something funny happened I just decided to look at how heavy my site is. Stupidly I though "hey your a super awesome frontend dev, you made a static site. Its much quicker then any framework driven site".
+
+Shamefully that wasn't the case.
+
+## Cloudflare radar results
+
+### January 15, 2025
+
+* Requests = 9
+* Bytes Transferred = 772.89kB
+* Bytes Total = 1.19MB
