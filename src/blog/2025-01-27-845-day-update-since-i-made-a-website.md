@@ -49,7 +49,7 @@ Next, I had an existential crisis. Would my website survive without Google Analy
 
 To be honest, I’ve never actually looked at GA since installing it, so all I was really doing was pandering to the unwritten rule: *“You must use GA on your website or be smote.”*
 
-Plus, I doubt I’d ever use GA to its fullest. And I definitely didn’t want to write my own analytics script. So I needed a replacement—enter [GoatCounter](<>).
+Plus, I doubt I’d ever use GA to its fullest. And I definitely didn’t want to write my own analytics script. So I needed a replacement—enter [GoatCounter](https://www.goatcounter.com/).
 
 Now, instead of loading 111kB of GA script to collect data I’ll never look at, I have ~3.5kB of GoatCounter script collecting just as much *useful* data (which, let’s be real, I still won’t look at). Win-win.
 
@@ -80,4 +80,4 @@ Some of you might scoff and say, *“We have fast internet now. It’s not the d
 
 I had a product page open in a tab, ready for the next time I went shopping. When I opened it in the store, it didn’t just load slowly—it failed completely. I had one bar of 4G because the shopping centre has terrible reception inside. To get the page to load, I would have had to step outside, find better reception, then go back in. Sure, there was public WiFi, but honestly? I’d rather lick a toilet bowl than use public WiFi.
 
-When I got home, I ran a scan of the site. Turns out, it delivers **~12MB** on a simple product page. I’m sure it’s not the worst offender, but that’s huge![](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary)[](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary)[](https://www.goatcounter.com/)
+When I got home, I ran a scan of the site. Turns out, it delivers **~12MB** on a simple product page. I’m sure it’s not the worst offender, but that’s huge!
