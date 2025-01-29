@@ -7,19 +7,19 @@ tags:
 ---
 Well, hello there!
 
-Since I first published this site, in October 2022 - yes its that long ago there have been some updates.
+Since I first published this site, in October 2022—yes its that long ago there have been some updates.
 
 I publish 2 articles, the first one about [ensuring the focus appearance of focusable elements is accessible](https://www.seanelliott.au/blog/2024-05-16-is-your-focus-appearance-accessible/) and the other about [leveraging React Testing Library for accessibility testing](https://www.seanelliott.au/blog/2024-12-27-catching-accessibility-issues-early-with-react-testing-library/).
 
-Not a lot in terms of blogging, some little updates here and there to improve things with the build or bump versions of dependancies - I did what I didnt want to do which was not use the site.
+Not a lot in terms of blogging, some little updates here and there to improve things with the build or bump versions of dependancies—I did what I didnt want to do which was not use the site.
 
 But recently I got really stuck into optimising the site. Im not sure what started this maybe because I've circled back to an idea I had years ago that my personal site would have a resume section, which potential recruiters could visit and then print, so leveraging some awesome print css wizardry and I wouldn't need to have a word doc anymore buuuuut, thats still a work in progress.
 
 But I can tell you about 3 weeks ago I really got stuck in making changes, a quick summary:
 
-* Updated all dependencies to latest version - eleventy is now at v3 so that required a bit of work.
+* Updated all dependencies to latest version—eleventy is now at v3 so that required a bit of work.
 * Removed SASS and went vanilla CSS, with a little bit of PostCSS.
-* Started using Yarn - honestly I thought I was before, but based off my commits that wasnt the case.
+* Started using Yarn—honestly I thought I was before, but based off my commits that wasnt the case.
 
 Once I had done that, I thought, well your in this far, might as well update your CSS to use logical properties, meaning I updated all my `margin-left`, `margin-right` etc to be `margin-inline-start`, `margin-inline-end` to make it easier when I want my site to be LTR/RTL.
 
@@ -38,7 +38,7 @@ Shamefully that wasn't the case, when I checked with [Cloudflare radar url scann
 
 I then went about improving this experience by:
 
-* minifying the css - should of been done at the start but I think I lost that when I left SASS.
+* minifying the css—should of been done at the start but I think I lost that when I left SASS.
 * moved the netlify login script so its not on all pages, just the one I need.
 
 ![Network traffic results 16th of January 2025, 8 requests, 717 kilobytes transferred, 915 kilobytes total](assets/uploads/jan-16-2025-results.jpg)
@@ -64,11 +64,11 @@ The most impactful update was dealing with images. I’ll be honest—I dropped 
 
 Implementing responsive images took some time. I leveraged an 11ty plugin called [eleventy-img](https://www.11ty.dev/docs/plugins/image/) and even modified how I used it to cover images in markdown—mainly those inserted when writing articles with Decap CMS.
 
-I identified a few "presets" for different images use cases, for instance my blog article have a hero image, which are a consistent size width wise.
+I identified a few presets for different images use cases, for instance my blog articles can have a hero image, which are a consistent size width wise so I wanted specific sized images for that.
 
 My first attempt was good, but I need to do more as I wasn't using the `sizes` attribute correctly, thats where this handy bookmarklet called [RespImageLint - Linter for Responsive Images](https://ausi.github.io/respimagelint/) helped out. It evaluated where I was going wrong and suggest changes. Its still not 100% perfect but its far better.
 
-After is all said and done this was the final result of my work.
+After is all said and done this was the final result of all my work.
 
 ![Network traffic results 27th of January 2025, 8 requests, 38 kilobytes transferred, 58 kilobytes total](assets/uploads/jan-27-2025-results-final.jpg)
 
