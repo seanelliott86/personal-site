@@ -35,7 +35,7 @@ Below is each test screenshot, I will also include a text description and link t
 ![](assets/uploads/jan-15-2025-results.jpg)
 
 * Requests: 9
-* Bytes Transferred: 772.89kB
+* Bytes Transferred: 772kB
 * Bytes Total: 1.19MB
 
 [Full results for January 15](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)
@@ -45,9 +45,17 @@ I was shocked, 1MB being set to people over the network. I dove into the network
 * 9kb of google fonts
 * 111.1kB of google analytics
 * 589kB of images
-* 54kB of login script
+* 54kB of netlify login script
 
 I then went about improving this experience:
 
 * minify the css - should of been done at the start
-*
+* moved the netlify login script
+
+![](assets/uploads/jan-16-2025-results.jpg)
+
+* Requests: 8
+* Bytes Transferred: 717kB
+* Bytes Total: 951kB
+
+As you can see these simple changes got me under 1MB but I didnt stop there.
