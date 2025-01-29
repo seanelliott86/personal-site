@@ -47,4 +47,7 @@ I was shocked, 1MB being set to people over the network. I dove into the network
 * 589kB of images
 * 54kB of login script
 
-I
+I then went about improving this experience:
+
+* minify the css - should of been done at the start
+*
