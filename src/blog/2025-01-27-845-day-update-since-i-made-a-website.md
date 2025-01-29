@@ -11,21 +11,21 @@ Since I first published this site, in October 2022—yes its that long ago there
 
 I publish 2 articles, the first one about [ensuring the focus appearance of focusable elements is accessible](https://www.seanelliott.au/blog/2024-05-16-is-your-focus-appearance-accessible/) and the other about [leveraging React Testing Library for accessibility testing](https://www.seanelliott.au/blog/2024-12-27-catching-accessibility-issues-early-with-react-testing-library/).
 
-Not a lot in terms of blogging, some little updates here and there to improve things with the build or bump versions of dependancies—I did what I didnt want to do which was not use the site.
+Not a lot in terms of blogging, some little updates here and there to improve things with the build or bump versions of dependancies—I ended up doing what I didnt want to do which was not use the site often.
 
-But recently I got really stuck into optimising the site. Im not sure what started this maybe because I've circled back to an idea I had years ago that my personal site would have a resume section, which potential recruiters could visit and then print, so leveraging some awesome print css wizardry and I wouldn't need to have a word doc anymore buuuuut, thats still a work in progress.
+But recently I got really stuck into optimising the site. Im not sure what started this maybe because I've circled back to an idea I had years ago that my personal site would have a resume section, which potential recruiters could visit and then print, so leveraging some awesome print CSS wizardry and I wouldn't need to have a word doc anymore buuuuut, thats still a work in progress.
 
-But I can tell you about 3 weeks ago I really got stuck in making changes, a quick summary:
+But while playing around about 3 weeks ago I really got stuck in making some big changes, a quick summary:
 
 * Updated all dependencies to latest version—eleventy is now at v3 so that required a bit of work.
 * Removed SASS and went vanilla CSS, with a little bit of PostCSS.
-* Started using Yarn—honestly I thought I was before, but based off my commits that wasnt the case.
+* Started using Yarn—honestly I thought I was before, but based off my commits that wasn't the case.
 
-Once I had done that, I thought, well your in this far, might as well update your CSS to use logical properties, meaning I updated all my `margin-left`, `margin-right` etc to be `margin-inline-start`, `margin-inline-end` to make it easier when I want my site to be LTR/RTL.
+Once I had completed that, I thought, well your in this far, might as well update your CSS to use logical properties, meaning I updated all my `margin-left`, `margin-right` etc to be `margin-inline-start`, `margin-inline-end` to make it easier when I want my site to be LTR/RTL.
 
-Then I just decided to look at how heavy my site is. Stupidly I though *"hey your a super awesome frontend dev, you made a static site. Its much quicker then any framework driven site"*.
+Then I just decided to look at how heavy my site is. Stupidly I though *"hey your a super awesome frontend dev, you made a static site. Its much quicker then any framework driven site, prepared to be amazed at thy self"*.
 
-Shamefully that wasn't the case, when I checked with [Cloudflare radar url scanner](https://radar.cloudflare.com/scan), the results were bad.
+Shamefully, that wasn't the case, I was not amazed at thyself... far from it. When I checked with [Cloudflare radar url scanner](https://radar.cloudflare.com/scan), the results were bad.
 
 ![Network traffic results 15th of January 2025, 9 requests, 772 kilobytes transferred, 1.19 megabytes total](assets/uploads/jan-15-2025-results.jpg)
 
@@ -36,10 +36,10 @@ Shamefully that wasn't the case, when I checked with [Cloudflare radar url scann
 * 589kB for a single images
 * 54kB of netlify login script
 
-I then went about improving this experience by:
+I then went about improving this experience by attacking simple things:
 
-* minifying the css—should of been done at the start but I think I lost that when I left SASS.
-* moved the netlify login script so its not on all pages, just the one I need.
+* minifying the CSS—should of been done at the start but I think I lost that when I left SASS.
+* moved the Netlify login script so its not on all pages, just the one pages its need on.
 
 ![Network traffic results 16th of January 2025, 8 requests, 717 kilobytes transferred, 915 kilobytes total](assets/uploads/jan-16-2025-results.jpg)
 
@@ -51,14 +51,14 @@ To be honest, I’ve never actually looked at GA since installing it, so all I w
 
 Plus, I doubt I’d ever use GA to its fullest. And I definitely didn’t want to write my own analytics script. So I needed a replacement—enter [GoatCounter](https://www.goatcounter.com/).
 
-Now, instead of loading 111kB of GA script to collect data I’ll never look at, I have ~3.5kB of GoatCounter script collecting just as much *useful* data (which, let’s be real, I still won’t look at). Win-win.
+Now, instead of loading 111kB of GA script to collect data I’ll never look at, I have ~3.5kB of GoatCounter script collecting just as much useful data (which, let’s be real, I still won’t look at). Win-win.
 
-Another quick win was self hosting the google font and making some font adjustments to reduce things like [First Contentful Paint (FCP)](https://web.dev/articles/fcp)and [Largest Contentful Paint (LCP)](https://web.dev/articles/lcp). I leveraged a few tools for this:
+Another quick win was self hosting the Google fonts I use, plus making some font adjustments to reduce things like [First Contentful Paint (FCP)](https://web.dev/articles/fcp)and [Largest Contentful Paint (LCP)](https://web.dev/articles/lcp). I leveraged a few tools for this:
 
 * [google-webfonts-helper](https://gwfh.mranftl.com/fonts/) to download the files locally which have the charsets and styles I need and nothing else.
-* [Fallback Font Generator](https://screenspan.net/fallback) to tweak the fallback font.
+* [Fallback Font Generator](https://screenspan.net/fallback) to tweak the fallback font so its not as jarring when the Google font kicks in.
 
-I may have shaved off only 1kb with a result of 7.99kB, but there is less requests now and the performance is better in relation to FCP and LCP. I think there is still more I can do here.
+I may have shaved off only 1kb with a result of 7.99kB be self hosting, but there are less requests now and the performance is better in relation to FCP and LCP. I think there is still more I can do here.
 
 The most impactful update was dealing with images. I’ll be honest—I dropped that image on the homepage quickly, just because the design needed something other than text. Looking back, I could have optimised it ages ago instead of leaving a 675 × 675px image sitting at almost 600kB.
 
@@ -66,21 +66,21 @@ Implementing responsive images took some time. I leveraged an 11ty plugin called
 
 I identified a few presets for different images use cases, for instance my blog articles can have a hero image, which are a consistent size width wise so I wanted specific sized images for that.
 
-My first attempt was good, but I need to do more as I wasn't using the `sizes` attribute correctly, thats where this handy bookmarklet called [RespImageLint - Linter for Responsive Images](https://ausi.github.io/respimagelint/) helped out. It evaluated where I was going wrong and suggest changes. Its still not 100% perfect but its far better.
+My first attempt was good, but I need to do more as I wasn't using the `sizes` attribute correctly, thats where this handy bookmarklet called [RespImageLint - Linter for Responsive Images](https://ausi.github.io/respimagelint/) helped out. It evaluated where I was going wrong and suggest changes. Responsive images on my site is still not 100% perfect but its far better.
 
 After is all said and done this was the final result of all my work.
 
 ![Network traffic results 27th of January 2025, 8 requests, 38 kilobytes transferred, 58 kilobytes total](assets/uploads/jan-27-2025-results-final.jpg)
 
-Thats a huge 95% decrease in total bytes! You can see the [full results of the January 27 scan](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary) for even more details.
+Thats a huge 95% decrease in total bytes from the first scan! You can see the [full results of the January 27 scan](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary) for even more details.
 
 I remember a time when optimising websites to reduce load times was super important. Somewhere along the way, I forgot that—and I bet a lot of other people have too.
 
-Some of you might scoff and say, *“We have fast internet now. It’s not the dark ages of dial-up!”* But have you ever struggled to load a site because you barely had reception? I did today.
+Some of you might scoff and say, *“We have fast internet now. It’s not the dark ages of dial-up!”* But have you ever struggled to load a site because you barely had reception? I did today—which semi validated everything I did before it was a problem.
 
-I had a product page open in a tab, ready for the next time I went shopping. When I opened it in the store, it didn’t just load slowly—it failed completely. I had one bar of 4G because the shopping centre has terrible reception inside. To get the page to load, I would have had to step outside, find better reception, then go back in. Sure, there was public WiFi, but honestly? I’d rather lick a toilet bowl than use public WiFi.
+I kept a product page open in a tab on my phone, ready for the next time I went shopping. When I opened it in the store, it didn’t just load slowly—it failed completely. I had one bar of 4G because the shopping centre has terrible reception while inside. If I wanted to get the page to load, I would have had to step outside, find better reception, then go back in. Sure, there was public WiFi, but honestly? I’d rather lick a toilet bowl than use public WiFi.
 
-When I got home, I ran a scan of the site. Turns out, it delivers **~12MB** on a simple product page. I’m sure it’s not the worst offender, but that’s huge!
+When I got home, I ran a scan of the site. Turns out, it ships **~12MB** on a product page. I’m sure it’s not the worst offender on the internet, but that’s huge!
 
 At the end of the day, every byte matters. Optimising my site wasn’t just about shaving off kilobytes for fun—it was about making intentional choices to create a faster, more accessible experience for everyone, no matter their device or connection.
 
