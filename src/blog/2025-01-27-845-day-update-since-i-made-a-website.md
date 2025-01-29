@@ -62,4 +62,14 @@ As you can see these simple changes got me under 1MB but I didnt stop there.
 
 Next I had an existential crisis, will I survive without Google Analytics (GA), what about other analytics options, should I write my own.
 
-To be honest, I havent looked at GA since installing it so all I'm doing is pandering to the current norm of "you must use GA. Plus if i was to use it i most likely wouldn't use it to its fullest. Nor did I want to write my own. Meaning I had to find a replacement, enter [GoatCounter](https://www.goatcounter.com/). Now instead of 111kB of GA I know have ~3.5kB and get more then enough analytical data for my liking - I still havent looked at the collected data so I may remove it later.[](https://www.goatcounter.com/)
+To be honest, I haven't ever looked at GA since installing it on my site, so I figure all I'm doing is pandering to the supposed norm of "you must use GA on your website". Plus I doubt I will ever use it to its fullest. Nor did I want to write my own analytics script. Meaning I had to find a replacement, enter [GoatCounter](https://www.goatcounter.com/). Now instead of 111kB of GA script to collect data I wont look at, I now have ~3.5kB of GoatCounter script and I am collection more then enough analytical data that I still wont look at - win win.
+
+Another quick win was self hosting the google font and making some font adjustments to reduce things like [First Contentful Paint (FCP)](https://web.dev/articles/fcp)and [Largest Contentful Paint (LCP)](https://web.dev/articles/lcp). I leveraged a few tools for this:
+
+* [google-webfonts-helper](https://gwfh.mranftl.com/fonts/) to download the files locally which have the charsets and styles I need and nothing else.
+* [Fallback Font Generator](https://screenspan.net/fallback) to tweak the fallback font.
+
+[](https://web.dev/articles/lcp)The most impactful update was dealing with the images, I'll be honest I quickly dropped that image on the homepage in because the design needed something else other then text. So I admin, I could have done better a long time ago but just optimising the 675 x 675px image down from its almost 600kB size.\
+Time to implement responsive images.
+
+[](https://www.goatcounter.com/)
