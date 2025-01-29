@@ -1,5 +1,6 @@
 ---
-title: 845 day update since I made a website!
+title: It’s been 846 days… here’s what’s new on my website
+hero: assets/uploads/jj-ying-8bghkxnu1j0-unsplash.jpg
 date: 2025-01-27T18:52:00.000Z
 tags:
   - post
