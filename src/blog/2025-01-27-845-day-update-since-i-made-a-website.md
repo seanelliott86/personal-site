@@ -28,46 +28,40 @@ Then something funny happened I just decided to look at how heavy my site is. St
 
 Shamefully that wasn't the case, when I checked with [Cloudflare radar url scanner](https://radar.cloudflare.com/scan), the results were bad to say the least.
 
-Below is each test screenshot, I will also include a text description and link to the full results.
+![Network traffic results 15th of January 2025, 9 requests, 772 kilobytes transferred, 1.19 megabytes total](assets/uploads/jan-15-2025-results.jpg)
 
-**January 15 2025 results**
-
-![](assets/uploads/jan-15-2025-results.jpg)
-
-* Requests: 9
-* Bytes Transferred: 772kB
-* Bytes Total: 1.19MB
-
-[Full results for January 15](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)
-
-I was shocked, 1MB being set to people over the network. I dove into the networks list and found a few culprits:
+[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)I was shocked at the results of the scan, [see the full results](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary), ~1.20MB just to view my homepage. I dove into the networks list and found a few culprits:
 
 * 9kb of google fonts
-* 111.1kB of google analytics
-* 589kB of images
+* 111.1kB of google analytics scripts
+* 589kB for a single images
 * 54kB of netlify login script
 
-I then went about improving this experience:
+I then went about improving this experience by:
 
-* minify the css - should of been done at the start
-* moved the netlify login script
+* minifying the css - should of been done at the start but it wasnt.
+* moved the netlify login script so its not always there
 
-![](assets/uploads/jan-16-2025-results.jpg)
+![Network traffic results 16th of January 2025, 8 requests, 717 kilobytes transferred, 915 kilobytes total](assets/uploads/jan-16-2025-results.jpg)
 
 * Requests: 8
 * Bytes Transferred: 717kB
 * Bytes Total: 951kB
 
-As you can see these simple changes got me under 1MB but I didnt stop there.
+As you can see these simple changes got me under 1MB, but I didn't stop there.
 
-Next I had an existential crisis, will I survive without Google Analytics (GA), what about other analytics options, should I write my own.
+Next I had an existential crisis, will my website survive without Google Analytics (GA), what about other analytics options, should I write my own.
 
-To be honest, I haven't ever looked at GA since installing it on my site, so I figure all I'm doing is pandering to the supposed norm of "you must use GA on your website". Plus I doubt I will ever use it to its fullest. Nor did I want to write my own analytics script. Meaning I had to find a replacement, enter [GoatCounter](https://www.goatcounter.com/). Now instead of 111kB of GA script to collect data I wont look at, I now have ~3.5kB of GoatCounter script and I am collection more then enough analytical data that I still wont look at - win win.
+To be honest, I haven't ever looked at GA since installing it on my site, so I figure all I'm doing is pandering to the unwritten rules of "you must use GA on your website or be smote". \
+Plus I doubt I will ever use GA to its fullest. Nor did I want to write my own analytics script. Meaning I had to find a replacement, enter [GoatCounter](https://www.goatcounter.com/). \
+Now instead of 111kB of GA script to collect data I wont look at, I now have ~3.5kB of GoatCounter script and I am collection more then enough analytical data which I still wont look at - win win.
 
 Another quick win was self hosting the google font and making some font adjustments to reduce things like [First Contentful Paint (FCP)](https://web.dev/articles/fcp)and [Largest Contentful Paint (LCP)](https://web.dev/articles/lcp). I leveraged a few tools for this:
 
 * [google-webfonts-helper](https://gwfh.mranftl.com/fonts/) to download the files locally which have the charsets and styles I need and nothing else.
 * [Fallback Font Generator](https://screenspan.net/fallback) to tweak the fallback font.
+
+I may have shaved off only 1kb with a result of 7.99kB, but there is less requests now and the performance is better in relation to FCP and LCP. I think there is still more I can do here.
 
 [](https://web.dev/articles/lcp)The most impactful update was dealing with the images, I'll be honest I quickly dropped that image on the homepage in because the design needed something else other then text. So I admin, I could have done better a long time ago but just optimising the 675 x 675px image down from its almost 600kB size.\
 Time to implement responsive images.
