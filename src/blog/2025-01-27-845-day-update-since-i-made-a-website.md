@@ -72,4 +72,14 @@ Another quick win was self hosting the google font and making some font adjustme
 [](https://web.dev/articles/lcp)The most impactful update was dealing with the images, I'll be honest I quickly dropped that image on the homepage in because the design needed something else other then text. So I admin, I could have done better a long time ago but just optimising the 675 x 675px image down from its almost 600kB size.\
 Time to implement responsive images.
 
-[](https://www.goatcounter.com/)
+Responsive images took sometime, I leveraged a plugin from 11ty called [eleventy-img](https://www.11ty.dev/docs/plugins/image/). I modified how to use it a little to do more of what I wanted. I identified a few "presets" for different images uses, for instance my blog article have a hero image. Plus I had to deal with images in markdown without adding a stupid amount of extra tags - aint nobody got time for that.
+
+After is all said and done this was the final result of my work.
+
+![](assets/uploads/jan-27-2025-results-final.jpg)
+
+* Requests: 8
+* Bytes Transferred: 717kB
+* Bytes Total: 951kB
+
+[Full results for January 27](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary)[](https://www.goatcounter.com/)
