@@ -74,10 +74,16 @@ After is all said and done this was the final result of all my work.
 
 Thats a huge 95% decrease in total bytes! You can see the [full results of the January 27 scan](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary) for even more details.
 
-I remember a time when optimizing websites to reduce load times was super important. Somewhere along the way, I forgot that—and I bet a lot of other people have too.
+I remember a time when optimising websites to reduce load times was super important. Somewhere along the way, I forgot that—and I bet a lot of other people have too.
 
 Some of you might scoff and say, *“We have fast internet now. It’s not the dark ages of dial-up!”* But have you ever struggled to load a site because you barely had reception? I did today.
 
 I had a product page open in a tab, ready for the next time I went shopping. When I opened it in the store, it didn’t just load slowly—it failed completely. I had one bar of 4G because the shopping centre has terrible reception inside. To get the page to load, I would have had to step outside, find better reception, then go back in. Sure, there was public WiFi, but honestly? I’d rather lick a toilet bowl than use public WiFi.
 
 When I got home, I ran a scan of the site. Turns out, it delivers **~12MB** on a simple product page. I’m sure it’s not the worst offender, but that’s huge!
+
+At the end of the day, every byte matters. Optimising my site wasn’t just about shaving off kilobytes for fun—it was about making intentional choices to create a faster, more accessible experience for everyone, no matter their device or connection.
+
+It’s easy to fall into the trap of thinking that modern internet speeds make performance a lesser concern. But real-world conditions—bad reception, slow networks, and bloated pages—prove otherwise. If a website fails to load when someone needs it, does it even matter how beautifully designed it is or what fancy features it has?
+
+So, if it’s been a while since you thought about your site’s performance, maybe now’s the time. Your future self (and your users) will thank you.
