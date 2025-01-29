@@ -38,6 +38,13 @@ Below is each test screenshot, I will also include a text description and link t
 * Bytes Transferred: 772.89kB
 * Bytes Total: 1.19MB
 
-[Full results for January 15](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)
+[Full results for January 15](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)
 
-[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)
+I was shocked, 1MB being set to people over the network. I dove into the networks list and found a few culprits:
+
+* 9kb of google fonts
+* 111.1kB of google analytics
+* 589kB of images
+* 54kB of login script
+
+I
