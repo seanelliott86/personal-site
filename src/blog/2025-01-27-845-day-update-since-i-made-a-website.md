@@ -63,17 +63,18 @@ Another quick win was self hosting the google font and making some font adjustme
 
 I may have shaved off only 1kb with a result of 7.99kB, but there is less requests now and the performance is better in relation to FCP and LCP. I think there is still more I can do here.
 
-[](https://web.dev/articles/lcp)The most impactful update was dealing with the images, I'll be honest I quickly dropped that image on the homepage in because the design needed something else other then text. So I admin, I could have done better a long time ago but just optimising the 675 x 675px image down from its almost 600kB size.\
-Time to implement responsive images.
+[](https://web.dev/articles/lcp)The most impactful update was dealing with the images, I'll be honest I quickly dropped that image on the homepage, because the design needed something other then text. So I admit, I could have done better a long time ago by just optimising the 675 x 675px image down from its almost 600kB size.
 
-Responsive images took sometime, I leveraged a plugin from 11ty called [eleventy-img](https://www.11ty.dev/docs/plugins/image/). I modified how to use it a little to do more of what I wanted. I identified a few "presets" for different images uses, for instance my blog article have a hero image. Plus I had to deal with images in markdown without adding a stupid amount of extra tags - aint nobody got time for that.
+Implementing responsive images took sometime, I leveraged a plugin from 11ty called [eleventy-img](https://www.11ty.dev/docs/plugins/image/). I modified how to use to also cover images in markdown - mainly images inserted when writing articles using Decap CMS. 
+
+I identified a few "presets" for different images use cases, for instance my blog article have a hero image, which are a consistent size width wise.
+
+My first attempt was good, but I need to do more as I wasn't using the `sizes` attribute correctly, thats where this handy bookmarklet called [RespImageLint - Linter for Responsive Images](https://ausi.github.io/respimagelint/) helped out. It evaluated where I was going wrong and suggest changes. Its still not 100% perfect but its far better.
 
 After is all said and done this was the final result of my work.
 
-![](assets/uploads/jan-27-2025-results-final.jpg)
+![Network traffic results 27th of January 2025, 8 requests, 38 kilobytes transferred, 58 kilobytes total](assets/uploads/jan-27-2025-results-final.jpg)
 
-* Requests: 8
-* Bytes Transferred: 717kB
-* Bytes Total: 951kB
+Thats a huge 95.13% decrease in total bytes! You can see the [full results of the January 27 scan](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary) for even more details.
 
-[Full results for January 27](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary)[](https://www.goatcounter.com/)
+I personally remember a time where having the most optimized website to reduce load times was super important. Somewhere a long the way I forgot that and I bet a lot of other people have as well. Some of you may scoff and say "well we have fast internet now, its not the dark ages of dial up" but have you ever struggled to load a site because you have only 1 bar of 4G or less. Personally I did today. I wanted to find a [](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary)[](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary)[](https://www.goatcounter.com/)
