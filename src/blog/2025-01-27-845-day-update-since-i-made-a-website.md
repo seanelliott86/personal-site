@@ -1,6 +1,6 @@
 ---
 title: It’s been 846 days… here’s what’s new on my website
-hero: assets/uploads/jj-ying-8bghkxnu1j0-unsplash.jpg
+hero: /assets/uploads/jj-ying-8bghkxnu1j0-unsplash.jpg
 date: 2025-01-30T00:02:00.000Z
 tags:
   - post
@@ -26,7 +26,7 @@ Then I just decided to look at how heavy my site is. Stupidly I though *"hey you
 
 Shamefully, that wasn't the case, I was not amazed at thyself... far from it. When I checked with [Cloudflare radar url scanner](https://radar.cloudflare.com/scan), the results were bad.
 
-![Network traffic results 15th of January 2025, 9 requests, 772 kilobytes transferred, 1.19 megabytes total](assets/uploads/jan-15-2025-results.jpg)
+![Network traffic results 15th of January 2025, 9 requests, 772 kilobytes transferred, 1.19 megabytes total](/assets/uploads/jan-15-2025-results.jpg)
 
 [](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)I was shocked at the [results of the scan](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary), ~1.20MB just to view my homepage. I dove into the networks list and found a few culprits:
 
@@ -40,7 +40,7 @@ I then went about improving this experience by attacking simple things:
 * minifying the CSS—should of been done at the start but I think I lost that when I left SASS.
 * moved the Netlify login script so its not on all pages, just the one pages its need on.
 
-![Network traffic results 16th of January 2025, 8 requests, 717 kilobytes transferred, 915 kilobytes total](assets/uploads/jan-16-2025-results.jpg)
+![Network traffic results 16th of January 2025, 8 requests, 717 kilobytes transferred, 915 kilobytes total](/assets/uploads/jan-16-2025-results.jpg)
 
 As you can see these simple changes got me under 1MB, but I didn't stop there.
 
@@ -69,7 +69,7 @@ My first attempt was good, but I need to do more as I wasn't using the `sizes` a
 
 After is all said and done this was the final result of all my work.
 
-![Network traffic results 27th of January 2025, 8 requests, 38 kilobytes transferred, 58 kilobytes total](assets/uploads/jan-27-2025-results-final.jpg)
+![Network traffic results 27th of January 2025, 8 requests, 38 kilobytes transferred, 58 kilobytes total](/assets/uploads/jan-27-2025-results-final.jpg)
 
 Thats a huge 95% decrease in total bytes from the first scan! You can see the [full results of the scan](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary) for even more details.
 

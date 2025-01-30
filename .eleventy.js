@@ -1,7 +1,7 @@
 import { DateTime } from "luxon"
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight"
 import svgSprite from "eleventy-plugin-svg-sprite"
-import { imageShortcode, imageShortcodeSync } from './src/utils/image.js';
+import { imageShortcode } from './src/utils/image.js';
 import markdownIt from "markdown-it";
 import markdownItAttrs from "markdown-it-attrs";
 const PORT = 8080 // use a port you are reasonably sure is not in use elsewhere
@@ -59,22 +59,22 @@ export default function (eleventyConfig) {
 
     eleventyConfig.addShortcode("image", imageShortcode);
 
-    const markdownLib = markdownIt({ html: true }).use(markdownItAttrs).use((md) => {
-        const defaultRender = md.renderer.rules.image || function (tokens, idx, options, env, self) {
-            return self.renderToken(tokens, idx, options);
-        };
+    // const markdownLib = markdownIt({ html: true }).use(markdownItAttrs).use((md) => {
+    //     const defaultRender = md.renderer.rules.image || function (tokens, idx, options, env, self) {
+    //         return self.renderToken(tokens, idx, options);
+    //     };
 
-        md.renderer.rules.image = (tokens, idx, options, env, self) => {
-            const token = tokens[idx];
-            const src = token.attrGet('src');
-            const alt = token.content;
-            const className = token.attrGet('class') || '';
+    //     md.renderer.rules.image = (tokens, idx, options, env, self) => {
+    //         const token = tokens[idx];
+    //         const src = token.attrGet('src');
+    //         const alt = token.content;
+    //         const className = token.attrGet('class') || '';
 
-            return imageShortcodeSync(src, alt, className);
-        };
-    });
+    //         return imageShortcodeSync(src, alt, className);
+    //     };
+    // });
 
-    eleventyConfig.setLibrary("md", markdownLib);
+    // eleventyConfig.setLibrary("md", markdownLib);
 
     return {
         dir: {
