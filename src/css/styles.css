@@ -20,8 +20,9 @@ picture,
 video,
 canvas,
 svg {
+    max-inline-size: 100%;
+    block-size: auto;
     display: block;
-    max-width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -115,7 +116,7 @@ h6 {
     vertical-align: middle;
 }
 
-code {
+code:not([class*="language-"]) {
     background-color: rgba(242, 242, 242, 1);
     padding-block: 0.125rem;
     padding-inline: 0.25rem;
@@ -515,9 +516,9 @@ body {
 }
 
 .hero-img {
-    width: 100%;
-    height: auto;
+    aspect-ratio: 16/9;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .content {

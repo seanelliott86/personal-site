@@ -6,7 +6,8 @@ layout: 'base.njk'
     <div class="intro">
       <h2>Hi! I am Sean!</h2>
 
-      {% image "/assets/img/intro-picture-1.png", "Sean's picture", "home-img" %}
+      <img src="/assets/img/intro-picture-1.png" alt="Sean's picture" class="home-img" width="675" height="675"
+        eleventy:widths="225, 450, 675" sizes="(min-width: 60em) 264px, (min-width: 48em) 225px, 272px">
 
       <p>Welcome to the digital diary of a self-taught frontend UI developer on a mission for an accessible web!</p>
 
