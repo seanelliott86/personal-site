@@ -19,6 +19,7 @@ This is a constant work in-progress so always come back and have a look :)
 - [eleventy-plugin-syntaxhighlight](https://github.com/11ty/eleventy-plugin-syntaxhighlight)
 - [eleventy-plugin-svg-sprite](https://github.com/patrickxchong/eleventy-plugin-svg-sprite)
 - [Shortcodes see below](](#11ty-shortcodes))
+- [@11ty/eleventy-img](https://www.11ty.dev/docs/plugins/image/)
 
 **Templating language:** [Nunjucks](https://mozilla.github.io/nunjucks/)
 
@@ -29,10 +30,9 @@ This is a constant work in-progress so always come back and have a look :)
 - [PostCSS](https://postcss.org/)
 - [PostCSS CLI](https://github.com/postcss/postcss-cli)
 - [PostCSS Import](https://github.com/postcss/postcss-import)
+- [a11y-syntax-highlighting](https://github.com/ericwbailey/a11y-syntax-highlighting)
 
-**Yarn helpers:** 
-
-- [concurrently](https://github.com/open-cli-tools/concurrently)
+**Yarn helpers:** [concurrently](https://github.com/open-cli-tools/concurrently)
 
 **Icons Repo:** [Simple Icons](https://simpleicons.org/)
 
