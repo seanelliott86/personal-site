@@ -22,7 +22,7 @@ In the process, I went down a bit of a rabbit hole and made some big changes ove
 * Switched to Yarn—turns out I thought I was using it before, but based on my commits, that wasn’t the case.
 * Updated CSS to use logical properties—replaced margin-left, margin-right, etc., with margin-inline-start and margin-inline-end to make future LTR/RTL support easier.
 
-Then I just decided to look at how heavy my site is. Stupidly I though *"hey your a super awesome frontend dev, you made a static site. Its much better then any framework driven site, prepared to be amazed at thy self"*.
+Then I just decided to look at how heavy my site is. Stupidly I thought *"hey your a super awesome frontend dev, you made a static site. Its much better then any framework driven site, prepared to be amazed at thy self"*.
 
 Shamefully, that wasn't the case, I was not amazed at thyself... far from it. When I checked with [Cloudflare radar url scanner](https://radar.cloudflare.com/scan), the results were bad.
 
@@ -65,7 +65,7 @@ Implementing responsive images took some time. I leveraged an 11ty plugin called
 
 I identified a few presets for different images use cases, for instance my blog articles can have a hero image, which are a consistent size width wise so I wanted specific sized images for that.
 
-My first attempt was good, but I need to do more as I wasn't using the `sizes` attribute correctly, thats where this handy bookmarklet called [RespImageLint - Linter for Responsive Images](https://ausi.github.io/respimagelint/) helped out. It evaluated where I was going wrong and suggest changes. Responsive images on my site is still not 100% perfect but its far better.
+My first attempt was good, but I needed to do more as I wasn't using the `sizes` attribute correctly, thats where this handy bookmarklet called [RespImageLint - Linter for Responsive Images](https://ausi.github.io/respimagelint/) helped out. It evaluated where I was going wrong and suggest changes. Responsive images on my site is still not 100% perfect but its far better.
 
 After is all said and done this was the final result of all my work.
 
@@ -73,7 +73,7 @@ After is all said and done this was the final result of all my work.
 
 Thats a huge 95% decrease in total bytes from the first scan! You can see the [full results of the scan](https://radar.cloudflare.com/scan/17b220ab-b6e4-42c9-a652-7eee3f5073b8/summary) for even more details.
 
-Im old enough to I remember a time when optimising websites to reduce load times was super important. Somewhere along the way, I forgot that—and I bet a lot of other people have too.
+Im old enough to remember a time when optimising websites to reduce load times was super important. Somewhere along the way, I forgot that—and I bet a lot of other people have too.
 
 Some of you might scoff and say, *“We have fast internet now. It’s not the dark ages of dial-up!”* But have you ever struggled to load a site because you barely had reception? I did recently.
 
