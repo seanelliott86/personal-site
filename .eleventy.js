@@ -2,6 +2,8 @@ import { DateTime } from "luxon"
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight"
 import svgSprite from "eleventy-plugin-svg-sprite"
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
+import cssnano from 'cssnano';
+import postcss from 'postcss';
 const PORT = 8080 // use a port you are reasonably sure is not in use elsewhere
 
 export default function (eleventyConfig) {
@@ -53,6 +55,16 @@ export default function (eleventyConfig) {
         const data_slug_hash = url_array[url_array.length - 1];
 
         return `<p class="codepen" data-height="600" data-default-tab="result" data-slug-hash="${data_slug_hash}" data-user="${username}" style="height: 571px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"><span><a href="${url}">See the pen</a> (<a href="${user_profile}">@${username}</a>) on <a href="https://codepen.io">CodePen</a>.</span></p><script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>`;
+    });
+
+    eleventyConfig.addFilter("inlineFontCSS", async function (code) {
+        try {
+            const result = await postcss([cssnano]).process(code, { from: undefined });
+            return `<style>${result.css}</style>`;
+        } catch (error) {
+            console.error("Error minifying CSS:", error);
+            return code;
+        }
     });
 
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
