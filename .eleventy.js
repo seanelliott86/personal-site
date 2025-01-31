@@ -60,6 +60,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addFilter("inlineFontCSS", async function (code) {
         try {
             const result = await postcss([cssnano]).process(code, { from: undefined });
+            const adjustedCSS = result.css.replace(/url\('\.\.\/fonts\//g, "url('/fonts/");
             return `<style>${result.css}</style>`;
         } catch (error) {
             console.error("Error minifying CSS:", error);

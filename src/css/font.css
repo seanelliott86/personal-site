@@ -2,23 +2,32 @@
     font-display: swap;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 300;
-    src: url('../fonts/poppins-v22-latin-300.woff2') format('woff2');
+    font-weight: 400;
+    src: url('/fonts/poppins-v22-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
     font-display: swap;
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/poppins-v22-latin-regular.woff2') format('woff2');
+    font-weight: 500;
+    src: url('/fonts/poppins-v22-latin-500.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Adjusted Arial Fallback';
+    font-family: 'Adjusted Arial500 Fallback';
     src: local(Arial);
-    size-adjust: 108%;
-    ascent-override: 98%;
-    descent-override: 38%;
-    line-gap-override: normal;
+    size-adjust: 103%;
+    ascent-override: 87%;
+    descent-override: 20%;
+    line-gap-override: 31%;
+}
+
+@font-face {
+    font-family: 'Adjusted Arial400 Fallback';
+    src: local(Arial);
+    size-adjust: 109%;
+    ascent-override: normal;
+    descent-override: normal;
+    line-gap-override: 24%;
 }

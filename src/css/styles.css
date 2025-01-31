@@ -47,7 +47,8 @@ svg {
     --color-pictonBlue: #46caf5;
     --color-blueChill: #0A7894;
     --base-font-family: Helvetica, Arial, sans-serif;
-    --heading-font-family: 'Poppins', 'Adjusted Arial Fallback', sans-serif;
+    --main-heading-font-family: 'Poppins', 'Adjusted Arial500 Fallback', sans-serif;
+    --subtle-heading-font-family: 'Poppins', 'Adjusted Arial400 Fallback', sans-serif;
     --focus-color: var(--color-pictonBlue);
     --focus-color-dark: var(--color-black);
     --resume-arrow-bg: var(--color-pictonBlue);
@@ -77,8 +78,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--heading-font-family);
-    font-weight: bold;
+    font-family: var(--main-heading-font-family);
+    font-weight: 500;
 }
 
 .svg-icon {
@@ -211,9 +212,9 @@ pre[class*="language-"] {
 .header-name {
     font-size: 4rem;
     margin: 0;
-    font-weight: bold;
     line-height: 1.1;
-    font-family: var(--heading-font-family);
+    font-family: var(--main-heading-font-family);
+    font-weight: 500;
 }
 
 .header-tagline {
@@ -221,9 +222,7 @@ pre[class*="language-"] {
     margin-block-start: 1rem;
     margin-block-end: 0;
     margin-inline: 0;
-    font-weight: bold;
     line-height: 1.1;
-    font-family: var(--heading-font-family);
 
     /* @media (orientation: landscape) {
         margin: 1rem 0 0 0;
@@ -452,9 +451,7 @@ body {
 .article__published {
     order: 0;
     margin: 0;
-    font-weight: bold;
     line-height: 1.1;
-    font-family: var(--heading-font-family);
     color: var(--color-shark);
 }
 
@@ -462,16 +459,14 @@ body {
     margin-block-start: 0.5rem;
     margin-block-end: 0;
     margin-inline: 0;
-    font-weight: bold;
     line-height: 1.1;
-    font-family: var(--heading-font-family);
 }
 
 .article__description {
     order: 2;
-    font-weight: bold;
+    font-weight: 400;
     line-height: 1.1;
-    font-family: var(--heading-font-family);
+    font-family: var(--subtle-heading-font-family);
     margin-block-start: 2rem;
     margin-block-end: 0;
     margin-inline: 0;
