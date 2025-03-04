@@ -7,6 +7,8 @@ import postcss from 'postcss';
 const PORT = 8080 // use a port you are reasonably sure is not in use elsewhere
 
 export default function (eleventyConfig) {
+    eleventyConfig.addGlobalData('siteUrl', 'https://seanelliott.au');
+
     // GENERAL
     eleventyConfig.addPassthroughCopy('./src/assets');
     eleventyConfig.addPassthroughCopy('./src/assets');
@@ -32,10 +34,14 @@ export default function (eleventyConfig) {
         globalClasses: "svg-icon",
     });
 
-    // DATE FILTER
+    // FILTERS
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj).toLocaleString({ year: 'numeric', month: 'long', day: 'numeric' })
     });
+    eleventyConfig.addFilter("isBlogPost", function (url) {
+        return url.startsWith('/blog/') && url !== '/blog/';
+    });
+
 
     // SHORTCODES
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
@@ -71,7 +77,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
         outputDir: "./assets/uploads/",
         extensions: 'html',
-        formats: ['avif'],
+        formats: ['webp, jpeg'],
         widths: [300, 600, 800],
         defaultAttributes: {
             loading: 'lazy',
@@ -86,6 +92,4 @@ export default function (eleventyConfig) {
             output: "public",
         },
     };
-
-
 }

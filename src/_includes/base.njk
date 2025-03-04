@@ -6,19 +6,40 @@
   <title>
     {% if title %}
     {{title}} - {% endif %}Sean Elliott</title>
-  <meta name="description" content="">
+  <meta name="description"
+    content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
+  <meta name="author" content="Sean Elliott">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="{% if title %}{{title}}{% else %}Home{% endif %} - Sean Elliott">
+  <meta property="og:description"
+    content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
+  <meta property="og:type" content="{% if page.url | isBlogPost %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ siteUrl }}{{ page.url }}">
+  {% if page.url | isBlogPost and hero %}
+  <meta property="og:image" content="{{ siteUrl }}{{ hero }}">
+  {% endif %}
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if title %}{{title}}{% else %}Home{% endif %} - Sean Elliott">
+  <meta name="twitter:description"
+    content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
+  {% if page.url | isBlogPost and hero %}
+  <meta property="twitter:image" content="{{ siteUrl }}{{ hero }}">
+  {% endif %}
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  {% if '/blog' in page.url %}
+  {% if page.url | isBlogPost %}
   <link rel="stylesheet" href="/css/a11y-dark.css">
   {% endif %}
   {% set fontCSS %} {% include "../css/font.css" %} {% endset %}
   {{ fontCSS | inlineFontCSS | safe }}
   <link rel="stylesheet" href="/css/styles.css">
   <script data-goatcounter="https://seanelliott.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
 </head>
 
 <body>
@@ -31,8 +52,8 @@
     </main>
     <div class="bottom-content-angle"></div>
   </div>
-  {% include 'footer.njk' %}
 
+  {% include 'footer.njk' %}
   <script>
     if (window.netlifyIdentity) {
       window
