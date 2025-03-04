@@ -77,7 +77,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
         outputDir: "./assets/uploads/",
         extensions: 'html',
-        formats: ['webp, jpeg'],
+        formats: ['avif'],
         widths: [300, 600, 800],
         defaultAttributes: {
             loading: 'lazy',
