@@ -1062,7 +1062,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@resvg/resvg-js@npm:^2.1.0":
+"@resvg/resvg-js@npm:^2.6.0":
   version: 2.6.2
   resolution: "@resvg/resvg-js@npm:2.6.2"
   dependencies:
@@ -1147,7 +1147,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xmldom/xmldom@npm:^0.8.2":
+"@xmldom/xmldom@npm:^0.8.10":
   version: 0.8.10
   resolution: "@xmldom/xmldom@npm:0.8.10"
   checksum: 10c0/c7647c442502720182b0d65b17d45d2d95317c1c8c497626fe524bda79b4fb768a9aa4fae2da919f308e7abcff7d67c058b102a9d641097e9a57f0b80187851f
@@ -1293,7 +1293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async@npm:^3.2.4":
+"async@npm:^3.2.5":
   version: 3.2.6
   resolution: "async@npm:3.2.6"
   checksum: 10c0/36484bb15ceddf07078688d95e27076379cc2f87b10c03b6dd8a83e89475a3c8df5848859dd06a4c95af1e4c16fc973de0171a77f18ea00be899aca2a4f85e70
@@ -2183,17 +2183,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eleventy-plugin-svg-sprite@npm:^2.4.2":
-  version: 2.4.2
-  resolution: "eleventy-plugin-svg-sprite@npm:2.4.2"
+"eleventy-plugin-svg-sprite@npm:^2.4.3":
+  version: 2.4.3
+  resolution: "eleventy-plugin-svg-sprite@npm:2.4.3"
   dependencies:
-    glob: "npm:^10.3.3"
+    glob: "npm:^11.0.1"
     lodash: "npm:^4.17.21"
-    svg-sprite: "npm:2.0.0"
+    svg-sprite: "npm:2.0.4"
     vinyl: "npm:^3.0.0"
   peerDependencies:
     "@11ty/eleventy": ">=0.5.4"
-  checksum: 10c0/381e595faaa22c7ed95c122c01554ca026b81ae7d15e814639a1cfb0c47954b4ae8b091f4107f2dfb9794653420556fd15540034415a705c9d25d6d08d5781ee
+  checksum: 10c0/26e3ff7abc7861a3f1ca10f42c7b7ed587fa5e1cb66f5de715249f1f80896570e6591d771b56fe348be432e8ceb63d46d2dcf64f191bc06dd782fa3fad136a61
   languageName: node
   linkType: hard
 
@@ -2618,7 +2618,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.2.2, glob@npm:^10.3.10, glob@npm:^10.3.3, glob@npm:^10.3.7":
+"glob@npm:^10.2.2, glob@npm:^10.3.10, glob@npm:^10.3.7":
   version: 10.4.5
   resolution: "glob@npm:10.4.5"
   dependencies:
@@ -2631,6 +2631,22 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 10c0/19a9759ea77b8e3ca0a43c2f07ecddc2ad46216b786bb8f993c445aee80d345925a21e5280c7b7c6c59e860a0154b84e4b2b60321fea92cd3c56b4a7489f160e
+  languageName: node
+  linkType: hard
+
+"glob@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "glob@npm:11.0.1"
+  dependencies:
+    foreground-child: "npm:^3.1.0"
+    jackspeak: "npm:^4.0.1"
+    minimatch: "npm:^10.0.0"
+    minipass: "npm:^7.1.2"
+    package-json-from-dist: "npm:^1.0.0"
+    path-scurry: "npm:^2.0.0"
+  bin:
+    glob: dist/esm/bin.mjs
+  checksum: 10c0/2b32588be52e9e90f914c7d8dec32f3144b81b84054b0f70e9adfebf37cd7014570489f2a79d21f7801b9a4bd4cca94f426966bfd00fb64a5b705cfe10da3a03
   languageName: node
   linkType: hard
 
@@ -2974,6 +2990,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jackspeak@npm:^4.0.1":
+  version: 4.1.0
+  resolution: "jackspeak@npm:4.1.0"
+  dependencies:
+    "@isaacs/cliui": "npm:^8.0.2"
+  checksum: 10c0/08a6a24a366c90b83aef3ad6ec41dcaaa65428ffab8d80bc7172add0fbb8b134a34f415ad288b2a6fbd406526e9a62abdb40ed4f399fbe00cb45c44056d4dce0
+  languageName: node
+  linkType: hard
+
 "js-yaml@npm:^3.13.1":
   version: 3.14.1
   resolution: "js-yaml@npm:3.14.1"
@@ -3110,20 +3135,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.trim@npm:^4.5.1":
-  version: 4.5.1
-  resolution: "lodash.trim@npm:4.5.1"
-  checksum: 10c0/5e81316d8fb02ff63c92d73cc737cc264ea49114a0f42e083ceb7c39679be30cd3497c0c1f6a3b79c36e322fa0b52dd619fc26a9fb693cc5201988d967d5292c
-  languageName: node
-  linkType: hard
-
-"lodash.trimstart@npm:^4.5.1":
-  version: 4.5.1
-  resolution: "lodash.trimstart@npm:4.5.1"
-  checksum: 10c0/de0d4b1da63fb98cdae1e9ce02e845e5791b0cae78285f0dc6a8029878e7663e586bf6660ab49c5c12302432583f5f7ec2effe735645b208cbf758eba5f9f0d8
-  languageName: node
-  linkType: hard
-
 "lodash.uniq@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.uniq@npm:4.5.0"
@@ -3156,6 +3167,13 @@ __metadata:
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
   checksum: 10c0/ebd04fbca961e6c1d6c0af3799adcc966a1babe798f685bb84e6599266599cd95d94630b10262f5424539bc4640107e8a33aa28585374abf561d30d16f4b39fb
+  languageName: node
+  linkType: hard
+
+"lru-cache@npm:^11.0.0":
+  version: 11.0.2
+  resolution: "lru-cache@npm:11.0.2"
+  checksum: 10c0/c993b8e06ead0b24b969c1dbb5b301716aed66e320e9014a80012f5febe280b438f28ff50046b2c55ff404e889351ccb332ff91f8dd175a21f5eae80e3fb155f
   languageName: node
   linkType: hard
 
@@ -3280,6 +3298,15 @@ __metadata:
   bin:
     mime: cli.js
   checksum: 10c0/402e792a8df1b2cc41cb77f0dcc46472b7944b7ec29cb5bbcd398624b6b97096728f1239766d3fdeb20551dd8d94738344c195a6ea10c4f906eb0356323b0531
+  languageName: node
+  linkType: hard
+
+"minimatch@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "minimatch@npm:10.0.1"
+  dependencies:
+    brace-expansion: "npm:^2.0.1"
+  checksum: 10c0/e6c29a81fe83e1877ad51348306be2e8aeca18c88fdee7a99df44322314279e15799e41d7cb274e4e8bb0b451a3bc622d6182e157dfa1717d6cda75e9cd8cd5d
   languageName: node
   linkType: hard
 
@@ -3681,6 +3708,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"path-scurry@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "path-scurry@npm:2.0.0"
+  dependencies:
+    lru-cache: "npm:^11.0.0"
+    minipass: "npm:^7.1.2"
+  checksum: 10c0/3da4adedaa8e7ef8d6dc4f35a0ff8f05a9b4d8365f2b28047752b62d4c1ad73eec21e37b1579ef2d075920157856a3b52ae8309c480a6f1a8bbe06ff8e52b33c
+  languageName: node
+  linkType: hard
+
 "personal-site@workspace:.":
   version: 0.0.0-use.local
   resolution: "personal-site@workspace:."
@@ -3690,7 +3727,7 @@ __metadata:
     "@11ty/eleventy-plugin-syntaxhighlight": "npm:^5.0.0"
     concurrently: "npm:^9.1.2"
     cssnano: "npm:^7.0.6"
-    eleventy-plugin-svg-sprite: "npm:^2.4.2"
+    eleventy-plugin-svg-sprite: "npm:^2.4.3"
     modern-normalize: "npm:^3.0.1"
     postcss: "npm:^8.5.3"
     postcss-cli: "npm:^11.0.1"
@@ -5238,13 +5275,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svg-sprite@npm:2.0.0":
-  version: 2.0.0
-  resolution: "svg-sprite@npm:2.0.0"
+"svg-sprite@npm:2.0.4":
+  version: 2.0.4
+  resolution: "svg-sprite@npm:2.0.4"
   dependencies:
-    "@resvg/resvg-js": "npm:^2.1.0"
-    "@xmldom/xmldom": "npm:^0.8.2"
-    async: "npm:^3.2.4"
+    "@resvg/resvg-js": "npm:^2.6.0"
+    "@xmldom/xmldom": "npm:^0.8.10"
+    async: "npm:^3.2.5"
     css-selector-parser: "npm:^1.4.1"
     csso: "npm:^4.2.0"
     cssom: "npm:^0.5.0"
@@ -5252,18 +5289,16 @@ __metadata:
     js-yaml: "npm:^4.1.0"
     lodash.escape: "npm:^4.0.1"
     lodash.merge: "npm:^4.6.2"
-    lodash.trim: "npm:^4.5.1"
-    lodash.trimstart: "npm:^4.5.1"
     mustache: "npm:^4.2.0"
     prettysize: "npm:^2.0.0"
     svgo: "npm:^2.8.0"
     vinyl: "npm:^2.2.1"
-    winston: "npm:^3.8.2"
-    xpath: "npm:^0.0.32"
-    yargs: "npm:^17.5.1"
+    winston: "npm:^3.11.0"
+    xpath: "npm:^0.0.34"
+    yargs: "npm:^17.7.2"
   bin:
     svg-sprite: bin/svg-sprite.js
-  checksum: 10c0/22c796ed64d0b216afce9f7d99a5240f2052d9711ac3c6e05db2ba70a467cdb7e64ff4aabb8a06a857099c421f75a7a2afe47efba6ae4ebf4cd69ff909ff276f
+  checksum: 10c0/486118448e1627a36da0da82b0ab1e329b6bdda1e666b761d28f633e054735bcc56ff414a521e84e19cf1ad502de8f24689b43a56c49bc52aa0a3ad884233b88
   languageName: node
   linkType: hard
 
@@ -5523,7 +5558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"winston@npm:^3.8.2":
+"winston@npm:^3.11.0":
   version: 3.17.0
   resolution: "winston@npm:3.17.0"
   dependencies:
@@ -5586,10 +5621,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xpath@npm:^0.0.32":
-  version: 0.0.32
-  resolution: "xpath@npm:0.0.32"
-  checksum: 10c0/3743ab91a8ec1b5eac1f27ddf2fbf696fcde8ce487215becde1502b85a309dcd1b0baeaac1ee7a730aea4787d049b67ae89e8aedbe03a5a07a71e62ec296d9de
+"xpath@npm:^0.0.34":
+  version: 0.0.34
+  resolution: "xpath@npm:0.0.34"
+  checksum: 10c0/88335108884ca164421f7fed048ef1a18ab3f7b1ae446b627fd3f51fc2396dcce798601c5e426de3bbd55d5940b84cf2326c75cd76620c1b49491283b85de17a
   languageName: node
   linkType: hard
 
@@ -5630,7 +5665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.0.0, yargs@npm:^17.5.1, yargs@npm:^17.7.2":
+"yargs@npm:^17.0.0, yargs@npm:^17.7.2":
   version: 17.7.2
   resolution: "yargs@npm:17.7.2"
   dependencies:
