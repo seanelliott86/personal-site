@@ -32,7 +32,7 @@
     "eleventy-plugin-svg-sprite": "^2.4.2",
     "modern-normalize": "^3.0.1",
     "postcss": "^8.5.3",
-    "postcss-cli": "^11.0.0",
+    "postcss-cli": "^11.0.1",
     "postcss-custom-media": "^11.0.5",
     "postcss-import": "^16.1.0",
     "postcss-preset-env": "^10.1.5"
