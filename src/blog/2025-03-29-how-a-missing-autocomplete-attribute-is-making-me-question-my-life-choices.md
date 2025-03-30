@@ -35,8 +35,6 @@ While visible form labels are helpful in general, the wide variety of potential 
 
 The `autocomplete` attribute accepts a value, which is standardised and specific to give the browser a nudge indicating the type of information an input expects (e.g., "name," "email," "address").
 
-For example:
-
 ```html
 <label for="email">Email address</label>
 <input id="email" type="email" name="email-address" autocomplete="email" />
@@ -65,7 +63,7 @@ To make the most of the `autocomplete` attribute, here are a few tips to get it 
 
 ### 1. Use it when it makes sense
 
-Only enable `autocomplete` when you’re asking for *the user’s* personal information, not someone else’s. For example, if your form has a section for a different family member’s email address not the users, you might *not* want `autocomplete` on, since it could suggest the user’s own details instead. Leading to mistakes.
+Only enable `autocomplete` when you’re asking for *the user’s* personal information, not someone else’s. For example, if your form has a field to fill in a different family member’s email address thats not the immediate user, you wouldn't want `autocomplete` on, since it would suggest filling the wrong details. Leading to mistakes and frustration.
 
 ### 2. Always include clear labels
 
@@ -92,7 +90,6 @@ Instead of just providing engineer centric advice, here's what I would expect fr
 
 * Write inclusive acceptance criteria that calls out `autocomplete` as a requirement.  
 * Ensure criteria are considered during design, development, and testing phases.  
-* Use resources like [accessibility acceptance criteria](https://github.com/meljobrien3/accessibility-acceptance-criteria/blob/main/WEB.md).  
 
 ### Designers
 
@@ -114,10 +111,10 @@ This is by no means an exhaustive list but it's a good start!
 
 ## So, what’s the moral of the story?
 
-It turns out, a missing autocomplete attribute can be the difference between a seamless login experience and spiralling into existential dread while logging into your NAS.
+It turns out, a missing autocomplete attribute can be the difference between a seamless login experience and spiralling into existential dread while logging into your NAS, well for me anyway.
 
 The good news? It’s a problem with a straightforward solution. Adding `autocomplete` attributes is simple, improves accessibility, and enhances the experience for everyone—whether you’re using assistive technologies or just trying use the 37 character password your browser or password manager thankfully saved for you.
 
 By taking the time to implement `autocomplete` correctly, we can all save a little frustration and a lot of unnecessary interactions. And who knows? Maybe next time, I’ll actually get into my NAS without questioning every life choice I’ve made along the way.
 
-Now, if you’ll excuse me, I have to submit bug to my NAS vendor to update their forms...
+Now, if you’ll excuse me, I have to submit bug to my NAS vendor to update their forms.
