@@ -28,7 +28,7 @@
     "@11ty/eleventy-img": "^6.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "concurrently": "^9.1.2",
-    "cssnano": "^7.0.6",
+    "cssnano": "^7.0.7",
     "eleventy-plugin-svg-sprite": "^2.4.3",
     "modern-normalize": "^3.0.1",
     "postcss": "^8.5.3",
