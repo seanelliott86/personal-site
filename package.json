@@ -29,7 +29,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.1",
     "concurrently": "^9.1.2",
     "cssnano": "^7.0.7",
-    "eleventy-plugin-svg-sprite": "^2.4.4",
+    "eleventy-plugin-svg-sprite": "^2.4.5",
     "modern-normalize": "^3.0.1",
     "postcss": "^8.5.4",
     "postcss-cli": "^11.0.1",

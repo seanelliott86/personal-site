@@ -2108,9 +2108,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eleventy-plugin-svg-sprite@npm:^2.4.4":
-  version: 2.4.4
-  resolution: "eleventy-plugin-svg-sprite@npm:2.4.4"
+"eleventy-plugin-svg-sprite@npm:^2.4.5":
+  version: 2.4.5
+  resolution: "eleventy-plugin-svg-sprite@npm:2.4.5"
   dependencies:
     glob: "npm:^11.0.1"
     lodash: "npm:^4.17.21"
@@ -2118,7 +2118,7 @@ __metadata:
     vinyl: "npm:^3.0.0"
   peerDependencies:
     "@11ty/eleventy": ">=0.5.4"
-  checksum: 10c0/fdb32ac7bb7320729f4b4851f8a4614c6d5d27eecd3f0c09f016e2d88057c2755beaf190111de73aeb4e18dc218d2418dac390e3d2d8244a457df3637d58140b
+  checksum: 10c0/c967ba96120c8864bcccace0665574f5aa4909c1d1decfe0dc2e89c61713b5b824ab690b9fae2d40ce5b46e4dd9d6ae42149068551f4de8e51eaae35818522d2
   languageName: node
   linkType: hard
 
@@ -3493,7 +3493,7 @@ __metadata:
     "@11ty/eleventy-plugin-syntaxhighlight": "npm:^5.0.1"
     concurrently: "npm:^9.1.2"
     cssnano: "npm:^7.0.7"
-    eleventy-plugin-svg-sprite: "npm:^2.4.4"
+    eleventy-plugin-svg-sprite: "npm:^2.4.5"
     modern-normalize: "npm:^3.0.1"
     postcss: "npm:^8.5.4"
     postcss-cli: "npm:^11.0.1"
