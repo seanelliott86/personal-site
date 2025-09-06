@@ -38,10 +38,17 @@ export default function (eleventyConfig) {
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj).toLocaleString({ year: 'numeric', month: 'long', day: 'numeric' })
     });
+
     eleventyConfig.addFilter("isBlogPost", function (url) {
         return url.startsWith('/blog/') && url !== '/blog/';
     });
 
+    eleventyConfig.addFilter("hasCodeBlocks", function (content) {
+        if (!content) return false;
+        // Look for <pre> tags with class starting with "language-"
+        const codeBlockRegex = /<pre[^>]*class="[^"]*language-[^"]*"[^>]*>/i;
+        return codeBlockRegex.test(content);
+    });
 
     // SHORTCODES
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);

@@ -10,6 +10,7 @@
     content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
   <meta name="author" content="Sean Elliott">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="{% if title %}{{title}}{% else %}Home{% endif %} - Sean Elliott">
   <meta property="og:description"
@@ -32,12 +33,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Preload fonts for better performance -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-regular.woff2">
   {% if page.url | isBlogPost %}
-  <link rel="stylesheet" href="/css/a11y-dark.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-500.woff2">
   {% endif %}
+
+  <!-- Inline font CSS -->
   {% set fontCSS %} {% include "../css/font.css" %} {% endset %}
   {{ fontCSS | inlineFontCSS | safe }}
+
   <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- A11Y Dark Theme for code snippets -->
+  {% if content | hasCodeBlocks %}
+  <link rel="preload" as="style" href="/css/a11y-dark.css">
+  <link rel="stylesheet" href="/css/a11y-dark.css">
+  {% endif %}
+
   <script data-goatcounter="https://seanelliott.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
 </head>
