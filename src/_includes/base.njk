@@ -36,9 +36,7 @@
 
   <!-- Preload fonts for better performance -->
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-regular.woff2">
-  {% if page.url | isBlogPost %}
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-500.woff2">
-  {% endif %}
 
   <!-- Inline font CSS -->
   {% set fontCSS %} {% include "../css/font.css" %} {% endset %}
