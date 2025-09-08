@@ -38,6 +38,8 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-regular.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-500.woff2">
 
+  <link rel="dns-prefetch" href="//gc.zgo.at">
+
   <!-- Inline font CSS -->
   {% set fontCSS %} {% include "../css/font.css" %} {% endset %}
   {{ fontCSS | inlineFontCSS | safe }}
@@ -49,8 +51,6 @@
   <link rel="preload" as="style" href="/css/a11y-dark.css">
   <link rel="stylesheet" href="/css/a11y-dark.css">
   {% endif %}
-
-  <script data-goatcounter="https://seanelliott.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
 </head>
 
@@ -81,6 +81,7 @@
         });
     }
   </script>
+  <script data-goatcounter="https://seanelliott.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 
 </html>
