@@ -40,6 +40,14 @@
 
   <link rel="dns-prefetch" href="//gc.zgo.at">
 
+  {% if (page.url === '/') %}
+  <link rel="prefetch" href="/blog/">
+  {% set latest_posts = collections.post | reverse %}
+  {% for post in latest_posts.slice(0,4) %}
+  <link rel="prefetch" href="{{ post.url }}">
+  {% endfor %}
+  {% endif %}
+
   <!-- Inline font CSS -->
   {% set fontCSS %} {% include "../css/font.css" %} {% endset %}
   {{ fontCSS | inlineFontCSS | safe }}
