@@ -34,8 +34,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Preload fonts for better performance -->
+  {% if page.url.startsWith('/blog/') or page.url === '/blog/' %}
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-regular.woff2">
+  {% endif %}
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-500.woff2">
 
   <link rel="dns-prefetch" href="//gc.zgo.at">
