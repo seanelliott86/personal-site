@@ -5,12 +5,10 @@
   "description": "Personal playground for me to write and play around with different development things!",
   "main": "index.js",
   "scripts": {
-    "watch:css": "postcss src/css/styles.css src/css/a11y-dark.css --dir public/css --watch",
-    "build:css": "NODE_ENV=production postcss src/css/styles.css src/css/a11y-dark.css --dir public/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy",
-    "start": "concurrently \"yarn build:css\" \"yarn watch:css\" \"yarn watch:eleventy\"",
-    "build": "concurrently \"yarn build:css\" \"yarn build:eleventy\""
+    "start": "yarn watch:eleventy",
+    "build": "NODE_ENV=production yarn build:eleventy"
   },
   "repository": {
     "type": "git",

@@ -2,8 +2,12 @@ import { DateTime } from "luxon"
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight"
 import svgSprite from "eleventy-plugin-svg-sprite"
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
-import cssnano from 'cssnano';
 import postcss from 'postcss';
+import postcssImport from 'postcss-import';
+import postcssCustomMedia from 'postcss-custom-media';
+import cssnano from 'cssnano';
+import fs from 'fs';
+import path from 'path';
 const PORT = 8080 // use a port you are reasonably sure is not in use elsewhere
 
 export default function (eleventyConfig) {
@@ -32,6 +36,38 @@ export default function (eleventyConfig) {
     eleventyConfig.addPlugin(svgSprite, {
         path: "./src/assets/icons",
         globalClasses: "svg-icon",
+    });
+
+    eleventyConfig.on('eleventy.before', async () => {
+        const cssDir = 'src/css/';
+        const outputDir = 'public/css/';
+
+        // Process main CSS files (not partials starting with _)
+        const cssFiles = ['styles.css', 'a11y-dark.css'];
+
+        for (const file of cssFiles) {
+            const inputPath = path.join(cssDir, file);
+            const outputPath = path.join(outputDir, file);
+
+            if (fs.existsSync(inputPath)) {
+                const css = fs.readFileSync(inputPath, 'utf8');
+
+                const plugins = [
+                    postcssImport,
+                    postcssCustomMedia,
+                    ...(process.env.NODE_ENV === 'production' ? [cssnano({ preset: 'default' })] : []),
+                ];
+
+                const result = await postcss(plugins).process(css, {
+                    from: inputPath,
+                    to: outputPath
+                });
+
+                fs.writeFileSync(outputPath, result.css);
+            }
+        }
+
+        eleventyConfig.addWatchTarget('./src/css/');
     });
 
     // FILTERS
@@ -73,7 +109,6 @@ export default function (eleventyConfig) {
     eleventyConfig.addFilter("inlineFontCSS", async function (code) {
         try {
             const result = await postcss([cssnano]).process(code, { from: undefined });
-            const adjustedCSS = result.css.replace(/url\('\.\.\/fonts\//g, "url('/fonts/");
             return `<style>${result.css}</style>`;
         } catch (error) {
             console.error("Error minifying CSS:", error);

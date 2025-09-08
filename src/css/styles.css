@@ -502,10 +502,7 @@ body {
         margin-block-start: 1rem;
     }
 
-    *+h2,
-    *+h3,
-    *+h4,
-    *+h5 {
+    *+ :is(h2, h3, h4, h5) {
         margin-block-start: 2.5rem;
         color: var(--black);
     }
