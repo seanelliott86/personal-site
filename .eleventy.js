@@ -49,6 +49,11 @@ export default function (eleventyConfig) {
             const inputPath = path.join(cssDir, file);
             const outputPath = path.join(outputDir, file);
 
+            // Ensure output directory exists
+            if (!fs.existsSync(outputDir)) {
+                fs.mkdirSync(outputDir, { recursive: true });
+            }
+
             if (fs.existsSync(inputPath)) {
                 const css = fs.readFileSync(inputPath, 'utf8');
 
