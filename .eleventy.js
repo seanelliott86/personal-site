@@ -6,6 +6,7 @@ import postcss from 'postcss';
 import postcssImport from 'postcss-import';
 import postcssCustomMedia from 'postcss-custom-media';
 import cssnano from 'cssnano';
+import { minify } from "terser";
 import fs from 'fs';
 import path from 'path';
 const PORT = 8080 // use a port you are reasonably sure is not in use elsewhere
@@ -23,6 +24,8 @@ export default function (eleventyConfig) {
         files: './public/css/**/*.css',
         open: 'local'
     });
+    eleventyConfig.addWatchTarget('./src/css/');
+    eleventyConfig.addWatchTarget('./src/js/');
 
     // SERVER
     eleventyConfig.setServerOptions({
@@ -71,8 +74,6 @@ export default function (eleventyConfig) {
                 fs.writeFileSync(outputPath, result.css);
             }
         }
-
-        eleventyConfig.addWatchTarget('./src/css/');
     });
 
     // FILTERS
@@ -90,6 +91,27 @@ export default function (eleventyConfig) {
         const codeBlockRegex = /<pre[^>]*class="[^"]*language-[^"]*"[^>]*>/i;
         return codeBlockRegex.test(content);
     });
+
+    eleventyConfig.addFilter("inlineFontCSS", async function (code) {
+        try {
+            const result = await postcss([cssnano]).process(code, { from: undefined });
+            return `<style>${result.css}</style>`;
+        } catch (error) {
+            console.error("Error minifying CSS:", error);
+            return code;
+        }
+    });
+
+    eleventyConfig.addFilter("jsmin", async function (code) {
+        try {
+            const minified = await minify(code);
+            return `<script>${minified.code}</script>`;
+        } catch (err) {
+            console.error("Terser error: ", err);
+            // Fail gracefully.
+            return `<script>${code}</script>`;
+        }
+    })
 
     // SHORTCODES
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
@@ -109,16 +131,6 @@ export default function (eleventyConfig) {
         const data_slug_hash = url_array[url_array.length - 1];
 
         return `<p class="codepen" data-height="600" data-default-tab="result" data-slug-hash="${data_slug_hash}" data-user="${username}" style="height: 571px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"><span><a href="${url}">See the pen</a> (<a href="${user_profile}">@${username}</a>) on <a href="https://codepen.io">CodePen</a>.</span></p><script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>`;
-    });
-
-    eleventyConfig.addFilter("inlineFontCSS", async function (code) {
-        try {
-            const result = await postcss([cssnano]).process(code, { from: undefined });
-            return `<style>${result.css}</style>`;
-        } catch (error) {
-            console.error("Error minifying CSS:", error);
-            return code;
-        }
     });
 
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {

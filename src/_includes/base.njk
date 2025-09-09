@@ -3,63 +3,57 @@
 
 <head>
   <meta charset="utf-8">
-  <title>
-    {% if title %}
-    {{title}} - {% endif %}Sean Elliott</title>
+  <title>{%- if title -%}
+    {{title}} - {%- endif -%}
+    Sean Elliott</title>
   <meta name="description"
     content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
   <meta name="author" content="Sean Elliott">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="{% if title %}{{title}}{% else %}Home{% endif %} - Sean Elliott">
   <meta property="og:description"
     content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
   <meta property="og:type" content="{% if page.url | isBlogPost %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ siteUrl }}{{ page.url }}">
-  {% if page.url | isBlogPost and hero %}
+  {%- if page.url | isBlogPost and hero -%}
   <meta property="og:image" content="{{ siteUrl }}{{ hero }}">
-  {% endif %}
-
-  <!-- Twitter Card Meta Tags -->
+  {%- endif -%}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{% if title %}{{title}}{% else %}Home{% endif %} - Sean Elliott">
   <meta name="twitter:description"
     content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
-  {% if page.url | isBlogPost and hero %}
+  {%- if page.url | isBlogPost and hero -%}
   <meta property="twitter:image" content="{{ siteUrl }}{{ hero }}">
-  {% endif %}
+  {%- endif -%}
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  {% if page.url.startsWith('/blog/') or page.url === '/blog/' %}
+  {%- if page.url.startsWith('/blog/') or page.url === '/blog/' -%}
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-regular.woff2">
-  {% endif %}
+  {%- endif -%}
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/poppins-v22-latin-500.woff2">
-
   <link rel="dns-prefetch" href="//gc.zgo.at">
-
   {% if (page.url === '/') %}
-  <link rel="prefetch" href="/blog/">
-  {% set latest_posts = collections.post | reverse %}
-  {% for post in latest_posts.slice(0,4) %}
-  <link rel="prefetch" href="{{ post.url }}">
-  {% endfor %}
+  {%- set latest_posts = collections.post | reverse -%}
+  {%- set prefetchUrls = ["/blog/"] -%}
+
+  {%- for post in latest_posts.slice(0,4) -%}
+  {%- set prefetchUrls = (prefetchUrls.push(post.url), prefetchUrls) -%}
+  {%- endfor -%}
+  <script>const prefetchList = {{ prefetchUrls | dump | safe }};</script>
   {% endif %}
 
-  <!-- Inline font CSS -->
-  {% set fontCSS %} {% include "../css/font.css" %} {% endset %}
+  {%- set fontCSS -%} {% include "../css/font.css" %} {%- endset -%}
   {{ fontCSS | inlineFontCSS | safe }}
-
   <link rel="stylesheet" href="/css/styles.css">
 
-  {% if content | hasCodeBlocks %}
+  {%- if content | hasCodeBlocks -%}
   <!-- A11Y Dark Theme for code snippets -->
   <link rel="preload" as="style" href="/css/a11y-dark.css">
   <link rel="stylesheet" href="/css/a11y-dark.css">
-  {% endif %}
+  {%- endif -%}
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
 </head>
 
@@ -90,6 +84,8 @@
         });
     }
   </script>
+  {%- set prefetchJS -%} {%- include "../js/prefetchPages.js" -%} {%- endset -%}
+  {{prefetchJS | jsmin | safe}}
   <script data-goatcounter="https://seanelliott.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 
