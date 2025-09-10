@@ -28,7 +28,7 @@ Shamefully, that wasn't the case, I was not amazed at thyself... far from it. Wh
 
 ![Network traffic results 15th of January 2025, 9 requests, 772 kilobytes transferred, 1.19 megabytes total](/assets/uploads/jan-15-2025-results.jpg)
 
-[](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary)I was shocked at the [results of the scan](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary), ~1.20MB just to view my homepage. I dove into the networks list and found a few culprits:
+I was shocked at the [results of the scan](https://radar.cloudflare.com/scan/08f4d97b-8c98-4756-9ab8-ef940fb946b2/summary), ~1.20MB just to view my homepage. I dove into the networks list and found a few culprits:
 
 * 9kb of Google fonts
 * 111.1kB of Google analytics scripts
@@ -71,11 +71,11 @@ Implementing responsive images took some time. I leveraged an 11ty plugin called
 
 I identified a few presets for different images use cases, for instance my blog articles can have a hero image, which are a consistent size width wise so I wanted specific sized images for that.
 
-My first attempt was good, but I needed to do more as I wasn't using the `sizes` attribute correctly, thats where this handy bookmarklet called [RespImageLint - Linter for Responsive Images](<>) helped out. It evaluated where I was going wrong and suggest changes. Responsive images on my site is still not 100% perfect but its far better.
+My first attempt was good, but I needed to do more as I wasn't using the `sizes` attribute correctly, thats where this handy bookmarklet called [RespImageLint - Linter for Responsive Images](https://ausi.github.io/respimagelint/) helped out. It evaluated where I was going wrong and suggest changes. Responsive images on my site is still not 100% perfect but its far better.
 
 - - -
 
-Well I firmly believe [eleventy-img](<>) is the most amazing plugin ever—after learning the hard way obviously.
+Well I firmly believe [eleventy-img](https://www.11ty.dev/docs/plugins/image/) is the most amazing plugin ever—after learning the hard way obviously.
 
 The way I'm using the plugin is by having a "default" configuration to handle the different generated widths for `srcsets`, `sizes` and `loading`, which I default to lazy.\
 This is for the images I don't have a lot of control over. You should read that as Im being lazy when I write articles and just dumping in images without putting in extra tags to be perfect. But I'm me and I'm okay with a little bit of imperfection. 
