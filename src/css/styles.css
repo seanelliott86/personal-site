@@ -26,7 +26,10 @@ svg {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    * {
+
+    *,
+    *::before,
+    *::after {
         animation: none !important;
         transition-duration: 0s !important;
         transition-delay: 0s !important;
@@ -189,7 +192,6 @@ pre[class*="language-"] {
     transition-property: background-color,
         color,
         background-size;
-    outline: solid 3px transparent;
     outline-offset: 2px;
     text-decoration: none;
 
@@ -242,11 +244,6 @@ pre[class*="language-"] {
     overflow: hidden;
     z-index: 0;
     color: #fff;
-    background-image: linear-gradient(23deg, rgba(70, 202, 245, 0.03) 0%, rgba(70, 202, 245, 0.03) 13%, transparent 13%, transparent 80%, rgba(70, 202, 245, 0.04) 80%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(42deg, rgba(70, 202, 245, 0.04) 0%, rgba(70, 202, 245, 0.04) 36%, transparent 36%, transparent 77%, rgba(70, 202, 245, 0.04) 77%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(286deg, rgba(70, 202, 245, 0.0655) 0%, rgba(70, 202, 245, 0.0655) 2%, transparent 2%, transparent 12%, rgba(70, 202, 245, 0.05) 12%, rgba(70, 202, 245, 0.05) 100%), linear-gradient(77deg, rgba(87, 87, 87, 0.05) 0%, rgba(87, 87, 87, 0.05) 18%, transparent 18%, transparent 55%, rgba(247, 247, 247, 0.02) 55%, rgba(247, 247, 247, 0.02) 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
-    background-size: 150% 150%;
-    background-position: 78% 0%;
-    animation: headerBGAnimate 60s ease infinite;
-    animation-delay: 2s;
 
     @media (prefers-reduced-motion: reduce) {
         position: static;
@@ -257,17 +254,35 @@ pre[class*="language-"] {
     }
 }
 
+.header::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(23deg, rgba(70, 202, 245, 0.03) 0%, rgba(70, 202, 245, 0.03) 13%, transparent 13%, transparent 80%, rgba(70, 202, 245, 0.04) 80%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(42deg, rgba(70, 202, 245, 0.04) 0%, rgba(70, 202, 245, 0.04) 36%, transparent 36%, transparent 77%, rgba(70, 202, 245, 0.04) 77%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(286deg, rgba(70, 202, 245, 0.0655) 0%, rgba(70, 202, 245, 0.0655) 2%, transparent 2%, transparent 12%, rgba(70, 202, 245, 0.05) 12%, rgba(70, 202, 245, 0.05) 100%), linear-gradient(77deg, rgba(87, 87, 87, 0.05) 0%, rgba(87, 87, 87, 0.05) 18%, transparent 18%, transparent 55%, rgba(247, 247, 247, 0.02) 55%, rgba(247, 247, 247, 0.02) 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
+    background-size: 150% 150%;
+    background-position: 78% 0%;
+    will-change: transform;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: 78% 0%;
+    animation: headerBGAnimate 60s ease infinite;
+    animation-delay: 2s;
+}
+
 @keyframes headerBGAnimate {
     0% {
-        background-size: 150% 150%;
+        transform: translate(-50%, -50%) scale(1) translateX(0%);
     }
 
     50% {
-        background-size: 350% 350%;
+        transform: translate(-50%, -50%) scale(3) translateX(5%);
     }
 
     100% {
-        background-size: 150% 150%;
+        transform: translate(-50%, -50%) scale(1) translateX(0%);
     }
 }
 
@@ -358,7 +373,6 @@ body {
     height: 2rem;
     display: block;
     color: var(--color-white);
-    outline: solid 3px transparent;
     outline-offset: 16px;
     transition-duration: 0.25s;
     transition-timing-function: ease-out;

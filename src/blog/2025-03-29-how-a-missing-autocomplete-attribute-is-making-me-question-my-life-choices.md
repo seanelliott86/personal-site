@@ -17,7 +17,7 @@ Here's the login process:
 6. Apple Passwords suggests a one-time code to fill.
 7. Wonder if I really need access my NAS that badly.
 
-To really drive the point home, I made a [video of the autofill experience](https://www.youtube.com/watch?v=9xIND8ZOv5Q).[](https://www.youtube.com/watch?v=9xIND8ZOv5Q)
+To really drive the point home, I made a [video of the autofill experience](https://www.youtube.com/watch?v=9xIND8ZOv5Q).
 
 You might be wondering, what’s the issue? 
 
