@@ -20,6 +20,8 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('./src/admin');
     eleventyConfig.addPassthroughCopy({ './src/favicon': '/' });
     eleventyConfig.addPassthroughCopy("./src/fonts");
+    eleventyConfig.addPassthroughCopy("./src/_headers");
+
     eleventyConfig.setBrowserSyncConfig({
         files: './public/css/**/*.css',
         open: 'local'
