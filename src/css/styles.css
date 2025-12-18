@@ -622,6 +622,7 @@ body {
         max-width: 18rem;
         border: solid 8px #F0F1F2;
         width: 100%;
+        aspect-ratio: 1/1;
     }
 
     p {
