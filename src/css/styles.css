@@ -265,11 +265,13 @@ pre[class*="language-"] {
     background-image: linear-gradient(23deg, rgba(70, 202, 245, 0.03) 0%, rgba(70, 202, 245, 0.03) 13%, transparent 13%, transparent 80%, rgba(70, 202, 245, 0.04) 80%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(42deg, rgba(70, 202, 245, 0.04) 0%, rgba(70, 202, 245, 0.04) 36%, transparent 36%, transparent 77%, rgba(70, 202, 245, 0.04) 77%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(286deg, rgba(70, 202, 245, 0.0655) 0%, rgba(70, 202, 245, 0.0655) 2%, transparent 2%, transparent 12%, rgba(70, 202, 245, 0.05) 12%, rgba(70, 202, 245, 0.05) 100%), linear-gradient(77deg, rgba(87, 87, 87, 0.05) 0%, rgba(87, 87, 87, 0.05) 18%, transparent 18%, transparent 55%, rgba(247, 247, 247, 0.02) 55%, rgba(247, 247, 247, 0.02) 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
     background-size: 150% 150%;
     background-position: 78% 0%;
-    will-change: transform;
     transform: translate(-50%, -50%) scale(1);
     transform-origin: 78% 0%;
+}
+
+.is-animated .header::after {
+    will-change: transform;
     animation: headerBGAnimate 60s ease infinite;
-    animation-delay: 2s;
 }
 
 @keyframes headerBGAnimate {
