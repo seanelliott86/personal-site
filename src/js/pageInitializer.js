@@ -1,9 +1,16 @@
 const addHeaderAnimation = () => {
     const html = document.documentElement;
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => html.classList.add('is-animated'));
-    } else {
+
+    const addAnimationClass = () => {
         html.classList.add('is-animated');
+    };
+
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            setTimeout(addAnimationClass, 4000);
+        });
+    } else {
+        setTimeout(addAnimationClass, 4000);
     }
 };
 
