@@ -12,8 +12,8 @@ layout: 'base.njk'
     </header>
     {% if hero %}
     <div class="article__hero popout">
-        <img src="{{hero}}" alt="" class="hero-img" loading="eager" eleventy:widths="300, 600, 800, 1200" width="800"
-            height="450" sizes="(min-width: 60em) 800px, (min-width: 48em) calc(100vw - 80px), calc(100vw - 48px)">
+        <img src="{{hero}}" alt="" class="hero-img" loading="eager" eleventy:widths="256, 600, 800, 1200, 1600"
+            sizes="(min-width: 60em) 800px, (min-width: 36em) 88.24vw, calc(100vw - 48px)">
     </div>
     {% endif %}
     <div class="article__content content">

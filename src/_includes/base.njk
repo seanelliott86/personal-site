@@ -84,8 +84,8 @@
         });
     }
   </script>
-  {%- set prefetchJS -%} {%- include "../js/pageInitializer.js" -%} {%- endset -%}
-  {{prefetchJS | jsmin | safe}}
+  {%- set pageInitializer -%} {%- include "../js/pageInitializer.js" -%} {%- endset -%}
+  {{pageInitializer | jsmin | safe}}
   <script data-goatcounter="https://seanelliott.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 
