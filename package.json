@@ -34,7 +34,7 @@
     "postcss-custom-media": "^11.0.6",
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^10.5.0",
-    "terser": "^5.44.1"
+    "terser": "^5.46.0"
   },
   "packageManager": "yarn@4.5.3"
 }
