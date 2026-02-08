@@ -1,14 +1,14 @@
 const addHeaderAnimation = () => {
     const html = document.documentElement;
 
-    const addAnimationClass = () => {
-        html.classList.add('is-animated');
-    };
-
     if ('requestIdleCallback' in window) {
-        requestIdleCallback(addAnimationClass, { timeout: 4000 });
+        requestIdleCallback(() => {
+            html.classList.add('is-animated');
+        });
     } else {
-        setTimeout(addAnimationClass, 4000);
+        requestAnimationFrame(() => {
+            html.classList.add('is-animated');
+        });
     }
 };
 
