@@ -6,11 +6,9 @@ const addHeaderAnimation = () => {
     };
 
     if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-            addAnimationClass, 4000
-        });
+        requestIdleCallback(addAnimationClass, { timeout: 4000 });
     } else {
-        addAnimationClass, 4000;
+        setTimeout(addAnimationClass, 4000);
     }
 };
 
