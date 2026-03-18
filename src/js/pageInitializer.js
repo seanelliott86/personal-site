@@ -1,4 +1,22 @@
-if (typeof prefetchList !== 'undefined' && prefetchList.length > 0) {
+const addHeaderAnimation = () => {
+    const html = document.documentElement;
+
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+            html.classList.add('is-animated');
+        });
+    } else {
+        requestAnimationFrame(() => {
+            html.classList.add('is-animated');
+        });
+    }
+};
+
+const initializePrefetching = () => {
+    if (typeof prefetchList === 'undefined' || prefetchList.length === 0) {
+        return; // Exit early if no prefetch list
+    }
+
     const prefetched = new Set();
 
     const prefetch = url => {
@@ -30,8 +48,11 @@ if (typeof prefetchList !== 'undefined' && prefetchList.length > 0) {
         }
     };
 
-    // Wait until everything is loaded, then start prefetching
-    window.addEventListener("load", () => {
-        setTimeout(startPrefetching, 2000); // optional small delay for smoother load
-    });
-}
+    setTimeout(startPrefetching, 2000);
+};
+
+// Single load event listener that handles both features
+window.addEventListener("load", () => {
+    addHeaderAnimation();
+    initializePrefetching();
+});
