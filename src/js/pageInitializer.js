@@ -1,16 +1,14 @@
 const addHeaderAnimation = () => {
     const html = document.documentElement;
 
-    const addAnimationClass = () => {
-        html.classList.add('is-animated');
-    };
-
     if ('requestIdleCallback' in window) {
         requestIdleCallback(() => {
-            addAnimationClass, 4000
+            html.classList.add('is-animated');
         });
     } else {
-        addAnimationClass, 4000;
+        requestAnimationFrame(() => {
+            html.classList.add('is-animated');
+        });
     }
 };
 

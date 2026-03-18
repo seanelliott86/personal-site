@@ -21,6 +21,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ './src/favicon': '/' });
     eleventyConfig.addPassthroughCopy("./src/fonts");
     eleventyConfig.addPassthroughCopy("./src/_headers");
+    eleventyConfig.addPassthroughCopy('./src/robots.txt');
 
     eleventyConfig.setBrowserSyncConfig({
         files: './public/css/**/*.css',
