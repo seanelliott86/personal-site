@@ -69,6 +69,11 @@ svg {
 /* 1200px */
 @custom-media --xl-viewport (min-width: 75em);
 
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+}
+
 /* START: General site styling */
 
 
@@ -219,6 +224,7 @@ pre[class*="language-"] {
     line-height: 1.1;
     font-family: var(--main-heading-font-family);
     font-weight: 500;
+    view-transition-name: header-name;
 }
 
 .header-tagline {
@@ -227,10 +233,17 @@ pre[class*="language-"] {
     margin-block-end: 0;
     margin-inline: 0;
     line-height: 1.1;
+    view-transition-name: header-tagline;
 
     /* @media (orientation: landscape) {
         margin: 1rem 0 0 0;
     } */
+}
+
+::view-transition-old(header-name),
+::view-transition-old(header-tagline) {
+    animation: none;
+    opacity: 0;
 }
 
 .header-cta-link {
@@ -246,6 +259,7 @@ pre[class*="language-"] {
     overflow: hidden;
     z-index: 0;
     color: #fff;
+    background-color: #080E10;
 
     @media (prefers-reduced-motion: reduce) {
         position: static;
@@ -269,11 +283,13 @@ pre[class*="language-"] {
     background-position: 78% 0%;
     transform: translate(-50%, -50%) scale(1);
     transform-origin: 78% 0%;
+    view-transition-name: header-bg;
 }
 
-.is-animated .header::after {
+.is-animateds .header::after {
     will-change: transform;
-    animation: headerBGAnimate 60s ease infinite;
+    animation:
+        headerBGAnimate 60s ease infinite;
 }
 
 @keyframes headerBGAnimate {
@@ -649,4 +665,9 @@ body {
             margin-block: 5.5rem;
         }
     }
+}
+
+
+@view-transition {
+    navigation: auto;
 }
