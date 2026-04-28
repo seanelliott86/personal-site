@@ -47,17 +47,12 @@
 
   {%- set fontCSS -%} {% include "../css/font.css" %} {%- endset -%}
   {{ fontCSS | inlineFontCSS | safe }}
-  <link rel="preload" as="style" href="/css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="/css/styles.css">
-  </noscript>
+  <link rel="stylesheet" href="/css/styles.css">
 
   {%- if content | hasCodeBlocks -%}
   <!-- A11Y Dark Theme for code snippets -->
-  <link rel="preload" as="style" href="/css/a11y-dark.css" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="/css/a11y-dark.css">
-  </noscript>
+  <link rel="preload" as="style" href="/css/a11y-dark.css">
+  <link rel="stylesheet" href="/css/a11y-dark.css">
   {%- endif -%}
   <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
 </head>
