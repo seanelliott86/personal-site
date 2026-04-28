@@ -34,6 +34,12 @@ svg {
         transition-duration: 0s !important;
         transition-delay: 0s !important;
     }
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
 }
 
 /* END: my preferred resets on top of modern-normalise */
@@ -286,7 +292,7 @@ pre[class*="language-"] {
     view-transition-name: header-bg;
 }
 
-.is-animateds .header::after {
+.is-animated .header::after {
     will-change: transform;
     animation:
         headerBGAnimate 60s ease infinite;
