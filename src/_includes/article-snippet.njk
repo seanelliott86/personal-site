@@ -4,7 +4,7 @@
             <a href="{{post.url}}">{{post.data.title}}</a>
         </h2>
         <p class="article-snippet__published">Published {{post.date | postDate}}</p>
-        <p class="article-snippet__description">{{post.data.description}}</p>
+        {% if post.data.description %}<p class="article-snippet__description">{{post.data.description}}</p>{% endif %}
         <p class="article-snippet__cta">
             <a href="{{post.url}}">Continue reading <span class="sr-only">{{post.data.title}}</span></a>
         </p>
