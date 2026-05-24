@@ -105,15 +105,14 @@ svg {
     --img-outline-offset: -1px;
 }
 
-@custom-media --xs-viewport (min-width: 0em);
 /* 576px */
-@custom-media --sm-viewport (min-width: 36em);
+@custom-media --sm-viewport (width >=36em);
 /* 768px */
-@custom-media --md-viewport (min-width: 48em);
+@custom-media --md-viewport (width >=48em);
 /* 992px */
-@custom-media --lg-viewport (min-width: 60em);
+@custom-media --lg-viewport (width >=60em);
 /* 1200px */
-@custom-media --xl-viewport (min-width: 75em);
+@custom-media --xl-viewport (width >=75em);
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
