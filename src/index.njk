@@ -1,43 +1,41 @@
 ---
 layout: 'base.njk'
 ---
-<div class="wrapper homepage">
-  <article class="content popout">
-    <div class="intro">
-      <h2>Hi! I am Sean!</h2>
 
-      <img src="/assets/img/intro-picture-1.png" alt="A headshot of Sean Elliott" class="home-img"
-        eleventy:widths="225, 450, 675" sizes="(min-width: 55em) 280px, (min-width: 48em) 240px, 272px">
+<section class="section section--large content">
+  <div class="intro">
+    <h2>Hi! I am Sean!</h2>
 
-      <p>Welcome to the digital diary of a self-taught frontend UI developer on a mission for an accessible web!</p>
+    <img src="/assets/img/intro-picture-1.png" alt="A headshot of Sean Elliott" class="home-img"
+      eleventy:widths="225, 450, 675" sizes="(min-width: 55em) 280px, (min-width: 48em) 240px, 272px">
 
-      <p>As a developer, I got into accessibility the wrong way, by building inaccessible sites. I quickly learnt from
-        first-hand experience that, the hard way to do accessibility is riiiight at the end. Ever since that painful,
-        dreadful, earth-shattering time in my life, I've pushed for accessibility to be considered from the start. But
-        accessibility is not all about the code, it starts a lot earlier than that. It begins at the top and then
-        progresses through anyone tasked with delivering a project.</p>
+    <p>Welcome to the digital diary of a self-taught frontend UI developer on a mission for an accessible web!</p>
 
-      <p>With this blog, I'm not here to drown you in a sea of HTML tags or get lost in the jungle of CSS. No, no! This
-        blog is where we chat about making the web a friendlier place for everyone, regardless of how our users browse,
-        click, or tap.</p>
+    <p>As a developer, I got into accessibility the wrong way, by building inaccessible sites. I quickly learnt from
+      first-hand experience that, the hard way to do accessibility is riiiight at the end. Ever since that painful,
+      dreadful, earth-shattering time in my life, I've pushed for accessibility to be considered from the start. But
+      accessibility is not all about the code, it starts a lot earlier than that. It begins at the top and then
+      progresses through anyone tasked with delivering a project.</p>
 
-      <p>Get ready to learn, view at a few well placed Simpsons GIFs and probably deal with some over the top rants.
-        Because on this blog I believe that making the web accessible can be an easy and enjoyable process. Stick
-        around, and let's make the internet a place where everyone feels at home!</p>
-    </div>
-  </article>
-</div>
-<div class="wrapper homepage alt-bg">
-  <div class="content">
-    <h2>Recently from the blog</h2>
-    <ul class="article-list recent-articles">
+    <p>With this blog, I'm not here to drown you in a sea of HTML tags or get lost in the jungle of CSS. No, no! This
+      blog is where we chat about making the web a friendlier place for everyone, regardless of how our users browse,
+      click, or tap.</p>
 
-      {% set latest_posts = collections.post | reverse %}
-      {% for post in latest_posts.slice(0,4) %}
-      {% include 'article-snippet.njk' %}
-      {% endfor %}
+    <p>Get ready to learn, view at a few well placed Simpsons GIFs and probably deal with some over the top rants.
+      Because on this blog I believe that making the web accessible can be an easy and enjoyable process. Stick
+      around, and let's make the internet a place where everyone feels at home!</p>
 
-    </ul>
-    <p><a href="/blog/">See the rest of my articles</a></p>
-  </div>
-</div>
+</section>
+
+<section class="section section--large surface-subtle content full">
+  <h2>Recently from the blog</h2>
+  <ul class="article-list recent-articles">
+
+    {% set latest_posts = collections.post | reverse %}
+    {% for post in latest_posts.slice(0,4) %}
+    {% include 'article-snippet.njk' %}
+    {% endfor %}
+
+  </ul>
+  <p><a href="/blog/">See the rest of my articles</a></p>
+</section>

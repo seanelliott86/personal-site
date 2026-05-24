@@ -46,12 +46,17 @@ svg {
 
 :root {
     color-scheme: light dark;
+
+    /* Typography */
     --base-font-size: 16px;
     --base-font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
     --main-heading-font-family: 'Poppins', 'Adjusted Arial500 Fallback', system-ui, -apple-system, Arial, sans-serif;
     ;
     --subtle-heading-font-family: 'Poppins', 'Adjusted Arial400 Fallback', system-ui, -apple-system, Arial, sans-serif;
     ;
+    --code-font-family: Menlo, Monaco, "Courier New", Courier, monospace;
+    --blockquote-font-family: Georgia, 'Times New Roman', Times, serif;
+
     /* Color palette */
     --color-palette-black: #000000;
     --color-palette-codGray: #111111;
@@ -92,7 +97,12 @@ svg {
     --focus-outline-color-brand: var(--color-palette-pictonBlue);
     --focus-offset: 2px;
 
+    /* Other UI elements */
     --color-code-bg: light-dark(var(--color-palette-concrete), var(--color-palette-shark));
+    --blockquote-bg: light-dark(var(--color-palette-white), var(--color-palette-mineShaft));
+    --blockquote-border-color: light-dark(var(--color-palette-heather), var(--color-palette-white));
+    --blockquote-quote-color: light-dark(var(--color-palette-manatee), var(--color-palette-white));
+    --img-outline-offset: -1px;
 }
 
 @custom-media --xs-viewport (min-width: 0em);
@@ -142,7 +152,7 @@ code:not([class*="language-"]) {
     background-color: var(--color-code-bg);
     padding-block: 0.125rem;
     padding-inline: 0.25rem;
-    font-family: Menlo, Monaco, "Courier New", Courier, monospace;
+    font-family: var(--code-font-family);
     font-weight: 400;
     font-size: 87%;
 }
@@ -210,14 +220,7 @@ pre[class*="language-"] {
     }
 }
 
-.main {
-    background-color: var(--color-surface-default);
-    position: relative;
-    transform: translate3d(0, 0, 0);
-}
-
-/* https://ryanmulligan.dev/blog/layout-breakouts/ */
-.wrapper {
+.grid-container {
     --gap: 1.5rem;
     --full: minmax(var(--gap), 1fr);
     --content: min(42rem, 100% - var(--gap) * 2);
@@ -226,31 +229,52 @@ pre[class*="language-"] {
     display: grid;
     grid-template-columns:
         [full-start] var(--full) [popout-start] var(--popout) [content-start] var(--content) [content-end] var(--popout) [popout-end] var(--full) [full-end];
-    padding-block: 2rem;
 
     @media (--sm-viewport) {
         --gap: 2.5rem;
     }
+}
 
-    &.homepage {
+.header,
+.footer,
+.main,
+.section,
+.article {
+    display: grid;
+    grid-column: full;
+    grid-template-columns: subgrid;
+
+    :where(&)>* {
+        grid-column: content;
+    }
+}
+
+.article__hero,
+.intro {
+    grid-column: popout;
+}
+
+.main {
+    background-color: var(--color-surface-default);
+    position: relative;
+    transform: translate3d(0, 0, 0);
+}
+
+.section,
+.article {
+    padding-block: 2rem;
+
+    &--large {
         padding-block: clamp(1rem, calc(1rem + 2vw), 5rem);
     }
-
-    &.alt-bg {
-        background-color: var(--color-surface-subtle);
-    }
 }
 
-.wrapper>* {
-    grid-column: content;
+.surface-default {
+    background-color: var(--color-surface-default);
 }
 
-.fullone {
-    grid-column: full;
-}
-
-.popout {
-    grid-column: popout;
+.surface-subtle {
+    background-color: var(--color-surface-subtle);
 }
 
 .header {
@@ -263,15 +287,11 @@ pre[class*="language-"] {
     top: 0;
     overflow: hidden;
     z-index: 0;
-    color: #fff;
-    background-color: #080E10;
+    color: var(--color-text-inverse);
+    background-color: var(--color-surface-inverse);
 
     @media (prefers-reduced-motion: reduce) {
         position: static;
-    }
-
-    & .wrapper {
-        padding: 0;
     }
 }
 
@@ -379,7 +399,6 @@ pre[class*="language-"] {
     transition-property: background-color,
         color,
         background-size;
-    outline-offset: 2px;
     text-decoration: none;
 
     &:active,
@@ -398,14 +417,11 @@ pre[class*="language-"] {
     background-image: linear-gradient(23deg, rgba(70, 202, 245, 0.03) 0%, rgba(70, 202, 245, 0.03) 13%, transparent 13%, transparent 80%, rgba(70, 202, 245, 0.04) 80%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(42deg, rgba(70, 202, 245, 0.04) 0%, rgba(70, 202, 245, 0.04) 36%, transparent 36%, transparent 77%, rgba(70, 202, 245, 0.04) 77%, rgba(70, 202, 245, 0.04) 100%), linear-gradient(286deg, rgba(70, 202, 245, 0.0655) 0%, rgba(70, 202, 245, 0.0655) 2%, transparent 2%, transparent 12%, rgba(70, 202, 245, 0.05) 12%, rgba(70, 202, 245, 0.05) 100%), linear-gradient(77deg, rgba(87, 87, 87, 0.05) 0%, rgba(87, 87, 87, 0.05) 18%, transparent 18%, transparent 55%, rgba(247, 247, 247, 0.02) 55%, rgba(247, 247, 247, 0.02) 100%), linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
     padding-block: 2rem;
     padding-inline: 0;
-    color: #fff;
+    color: var(--color-text-inverse);
     position: relative;
     z-index: 2;
     transform: translate3d(0, 0, 0);
 
-    & .wrapper {
-        padding: 0;
-    }
 }
 
 .footer__inner {
@@ -522,8 +538,8 @@ pre[class*="language-"] {
     aspect-ratio: 16/9;
     border-radius: 10px;
     object-fit: cover;
-    outline: solid 1px rgba(0, 0, 0, 0.2);
-    outline-offset: -1px;
+    outline: solid 1px light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
+    outline-offset: var(--img-outline-offset)
 }
 
 .content {
@@ -550,7 +566,7 @@ pre[class*="language-"] {
         display: block;
         border-width: 2px 0;
         border-style: solid;
-        border-color: #eee;
+        border-color: var(--blockquote-border-color);
         padding-block: 1rem;
         padding-inline: 2rem;
         margin-block: 3.5rem;
@@ -558,7 +574,6 @@ pre[class*="language-"] {
         position: relative;
         font-size: 1.25rem;
         font-style: italic;
-        color: #666;
     }
 
     blockquote:before {
@@ -567,13 +582,14 @@ pre[class*="language-"] {
         top: 0em;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: #fff;
+        background: var(--blockquote-bg);
         width: 3rem;
         height: 2rem;
         font-size: 6rem;
-        font: 6rem/1em 'PT Sans', sans-serif;
-        color: #666;
+        line-height: 0;
+        font-family: var(--blockquote-font-family);
         text-align: center;
+        color: var(--blockquote-quote-color);
     }
 
     hr {
@@ -583,16 +599,16 @@ pre[class*="language-"] {
         position: relative;
         margin-block: 1.875rem;
         margin-inline: auto;
-        background: #0a7894;
+        background: var(--color-palette-blueChill);
         overflow: visible;
 
         &:before {
             content: "";
             width: 6px;
             height: 6px;
-            background: #0a7894;
+            background: var(--color-palette-blueChill);
             display: inline-block;
-            border: 2px solid #0a7894;
+            border: 2px solid var(--color-palette-blueChill);
             position: absolute;
             top: 50%;
             left: 50%;
@@ -644,7 +660,7 @@ pre[class*="language-"] {
         width: 100%;
         aspect-ratio: 1/1;
         outline: solid 1px light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
-        outline-offset: -1px;
+        outline-offset: var(--img-outline-offset);
     }
 
     p {
