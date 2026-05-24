@@ -2,7 +2,7 @@
 layout: 'base.njk'
 ---
 
-<article class="wrapper article">
+<article class="article content">
     <header class="article-header">
         <div class="article-header__inner">
             <h1 class="article__title">{{title}}</h1>
@@ -11,12 +11,12 @@ layout: 'base.njk'
         </div>
     </header>
     {% if hero %}
-    <div class="article__hero popout">
+    <div class="article__hero">
         <img src="{{hero}}" alt="" class="hero-img" loading="eager" eleventy:widths="256, 600, 800, 1200, 1600"
             sizes="(min-width: 60em) 800px, (min-width: 36em) 88.24vw, calc(100vw - 48px)">
     </div>
     {% endif %}
-    <div class="article__content content">
+    <div class="article__content">
         {% if 'a11ytips' in tags %}
         <section class="article__summary" aria-label="Quick summary">
             <hr>
@@ -30,7 +30,7 @@ layout: 'base.njk'
         {% endif %}
         {{ content | safe}}
     </div>
-    <div class="article__footer content">
+    <div class="article__footer">
         <hr>
         <p>Have I missed something important in this article or said something that is wrong? Please message me and let
             me know.</p>

@@ -3,15 +3,13 @@ title: Blog
 layout: 'base.njk'
 ---
 
-<div class="wrapper">
-    <div class="content">
-        <h1>Recent articles</h1>
-        <ul class="article-list">
+<section class="section content">
+    <h1>Recent articles</h1>
+    <ul class="article-list">
 
-            {%- for post in collections.post | reverse -%}
-            {% include 'article-snippet.njk' %}
-            {%- endfor -%}
+        {%- for post in collections.post | reverse -%}
+        {% include 'article-snippet.njk' %}
+        {%- endfor -%}
 
-        </ul>
-    </div>
-</div>
+    </ul>
+</section>

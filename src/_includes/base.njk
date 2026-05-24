@@ -7,12 +7,12 @@
     {{title}} - {%- endif -%}
     Sean Elliott</title>
   <meta name="description"
-    content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
+    content="The personal website of Sean Elliott, a frontend developer and web accessibility specialist.">
   <meta name="author" content="Sean Elliott">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta property="og:title" content="{% if title %}{{title}}{% else %}Home{% endif %} - Sean Elliott">
   <meta property="og:description"
-    content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
+    content="The personal website of Sean Elliott, a frontend developer and web accessibility specialist.">
   <meta property="og:type" content="{% if page.url | isBlogPost %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ siteUrl }}{{ page.url }}">
   {%- if page.url | isBlogPost and hero -%}
@@ -21,7 +21,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{% if title %}{{title}}{% else %}Home{% endif %} - Sean Elliott">
   <meta name="twitter:description"
-    content="The person website of Sean Elliott, a frontend developer and web accessibility specialist.">
+    content="The personal website of Sean Elliott, a frontend developer and web accessibility specialist.">
   {%- if page.url | isBlogPost and hero -%}
   <meta property="twitter:image" content="{{ siteUrl }}{{ hero }}">
   {%- endif -%}
@@ -58,16 +58,18 @@
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link sr-only sr-only-focusable">Skip to main content</a>
-  {% svgsprite %}
-  {% include 'header.njk' %}
+  <div class="grid-container">
+    <a href="#main-content" class="skip-link sr-only sr-only-focusable">Skip to main content</a>
+    {% svgsprite %}
+    {% include 'header.njk' %}
 
-  <main id="main-content" class="main">
-    {{ content | safe }}
-  </main>
+    <main id="main-content" class="main">
+      {{ content | safe }}
+    </main>
 
 
-  {% include 'footer.njk' %}
+    {% include 'footer.njk' %}
+  </div>
   <script>
     if (window.netlifyIdentity) {
       window
