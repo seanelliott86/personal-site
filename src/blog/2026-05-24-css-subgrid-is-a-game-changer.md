@@ -25,7 +25,7 @@ So thats what I did. Now I have a single div which acts as my grid container, it
 
 I started with just adding bunch of selectors where I need inherit Subgrid, they were `.header, .footer, .main`. This allows me to have full-bleed panels for those parts and then all their children fall into the main reading column.
 
-```
+```CSS
 .header,
 .footer,
 .main {
@@ -62,7 +62,7 @@ As mentioned just dropping a utility class of `grid-column: popout` on specific 
 
 The blog post page is much more sane compared to my homepage, except for my need to popout the hero image. On that page, it was the same sort of solution heres the overall structure.
 
-```
+```html
 <main class="main">
     <article class="article">
         <header class="article-header">...</header>
@@ -75,7 +75,7 @@ The blog post page is much more sane compared to my homepage, except for my need
 
 The blog layout followed the same pattern — `.article` became a Subgrid container and `.article__hero` handled the popout styling. Leaving me with this block of css.
 
-```
+```CSS
 .header,
 .footer,
 .main,
@@ -100,7 +100,7 @@ Did all of this make a huge difference? Yes. I now have a single place where my 
 
 ### Before Subgrid
 
-```
+```html
 <main>
     <div class="wrapper homepage">
         <article class="content popout">
@@ -117,7 +117,7 @@ Did all of this make a huge difference? Yes. I now have a single place where my 
 
 ### After Subgrid
 
-```
+```html
 <main class="main">
     <section class="section">
         <div class="intro">...</div>
