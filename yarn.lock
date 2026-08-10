@@ -3616,7 +3616,7 @@ __metadata:
     postcss-custom-media: "npm:^12.0.1"
     postcss-import: "npm:^16.1.1"
     postcss-preset-env: "npm:^11.3.2"
-    terser: "npm:^5.49.0"
+    terser: "npm:^5.49.2"
   languageName: unknown
   linkType: soft
 
@@ -5241,9 +5241,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:^5.49.0":
-  version: 5.49.0
-  resolution: "terser@npm:5.49.0"
+"terser@npm:^5.49.2":
+  version: 5.49.2
+  resolution: "terser@npm:5.49.2"
   dependencies:
     "@jridgewell/source-map": "npm:^0.3.3"
     acorn: "npm:^8.15.0"
@@ -5251,7 +5251,7 @@ __metadata:
     source-map-support: "npm:~0.5.20"
   bin:
     terser: bin/terser
-  checksum: 10c0/c1f628a7a6226f7283db92ce43247306d612b80a60a075d97e1f5539a032beee05c87f889eacff2ffabd2fa9ac6bd1c147e5eb49c6546c9b174ed241d5f056a7
+  checksum: 10c0/9f2d61c21ad259af2cdc8dc3120dc27678fc660d043ededffbdb062ac54e2f7b0da19e0975502dbfbe0aa9f0c091f87d6037781e4089770569698103d33df0fa
   languageName: node
   linkType: hard
 
