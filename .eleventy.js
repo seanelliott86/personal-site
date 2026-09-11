@@ -1,6 +1,5 @@
 import { DateTime } from "luxon"
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight"
-import svgSprite from "eleventy-plugin-svg-sprite"
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 import postcss from 'postcss';
 import postcssImport from 'postcss-import';
@@ -39,10 +38,7 @@ export default function (eleventyConfig) {
 
     // PLUGINS
     eleventyConfig.addPlugin(syntaxHighlight);
-    eleventyConfig.addPlugin(svgSprite, {
-        path: "./src/assets/icons",
-        globalClasses: "svg-icon",
-    });
+    // svg-sprite plugin removed: inlining SVGs directly via the `icon` shortcode.
 
     eleventyConfig.on('eleventy.before', async () => {
         const cssDir = 'src/css/';
@@ -118,10 +114,6 @@ export default function (eleventyConfig) {
 
     // SHORTCODES
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
-
-    eleventyConfig.addShortcode("icon", (name, extraClass) => {
-        return `<svg class="svg-icon ${extraClass}" focusable="false" aria-hidden="true"><use xlink:href="#svg-${name}"></use></svg>`;
-    });
 
     eleventyConfig.addShortcode("codepen", (url) => {
         const url_array = url.split("/");

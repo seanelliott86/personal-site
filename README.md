@@ -17,9 +17,8 @@ This is a constant work in-progress so always come back and have a look :)
 **Static Site Plugins/Shortcodes:**
 
 - [eleventy-plugin-syntaxhighlight](https://github.com/11ty/eleventy-plugin-syntaxhighlight)
-- [eleventy-plugin-svg-sprite](https://github.com/patrickxchong/eleventy-plugin-svg-sprite)
-- [Shortcodes see below](](#11ty-shortcodes))
-- [@11ty/eleventy-img](https://www.11ty.dev/docs/plugins/image/)
+ - [Shortcodes see below](#11ty-shortcodes)
+ - [@11ty/eleventy-img](https://www.11ty.dev/docs/plugins/image/)
 
 **Templating language:** [Nunjucks](https://mozilla.github.io/nunjucks/)
 
@@ -46,14 +45,8 @@ eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 ```
 
 ### SVG icon
-
-Custom shortcode used with [eleventy-plugin-svg-sprite](https://github.com/patrickxchong/eleventy-plugin-svg-sprite) with my own personal preferences.
-
-```javascript
-eleventyConfig.addShortcode("icon", (name, extraClass) => {
-    return `<svg class="svg-icon ${extraClass}" focusable="false" aria-hidden="true"><use xlink:href="#svg-${name}"></use></svg>`;
-});
-```
+Icons are inlined directly in templates as needed. The footer currently contains the SVG markup in `src/_includes/footer.njk`.
+ 
 ### Codepen embed
 
 ```javascript
