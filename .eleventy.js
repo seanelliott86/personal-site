@@ -5,6 +5,7 @@ import postcss from 'postcss';
 import postcssImport from 'postcss-import';
 import postcssCustomMedia from 'postcss-custom-media';
 import cssnano from 'cssnano';
+import cssnanoPresetDefault from 'cssnano-preset-default';
 import { minify } from "terser";
 import fs from 'fs';
 import path from 'path';
@@ -62,7 +63,7 @@ export default function (eleventyConfig) {
                 const plugins = [
                     postcssImport,
                     postcssCustomMedia,
-                    ...(process.env.NODE_ENV === 'production' ? [cssnano({ preset: 'default' })] : []),
+                    ...(process.env.NODE_ENV === 'production' ? [cssnano({ preset: cssnanoPresetDefault })] : []),
                 ];
 
                 const result = await postcss(plugins).process(css, {
@@ -93,7 +94,7 @@ export default function (eleventyConfig) {
 
     eleventyConfig.addFilter("inlineFontCSS", async function (code) {
         try {
-            const result = await postcss([cssnano]).process(code, { from: undefined });
+            const result = await postcss([cssnano({ preset: cssnanoPresetDefault })]).process(code, { from: undefined });
             return `<style>${result.css}</style>`;
         } catch (error) {
             console.error("Error minifying CSS:", error);
