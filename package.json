@@ -26,7 +26,7 @@
     "@11ty/eleventy-img": "^7.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "concurrently": "^10.0.6",
-    "cssnano": "^9.4.0",
+    "cssnano": "^9.8.0",
     "modern-normalize": "^3.0.1",
     "postcss": "^8.5.29",
     "postcss-cli": "^12.0.0",
