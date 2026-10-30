@@ -1,10 +1,7 @@
+local_backend: true
+
 backend:
-  name: github
-  repo: seanelliott86/personal-site
-  branch: main
-  base_url: https://seanelliott.au
-  site_domain: https://seanelliott.au
-  auth_endpoint: /api/auth
+  name: git-gateway
 media_folder: "src/assets/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/assets/uploads" # The src attribute for uploaded media will begin with /images/uploads
 publish_mode: editorial_workflow
