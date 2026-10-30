@@ -2,13 +2,10 @@ import { DateTime } from "luxon"
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight"
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 import postcss from 'postcss';
-import postcssImport from 'postcss-import';
-import postcssCustomMedia from 'postcss-custom-media';
-import cssnano from 'cssnano';
-import cssnanoPresetDefault from 'cssnano-preset-default';
 import { minify } from "terser";
 import fs from 'fs';
 import path from 'path';
+import { getCssPlugins } from './postcss.config.js';
 const PORT = 8080 // use a port you are reasonably sure is not in use elsewhere
 
 export default function (eleventyConfig) {
@@ -60,11 +57,7 @@ export default function (eleventyConfig) {
             if (fs.existsSync(inputPath)) {
                 const css = fs.readFileSync(inputPath, 'utf8');
 
-                const plugins = [
-                    postcssImport,
-                    postcssCustomMedia,
-                    ...(process.env.NODE_ENV === 'production' ? [cssnano({ preset: cssnanoPresetDefault })] : []),
-                ];
+                const plugins = getCssPlugins();
 
                 const result = await postcss(plugins).process(css, {
                     from: inputPath,
@@ -94,7 +87,7 @@ export default function (eleventyConfig) {
 
     eleventyConfig.addFilter("inlineFontCSS", async function (code) {
         try {
-            const result = await postcss([cssnano({ preset: cssnanoPresetDefault })]).process(code, { from: undefined });
+            const result = await postcss(getCssPlugins()).process(code, { from: undefined });
             return `<style>${result.css}</style>`;
         } catch (error) {
             console.error("Error minifying CSS:", error);
