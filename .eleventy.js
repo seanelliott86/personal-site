@@ -13,6 +13,7 @@ export default function (eleventyConfig) {
 
     // GENERAL
     eleventyConfig.addPassthroughCopy('./src/assets');
+    eleventyConfig.ignores.add("./src/admin/**");
     eleventyConfig.addPassthroughCopy({ './src/favicon': '/' });
     eleventyConfig.addPassthroughCopy("./src/fonts");
     eleventyConfig.addPassthroughCopy("./src/_headers");
