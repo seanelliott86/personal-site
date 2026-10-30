@@ -1,0 +1,11 @@
+{
+    "$schema": "./node_modules/wrangler/config-schema.json",
+    "name": "personal-site",
+    "compatibility_date": "2026-05-24",
+    "assets": {
+        "directory": "./public"
+    },
+    "build": {
+        "command": "yarn build"
+    }
+}
